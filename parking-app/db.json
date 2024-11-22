@@ -1,12 +1,50 @@
 {
   "parking_lot": [
-    {"id": 1, "number_of_blocks": 5, "is_slot_available": "Y", "address": "123 Main St", "zip": "12345", "is_reentry_allowed": "Y","operating_company_n": "ParkEasy", "is_valet_parking_available": "Y", "operational_in_night": "Y", "minimum_hr_to_pay": 3,"is_monthly_pass_allow": "Y", "monthly_pass_cost": 80},
-    {"id": 2, "number_of_blocks": 10, "is_slot_available": "N", "address": "456 Oak Ave", "zip": "67890", "is_reentry_allowed": "N", "operating_company_n": "SafePark", "is_valet_parking_available": "N", "operational_in_night": "Y", "minimum_hr_to_pay": 2, "is_monthly_pass_allow": "Y", "monthly_pass_cost": 90}
+    {"id": 1, 
+    "number_of_blocks": 5, 
+    "is_slot_available": "Y", 
+    "address": "123 Main St", 
+    "zip": "12345", 
+    "is_reentry_allowed": "Y",
+    "operating_company_n": "ParkEasy", 
+    "is_valet_parking_available": "Y", 
+    "operational_in_night": "Y", 
+    "minimum_hr_to_pay": 3,
+    "is_monthly_pass_allow": "Y", 
+    "monthly_pass_cost": 80
+    },
+    {"id": 2, 
+    "number_of_blocks": 10, 
+    "is_slot_available": "N", 
+    "address": "456 Oak Ave", 
+    "zip": "67890", 
+    "is_reentry_allowed": "N", 
+    "operating_company_n": "SafePark", 
+    "is_valet_parking_available": "N", 
+    "operational_in_night": "Y", 
+    "minimum_hr_to_pay": 2, 
+    "is_monthly_pass_allow": "Y", 
+    "monthly_pass_cost": 90
+    }
   ],
 
   "customer": [
-    {"id": 1, "registration_date": "2024-10-01", "is_regular_customer": "Y", "contact_number": "1234567890", "first_name": "Alice", "last_name": "Smith", "billing_address": "456 Elm St"},
-    {"id": 2, "registration_date": "2024-10-15", "is_regular_customer": "N", "contact_number": "0987654321", "first_name": "Bob", "last_name": "Johnson", "billing_address": "789 Maple Rd"}
+    {"id": 1, 
+    "registration_date": "2024-10-01", 
+    "is_regular_customer": "Y", 
+    "contact_number": "1234567890", 
+    "first_name": "Alice", 
+    "last_name": "Smith", 
+    "billing_address": "456 Elm St"
+    },
+    {"id": 2, 
+    "registration_date": "2024-10-15", 
+    "is_regular_customer": "N", 
+    "contact_number": "0987654321", 
+    "first_name": "Bob", 
+    "last_name": "Johnson", 
+    "billing_address": "789 Maple Rd"
+    }
   ],
 
   "vehicle": [
