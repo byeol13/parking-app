@@ -1,1 +1,63 @@
-<p>offers-details works!</p>
+<mat-toolbar>
+  <span>Parking Lot Details</span>
+</mat-toolbar>
+
+<div class="table-container">
+  <mat-card-content *ngIf="offers"> 
+    <table mat-table [dataSource]="[offers]" class="mat-elevation-z8">
+    
+      <ng-container matColumnDef="offer_code">
+        <th mat-header-cell *matHeaderCellDef> Offer Code </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.offer_code }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="issued_on">
+        <th mat-header-cell *matHeaderCellDef> Issued On </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.issued_on }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="valid_till">
+        <th mat-header-cell *matHeaderCellDef> Valid Till </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.valid_till }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="booking_date_from">
+        <th mat-header-cell *matHeaderCellDef> Booking Date From </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.booking_date_from }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="booking_date_till">
+        <th mat-header-cell *matHeaderCellDef> Booking Date Till </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.booking_date_till }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="discount_in_percent">
+        <th mat-header-cell *matHeaderCellDef> Discount in Percent </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.discount_in_percent }}%</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="max_amount_offer">
+        <th mat-header-cell *matHeaderCellDef> Max Amount Offer </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.max_amount_offer }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="discount_in_amount">
+        <th mat-header-cell *matHeaderCellDef> Discount in Amount </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.discount_in_amount }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="parking_lot_address">
+        <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.parking_lot_id.address }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="parking_lot_zip">
+        <th mat-header-cell *matHeaderCellDef> Zip </th>
+        <td mat-cell *matCellDef="let offer">{{ offer.parking_lot_id.zip }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</div>

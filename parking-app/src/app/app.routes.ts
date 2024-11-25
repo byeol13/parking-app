@@ -10,11 +10,13 @@ import { PricingExceptionListComponent } from './features/pricingException/compo
 import { VehicleListComponent } from './features/vehicle/components/vehicle-list/vehicle-list.component';
 import { CustomerDetailsComponent } from './features/customer/components/customer-details/customer-details.component';
 import { ParkingLotDetailsComponent } from './features/parkingLot/components/parking-lot-details/parking-lot-details.component';
+import { OffersDetailsComponent } from './features/offers/components/offers-details/offers-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
   {path: 'customer/:id', component: CustomerDetailsComponent},
   {path: 'dashboard/offers', component: OffersListComponent},
+  {path: 'offers/:id', component: OffersDetailsComponent},
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
   {path: 'parkingLot/:id', component: ParkingLotDetailsComponent},
   {path: 'dashboard/parkingMonthlyPass', component: ParkingMonthlyPassListComponent},

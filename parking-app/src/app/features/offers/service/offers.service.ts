@@ -15,4 +15,8 @@ export class OffersService {
   getAllOffers(): Observable<Offer[]> {
     return this.http.get<Offer[]>(this.apiUrl);
   }
+
+  getOfferById(id: number): Observable<Offer> {
+    return this.http.get<Offer>(`${this.apiUrl}/${id}`);
+  }
 }
