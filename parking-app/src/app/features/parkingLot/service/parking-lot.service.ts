@@ -15,4 +15,8 @@ export class ParkingLotService {
   getAllParkingLots(): Observable<ParkingLot[]> {
     return this.http.get<ParkingLot[]>(this.apiUrl);
   }
+
+  getParkingLotById(id: number): Observable<ParkingLot> {
+    return this.http.get<ParkingLot>(`${this.apiUrl}/${id}`);
+  }
 }

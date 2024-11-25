@@ -1,1 +1,73 @@
-<p>parking-lot-details works!</p>
+<mat-toolbar>
+  <span>Parking Lot Details</span>
+</mat-toolbar>
+
+<div class="table-container">
+  <mat-card-content *ngIf="parkingLots"> 
+    <table mat-table [dataSource]="[parkingLots]" class="mat-elevation-z8">
+    
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="number_of_blocks">
+        <th mat-header-cell *matHeaderCellDef> Number of Blocks </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.number_of_blocks}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="is_slot_available">
+        <th mat-header-cell *matHeaderCellDef> Slot Available </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.is_slot_available === 'Y' ? 'Yes' : 'No'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="zip">
+        <th mat-header-cell *matHeaderCellDef> ZIP </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.zip}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operating_company_n">
+        <th mat-header-cell *matHeaderCellDef> Operating Company </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.operating_company_n}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="minimum_hr_to_pay">
+        <th mat-header-cell *matHeaderCellDef> Min hourly pay </th>
+        <td mat-cell *matCellDef="let parkingLot"> $ {{parkingLot.minimum_hr_to_pay}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="is_reentry_allowed">
+        <th mat-header-cell *matHeaderCellDef> Reentry </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.is_reentry_allowed === 'Y' ? 'Allowed' : 'Not Allowed'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="is_valet_parking_available">
+        <th mat-header-cell *matHeaderCellDef> Valet Parking </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.is_valet_parking_available === 'Y' ? 'Available' : 'Not Available'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operational_in_night">
+        <th mat-header-cell *matHeaderCellDef> Operational in Night </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.operational_in_night === 'Y' ? 'Yes' : 'No'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="is_monthly_pass_allow">
+        <th mat-header-cell *matHeaderCellDef> Monthly Pass </th>
+        <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.is_monthly_pass_allow === 'Y' ? 'Allowed' : 'Not Allowed'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="monthly_pass_cost">
+        <th mat-header-cell *matHeaderCellDef> Monthly Pass Cost </th>
+        <td mat-cell *matCellDef="let parkingLot"> $ {{parkingLot.monthly_pass_cost}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</div>
