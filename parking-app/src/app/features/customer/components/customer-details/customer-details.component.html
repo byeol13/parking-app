@@ -1,1 +1,50 @@
-<p>customer-details works!</p>
+<mat-toolbar>
+  <span>Customer Details</span>
+</mat-toolbar>
+
+<div class="table-container">
+  <mat-card-content *ngIf="customers"> 
+    <table mat-table [dataSource]="[customers]" class="mat-elevation-z8">
+    
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.id}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="first_name">
+        <th mat-header-cell *matHeaderCellDef> First Name </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.first_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="last_name">
+        <th mat-header-cell *matHeaderCellDef> Last Name </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.last_name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="registration_date">
+        <th mat-header-cell *matHeaderCellDef> Registration Date </th>
+        <td mat-cell *matCellDef="let customer">
+          {{ getFormattedDate(customer.registration_date)}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="contact_number">
+        <th mat-header-cell *matHeaderCellDef> Contact Number </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.contact_number}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="billing_address">
+        <th mat-header-cell *matHeaderCellDef> Billing Address </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.billing_address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="is_regular_customer">
+        <th mat-header-cell *matHeaderCellDef> Regular Customer </th>
+        <td mat-cell *matCellDef="let customer"> {{customer.is_regular_customer === 'Y' ? 'Yes' : 'No'}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</div>

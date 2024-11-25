@@ -1,6 +1,7 @@
 {
   "parking_lot": [
-    {"id": 1, 
+    {
+    "id": 1, 
     "number_of_blocks": 5, 
     "is_slot_available": "Y", 
     "address": "123 Main St", 
@@ -13,7 +14,8 @@
     "is_monthly_pass_allow": "Y", 
     "monthly_pass_cost": 80
     },
-    {"id": 2, 
+    {
+    "id": 2, 
     "number_of_blocks": 10, 
     "is_slot_available": "N", 
     "address": "456 Oak Ave", 
@@ -29,16 +31,18 @@
   ],
 
   "customer": [
-    {"id": 1, 
-    "registration_date": "2024-10-01", 
+    {
+    "id": 1, 
+    "registration_date": "2024-10-01T09:00:00Z", 
     "is_regular_customer": "Y", 
     "contact_number": "1234567890", 
     "first_name": "Alice", 
     "last_name": "Smith", 
     "billing_address": "456 Elm St"
     },
-    {"id": 2, 
-    "registration_date": "2024-10-15", 
+    {
+    "id": 2, 
+    "registration_date": "2024-10-15T09:00:00Z", 
     "is_regular_customer": "N", 
     "contact_number": "0987654321", 
     "first_name": "Bob", 
@@ -48,41 +52,413 @@
   ],
 
   "vehicle": [
-    {"id": 1, "customer_id": 1, "vehicle_number": "ABC123"},
-    {"id": 2, "customer_id": 1, "vehicle_number": "XYZ789"},
-    {"id": 3, "customer_id": 2, "vehicle_number": "LMN456"}
+    {
+    "id": 1, 
+    "customer_id": {
+      "id": 1, 
+      "registration_date": "2024-10-01", 
+      "is_regular_customer": "Y", 
+      "contact_number": "1234567890", 
+      "first_name": "Alice", 
+      "last_name": "Smith", 
+      "billing_address": "456 Elm St"
+    }, 
+    "vehicle_number": "ABC123"
+    },
+    {
+    "id": 2, 
+    "customer_id": {
+      "id": 1, 
+      "registration_date": "2024-10-01", 
+      "is_regular_customer": "Y", 
+      "contact_number": "1234567890", 
+      "first_name": "Alice", 
+      "last_name": "Smith", 
+      "billing_address": "456 Elm St"
+    }, 
+    "vehicle_number": "XYZ789"
+    },
+    {
+    "id": 3, 
+    "customer_id": {
+      "id": 2, 
+      "registration_date": "2024-10-15", 
+      "is_regular_customer": "N", 
+      "contact_number": "0987654321", 
+      "first_name": "Bob", 
+      "last_name": "Johnson", 
+      "billing_address": "789 Maple Rd"
+    }, 
+    "vehicle_number": "LMN456"
+    }
   ],
 
   "payment_method": [
-    {"id": 1, "customer_id": 1, "card_type": "V", "card_number": "4111111111111111", "expiry_month": 12, "expiry_year": 2025, "security_code": "123"},
-    {"id": 2, "customer_id": 1, "card_type": "M", "card_number": "5111111111111111", "expiry_month": 8, "expiry_year": 2026, "security_code": "456"},
-    {"id": 3, "customer_id": 2, "card_type": "A", "card_number": "371111111111111", "expiry_month": 7, "expiry_year": 2024, "security_code": "789"}
+    {
+    "id": 1, 
+    "customer_id": {
+      "id": 1, 
+      "registration_date": "2024-10-01", 
+      "is_regular_customer": "Y", 
+      "contact_number": "1234567890", 
+      "first_name": "Alice", 
+      "last_name": "Smith", 
+      "billing_address": "456 Elm St"
+    }, 
+    "card_type": "V", 
+    "card_number": "4111111111111111", 
+    "expiry_month": 12, 
+    "expiry_year": 2025, 
+    "security_code": "123"
+    },
+    {
+    "id": 2, 
+    "customer_id": {
+    "id": 1, 
+      "registration_date": "2024-10-01", 
+      "is_regular_customer": "Y", 
+      "contact_number": "1234567890", 
+      "first_name": "Alice", 
+      "last_name": "Smith", 
+      "billing_address": "456 Elm St"
+    }, 
+    "card_type": "M", 
+    "card_number": "5111111111111111", 
+    "expiry_month": 8, 
+    "expiry_year": 2026, 
+    "security_code": "456"
+    },
+    {
+    "id": 3, 
+    "customer_id": {
+      "id": 2, 
+      "registration_date": "2024-10-15", 
+      "is_regular_customer": "N", 
+      "contact_number": "0987654321", 
+      "first_name": "Bob", 
+      "last_name": "Johnson", 
+      "billing_address": "789 Maple Rd"
+    }, 
+    "card_type": "A", 
+    "card_number": "371111111111111", 
+    "expiry_month": 7, 
+    "expiry_year": 2024, 
+    "security_code": "789"
+    }
   ],
 
   "parking_one_time_reservation": [
-    {"id": 1, "customer_vehicle_id": 1, "parking_lot_id": 1, "start_timestamp": "2024-11-15T09:00:00Z", "pay_for_min_hr": "N", "booking_for_hr": 3, "basic_parking_cost": 15, "offer_code": "DISC10", "net_cost": 13.5, "is_paid": "Y"},
-    {"id": 2, "customer_vehicle_id": 2, "parking_lot_id": 2, "start_timestamp": "2024-11-16T10:00:00Z", "pay_for_min_hr": "Y", "basic_parking_cost": 20, "net_cost": 20, "is_paid": "N"},
-    {"id": 3, "customer_vehicle_id": 3, "parking_lot_id": 1, "start_timestamp": "2024-11-17T08:30:00Z", "pay_for_min_hr": "N", "booking_for_hr": 4, "basic_parking_cost": 25, "offer_code": "DISC5", "net_cost": 23.75, "is_paid": "Y"}
+    {"id": 1, 
+    "customer_vehicle_id": {"id": 1, 
+      "customer_id": {"id": 1, 
+        "registration_date": "2024-10-01", 
+        "is_regular_customer": "Y", 
+        "contact_number": "1234567890", 
+        "first_name": "Alice", 
+        "last_name": "Smith", 
+        "billing_address": "456 Elm St"
+        }, 
+      "vehicle_number": "ABC123"
+    }, 
+    "parking_lot_id": {"id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "start_timestamp": "2024-11-15T09:00:00Z", 
+    "pay_for_min_hr": "N", 
+    "booking_for_hr": 3, 
+    "basic_parking_cost": 15, 
+    "offer_code": "DISC10", 
+    "net_cost": 13.5, 
+    "is_paid": "Y"
+    },
+    {"id": 2, 
+    "customer_vehicle_id": {"id": 2, 
+      "customer_id": {"id": 1, 
+        "registration_date": "2024-10-01", 
+        "is_regular_customer": "Y", 
+        "contact_number": "1234567890", 
+        "first_name": "Alice", 
+        "last_name": "Smith", 
+        "billing_address": "456 Elm St"
+        }, 
+      "vehicle_number": "XYZ789"
+    }, 
+    "parking_lot_id": {"id": 2, 
+      "number_of_blocks": 10, 
+      "is_slot_available": "N", 
+      "address": "456 Oak Ave", 
+      "zip": "67890", 
+      "is_reentry_allowed": "N", 
+      "operating_company_n": "SafePark", 
+      "is_valet_parking_available": "N", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 2, 
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 90
+    }, 
+    "start_timestamp": "2024-11-16T10:00:00Z", 
+    "pay_for_min_hr": "Y", 
+    "basic_parking_cost": 20, 
+    "net_cost": 20, 
+    "is_paid": "N"
+    },
+    {"id": 3, 
+    "customer_vehicle_id": {"id": 3, 
+      "customer_id": {"id": 2, 
+        "registration_date": "2024-10-15", 
+        "is_regular_customer": "N", 
+        "contact_number": "0987654321", 
+        "first_name": "Bob", 
+        "last_name": "Johnson", 
+        "billing_address": "789 Maple Rd"
+        }, 
+      "vehicle_number": "LMN456"
+    }, 
+    "parking_lot_id": {"id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "start_timestamp": "2024-11-17T08:30:00Z", 
+    "pay_for_min_hr": "N", 
+    "booking_for_hr": 4, 
+    "basic_parking_cost": 25, 
+    "offer_code": "DISC5", 
+    "net_cost": 23.75, 
+    "is_paid": "Y"
+    }
   ],
 
   "parking_monthly_pass": [
-    {"id": 1, "customer_id": 1, "parking_lot_id": 1, "purchase_date": "2024-10-01", "start_date": "2024-11-01", "duration_in_days": 30, "cost": 80.0},
-    {"id": 2, "customer_id": 2, "parking_lot_id": 2, "purchase_date": "2024-10-20", "start_date": "2024-11-20", "duration_in_days": 30, "cost": 90.0}
+    {"id": 1, 
+    "customer_id": {"id": 1, 
+      "registration_date": "2024-10-01", 
+      "is_regular_customer": "Y", 
+      "contact_number": "1234567890", 
+      "first_name": "Alice", 
+      "last_name": "Smith", 
+      "billing_address": "456 Elm St"
+    }, 
+    "parking_lot_id": {"id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "purchase_date": "2024-10-01", 
+    "start_date": "2024-11-01", 
+    "duration_in_days": 30, 
+    "cost": 80.0
+    },
+    {"id": 2, 
+    "customer_id": {"id": 2, 
+      "registration_date": "2024-10-15", 
+      "is_regular_customer": "N", 
+      "contact_number": "0987654321", 
+      "first_name": "Bob", 
+      "last_name": "Johnson", 
+      "billing_address": "789 Maple Rd"
+    }, 
+    "parking_lot_id": {"id": 2, 
+      "number_of_blocks": 10, 
+      "is_slot_available": "N", 
+      "address": "456 Oak Ave", 
+      "zip": "67890", 
+      "is_reentry_allowed": "N", 
+      "operating_company_n": "SafePark", 
+      "is_valet_parking_available": "N", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 2, 
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 90
+    }, 
+    "purchase_date": "2024-10-20", 
+    "start_date": "2024-11-20", 
+    "duration_in_days": 30, 
+    "cost": 90.0
+    }
   ],
 
   "parking_pricing": [
-    {"id": 1, "parking_lot_id": 1, "day_of_week": 1, "morning_hr_cost": 5, "midday_hr_cost": 10, "evening_hr_cost": 8, "all_day_cost": 20},
-    {"id": 2, "parking_lot_id": 1, "day_of_week": 5, "morning_hr_cost": 6, "midday_hr_cost": 12, "evening_hr_cost": 9, "all_day_cost": 22},
-    {"id": 3, "parking_lot_id": 2, "day_of_week": 1, "morning_hr_cost": 4, "midday_hr_cost": 8, "evening_hr_cost": 7, "all_day_cost": 18}
+    {"id": 1, 
+    "parking_lot_id": {"id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "day_of_week": 1, 
+    "morning_hr_cost": 5, 
+    "midday_hr_cost": 10, 
+    "evening_hr_cost": 8, 
+    "all_day_cost": 20
+    },
+    {"id": 2, 
+    "parking_lot_id": {"id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "day_of_week": 5, 
+    "morning_hr_cost": 6, 
+    "midday_hr_cost": 12, 
+    "evening_hr_cost": 9, 
+    "all_day_cost": 22
+    },
+    {"id": 3, 
+    "parking_lot_id": {"id": 2, 
+      "number_of_blocks": 10, 
+      "is_slot_available": "N", 
+      "address": "456 Oak Ave", 
+      "zip": "67890", 
+      "is_reentry_allowed": "N", 
+      "operating_company_n": "SafePark", 
+      "is_valet_parking_available": "N", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 2, 
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 90
+    }, 
+    "day_of_week": 1, 
+    "morning_hr_cost": 4, 
+    "midday_hr_cost": 8, 
+    "evening_hr_cost": 7, 
+    "all_day_cost": 18
+    }
   ],
 
   "pricing_exception": [
-    {"id": 1, "parking_lot_id": 1, "date": "2024-11-15", "morning_hr_cost": 6, "midday_hr_cost": 12, "evening_hr_cost": 9, "all_day_cost": 25},
-    {"id": 2, "parking_lot_id": 2, "date": "2024-11-16", "morning_hr_cost": 7, "midday_hr_cost": 13, "evening_hr_cost": 10, "all_day_cost": 27}
+    {"id": 1, 
+    "parking_lot_id": {"id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "date": "2024-11-15", 
+    "morning_hr_cost": 6, 
+    "midday_hr_cost": 12, 
+    "evening_hr_cost": 9, 
+    "all_day_cost": 25
+    },
+    {"id": 2, 
+    "parking_lot_id": {"id": 2, 
+      "number_of_blocks": 10, 
+      "is_slot_available": "N", 
+      "address": "456 Oak Ave", 
+      "zip": "67890", 
+      "is_reentry_allowed": "N", 
+      "operating_company_n": "SafePark", 
+      "is_valet_parking_available": "N", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 2, 
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 90
+    }, 
+    "date": "2024-11-16", 
+    "morning_hr_cost": 7, 
+    "midday_hr_cost": 13, 
+    "evening_hr_cost": 10, 
+    "all_day_cost": 27
+    }
   ],
 
   "offers": [
-    {"id": 1, "parking_lot_id": 1, "issued_on": "2024-11-01", "valid_till": "2024-12-01", "booking_date_from": "2024-11-05", "booking_date_till": "2024-11-30", "discount_in_percent": 10, "max_amount_offer": 50, "discount_in_amount": 5, "offer_code": "DISC10"},
-    {"id": 2, "parking_lot_id": 2, "issued_on": "2024-10-15", "valid_till": "2024-11-15", "booking_date_from": "2024-10-20", "booking_date_till": "2024-11-10", "discount_in_percent": 15, "max_amount_offer": 60, "discount_in_amount": 10, "offer_code": "HOLIDAY15"}
+    {
+    "id": 1, 
+    "parking_lot_id": {
+      "id": 1, 
+      "number_of_blocks": 5, 
+      "is_slot_available": "Y", 
+      "address": "123 Main St", 
+      "zip": "12345", 
+      "is_reentry_allowed": "Y",
+      "operating_company_n": "ParkEasy", 
+      "is_valet_parking_available": "Y", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 3,
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 80
+    }, 
+    "issued_on": "2024-11-01", 
+    "valid_till": "2024-12-01", 
+    "booking_date_from": "2024-11-05", 
+    "booking_date_till": "2024-11-30", 
+    "discount_in_percent": 10, 
+    "max_amount_offer": 50, 
+    "discount_in_amount": 5, 
+    "offer_code": "DISC10"
+    },
+    {
+    "id": 2, 
+    "parking_lot_id": {
+      "id": 2, 
+      "number_of_blocks": 10, 
+      "is_slot_available": "N", 
+      "address": "456 Oak Ave", 
+      "zip": "67890", 
+      "is_reentry_allowed": "N", 
+      "operating_company_n": "SafePark", 
+      "is_valet_parking_available": "N", 
+      "operational_in_night": "Y", 
+      "minimum_hr_to_pay": 2, 
+      "is_monthly_pass_allow": "Y", 
+      "monthly_pass_cost": 90
+    }, 
+    "issued_on": "2024-10-15", 
+    "valid_till": "2024-11-15", 
+    "booking_date_from": "2024-10-20", 
+    "booking_date_till": "2024-11-10", 
+    "discount_in_percent": 15, 
+    "max_amount_offer": 60, 
+    "discount_in_amount": 10, 
+    "offer_code": "HOLIDAY15"}
   ]
 }

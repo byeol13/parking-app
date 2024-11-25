@@ -8,9 +8,11 @@ import { ParkingPricingListComponent } from './features/parkingPricing/component
 import { PaymentMethodListComponent } from './features/paymentMethod/components/payment-method-list/payment-method-list.component';
 import { PricingExceptionListComponent } from './features/pricingException/components/pricing-exception-list/pricing-exception-list.component';
 import { VehicleListComponent } from './features/vehicle/components/vehicle-list/vehicle-list.component';
+import { CustomerDetailsComponent } from './features/customer/components/customer-details/customer-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
+  {path: 'customer/:id', component: CustomerDetailsComponent},
   {path: 'dashboard/offers', component: OffersListComponent},
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
   {path: 'dashboard/parkingMonthlyPass', component: ParkingMonthlyPassListComponent},
