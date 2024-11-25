@@ -105,7 +105,7 @@
       "last_name": "Smith", 
       "billing_address": "456 Elm St"
     }, 
-    "card_type": "V", 
+    "card_type": "Credit Card", 
     "card_number": "4111111111111111", 
     "expiry_month": 12, 
     "expiry_year": 2025, 
@@ -122,7 +122,7 @@
       "last_name": "Smith", 
       "billing_address": "456 Elm St"
     }, 
-    "card_type": "M", 
+    "card_type": "Debit Card", 
     "card_number": "5111111111111111", 
     "expiry_month": 8, 
     "expiry_year": 2026, 
@@ -139,8 +139,8 @@
       "last_name": "Johnson", 
       "billing_address": "789 Maple Rd"
     }, 
-    "card_type": "A", 
-    "card_number": "371111111111111", 
+    "card_type": "Prepaid Card", 
+    "card_number": "3711111111111111", 
     "expiry_month": 7, 
     "expiry_year": 2024, 
     "security_code": "789"
