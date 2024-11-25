@@ -12,6 +12,7 @@ import { CustomerDetailsComponent } from './features/customer/components/custome
 import { ParkingLotDetailsComponent } from './features/parkingLot/components/parking-lot-details/parking-lot-details.component';
 import { OffersDetailsComponent } from './features/offers/components/offers-details/offers-details.component';
 import { VehicleDetailsComponent } from './features/vehicle/components/vehicle-details/vehicle-details.component';
+import { PaymentMethodDetailsComponent } from './features/paymentMethod/components/payment-method-details/payment-method-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -24,6 +25,7 @@ export const routes: Routes = [
   {path: 'dashboard/parkingOneTimeReservation', component: ParkingOneTimeResListComponent},
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
   {path: 'dashboard/paymentMethod', component: PaymentMethodListComponent},
+  {path: 'paymentMethod/:id', component: PaymentMethodDetailsComponent},
   {path: 'dashboard/pricingException', component: PricingExceptionListComponent},
   {path: 'dashboard/vehicle', component: VehicleListComponent},
   {path: 'vehicle/:id', component: VehicleDetailsComponent}

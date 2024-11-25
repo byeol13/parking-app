@@ -15,4 +15,8 @@ export class PaymentMethodService {
   getAllPaymentMethods(): Observable<PaymentMethod[]> {
     return this.http.get<PaymentMethod[]>(this.apiUrl);
   }
+
+  getPaymentMethodById(id: number): Observable<PaymentMethod> {
+    return this.http.get<PaymentMethod>(`${this.apiUrl}/${id}`);
+  }
 }
