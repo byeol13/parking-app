@@ -149,8 +149,10 @@
 
   "parking_one_time_reservation": [
     {"id": 1, 
-    "customer_vehicle_id": {"id": 1, 
-      "customer_id": {"id": 1, 
+    "customer_vehicle_id": {
+      "id": 1, 
+      "customer_id": {
+        "id": 1, 
         "registration_date": "2024-10-01", 
         "is_regular_customer": "Y", 
         "contact_number": "1234567890", 
