@@ -16,4 +16,8 @@ export class PrincingExceptionService {
     return this.http.get<PricingException[]>(this.apiUrl);
   }
 
+  getPricingExceptionById(id: number): Observable<PricingException> {
+    return this.http.get<PricingException>(`${this.apiUrl}/${id}`);
+  }
+
 }
