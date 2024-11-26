@@ -15,6 +15,7 @@ import { VehicleDetailsComponent } from './features/vehicle/components/vehicle-d
 import { PaymentMethodDetailsComponent } from './features/paymentMethod/components/payment-method-details/payment-method-details.component';
 import { ParkingPricingDetailsComponent } from './features/parkingPricing/components/parking-pricing-details/parking-pricing-details.component';
 import { PricingExceptionDetailsComponent } from './features/pricingException/components/pricing-exception-details/pricing-exception-details.component';
+import { ParkingOneTimeResDetailsComponent } from './features/parkingOneTimeReservation/components/parking-one-time-res-details/parking-one-time-res-details.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
   {path: 'parkingLot/:id', component: ParkingLotDetailsComponent},
   {path: 'dashboard/parkingMonthlyPass', component: ParkingMonthlyPassListComponent},
   {path: 'dashboard/parkingOneTimeReservation', component: ParkingOneTimeResListComponent},
+  {path: 'parkingOneTimeReservation/:id', component: ParkingOneTimeResDetailsComponent},
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
   {path: 'parkingPricing/:id', component: ParkingPricingDetailsComponent},
   {path: 'dashboard/paymentMethod', component: PaymentMethodListComponent},
