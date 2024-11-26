@@ -15,4 +15,8 @@ export class ParkingPricingService {
   getAllParkingPricings(): Observable<ParkingPricing[]> {
     return this.http.get<ParkingPricing[]>(this.apiUrl);
   }
+
+  getParkingPricingById(id: number): Observable<ParkingPricing> {
+    return this.http.get<ParkingPricing>(`${this.apiUrl}/${id}`);
+  }
 }
