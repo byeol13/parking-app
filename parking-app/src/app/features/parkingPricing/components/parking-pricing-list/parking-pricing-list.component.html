@@ -1,1 +1,46 @@
-<p>parking-pricing-list works!</p>
+<mat-toolbar>
+  <span>Parking Pricing List</span>
+</mat-toolbar>
+
+
+<table mat-table [dataSource]="parkingPricing" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let pricing"> {{ pricing.id }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="parking_lot_address">
+    <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
+    <td mat-cell *matCellDef="let pricing"> {{ pricing.parking_lot_id.address }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="day_of_week">
+    <th mat-header-cell *matHeaderCellDef> Day of Week </th>
+    <td mat-cell *matCellDef="let pricing"> {{ getDayOfWeek(pricing.day_of_week) }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="morning_hr_cost">
+    <th mat-header-cell *matHeaderCellDef> Morning Hour Cost </th>
+    <td mat-cell *matCellDef="let pricing"> ${{ pricing.morning_hr_cost }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="midday_hr_cost">
+    <th mat-header-cell *matHeaderCellDef> Midday Hour Cost </th>
+    <td mat-cell *matCellDef="let pricing"> ${{ pricing.midday_hr_cost }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="evening_hr_cost">
+    <th mat-header-cell *matHeaderCellDef> Evening Hour Cost </th>
+    <td mat-cell *matCellDef="let pricing"> ${{ pricing.evening_hr_cost }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="all_day_cost">
+    <th mat-header-cell *matHeaderCellDef> All Day Cost </th>
+    <td mat-cell *matCellDef="let pricing"> ${{ pricing.all_day_cost }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
