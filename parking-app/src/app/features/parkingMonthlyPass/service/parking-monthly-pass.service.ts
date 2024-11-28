@@ -15,4 +15,8 @@ export class ParkingMonthlyPassService {
   getAllParkingMonthlyPasses(): Observable<ParkingMonthlyPass[]> {
     return this.http.get<ParkingMonthlyPass[]>(this.apiUrl);
   }
+
+  getParkingMonthlyPassById(id: number): Observable<ParkingMonthlyPass> {
+    return this.http.get<ParkingMonthlyPass>(`${this.apiUrl}/${id}`);
+  }
 }
