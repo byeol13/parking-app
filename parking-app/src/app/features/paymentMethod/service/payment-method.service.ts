@@ -19,4 +19,8 @@ export class PaymentMethodService {
   getPaymentMethodById(id: number): Observable<PaymentMethod> {
     return this.http.get<PaymentMethod>(`${this.apiUrl}/${id}`);
   }
+
+  deletePaymentMethodById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
