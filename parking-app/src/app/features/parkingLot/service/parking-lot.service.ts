@@ -19,4 +19,8 @@ export class ParkingLotService {
   getParkingLotById(id: number): Observable<ParkingLot> {
     return this.http.get<ParkingLot>(`${this.apiUrl}/${id}`);
   }
+
+  deleteParkingLotById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
