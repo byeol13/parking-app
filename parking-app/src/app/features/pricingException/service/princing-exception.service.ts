@@ -20,4 +20,8 @@ export class PrincingExceptionService {
     return this.http.get<PricingException>(`${this.apiUrl}/${id}`);
   }
 
+  deletePricingExceptionById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
 }
