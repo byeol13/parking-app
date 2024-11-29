@@ -19,4 +19,8 @@ export class OffersService {
   getOfferById(id: number): Observable<Offer> {
     return this.http.get<Offer>(`${this.apiUrl}/${id}`);
   }
+
+  deleteOfferById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }

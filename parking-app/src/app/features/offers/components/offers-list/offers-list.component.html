@@ -48,9 +48,16 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let offer">
       <button mat-stroked-button (click)="viewDetails(offer.id)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(offer.id)">Delete</button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<app-offers-delete *ngIf="showDeleteDialog"
+                    [offerId]="offerIdToDelete"
+                    (delete)="deleteOfferById($event)"
+                    (cancelDelete)="cancel()">
+</app-offers-delete>
