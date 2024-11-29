@@ -5,18 +5,22 @@ import { ParkingMonthlyPassService } from '../../service/parking-monthly-pass.se
 import { ParkingMonthlyPass } from '../../../../shared/models/ParkingMonthlyPass.model';
 import { Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { ParkingMonthlyPassDeleteComponent } from '../parking-monthly-pass-delete/parking-monthly-pass-delete.component';
 
 @Component({
   selector: 'app-parking-monthly-pass-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingMonthlyPassDeleteComponent],
   templateUrl: './parking-monthly-pass-list.component.html',
   styleUrl: './parking-monthly-pass-list.component.css'
 })
 export class ParkingMonthlyPassListComponent implements OnInit{
 
+  monthlyPassIdToDelete: number | undefined;
   monthlyPasses: ParkingMonthlyPass[] = [];
   displayedColumns: string[] = ['id', 'customerName', 'parkingLotAddress', 'startDate', 'duration', 'cost', 'reentryAllowed', 'actions'];
+  showDeleteDialog = false;
 
   constructor(private parkingMonthlyPassService: ParkingMonthlyPassService, private router: Router){}
 
@@ -32,6 +36,22 @@ export class ParkingMonthlyPassListComponent implements OnInit{
 
   viewDetails(id: number) {
     this.router.navigate(['/parkingMonthlyPass', id]);
+  }
+
+  openDeleteDialog(id: number) {
+    this.monthlyPassIdToDelete = id;
+    this.showDeleteDialog = true;
+  }
+
+  deleteMonthlyPassById(id: number) {
+    this.parkingMonthlyPassService.deleteParkingMonthlyPassById(id).subscribe(() => {
+      this.loadAllMonthlyPasses();
+      this.showDeleteDialog = false;
+    })
+  }
+
+  cancelDelete() {
+    this.showDeleteDialog = false;
   }
 
 }

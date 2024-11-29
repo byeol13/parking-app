@@ -45,9 +45,16 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let monthlyPass">
       <button mat-stroked-button (click)="viewDetails(monthlyPass.id)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(monthlyPass.id)">Delete</button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<app-parking-monthly-pass-delete *ngIf="showDeleteDialog"
+                                  [monthlyPassId]="monthlyPassIdToDelete"
+                                  (delete)="deleteMonthlyPassById($event)"
+                                  (cancelDelete)="cancelDelete()">
+</app-parking-monthly-pass-delete>

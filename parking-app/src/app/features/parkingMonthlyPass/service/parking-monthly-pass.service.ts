@@ -19,4 +19,8 @@ export class ParkingMonthlyPassService {
   getParkingMonthlyPassById(id: number): Observable<ParkingMonthlyPass> {
     return this.http.get<ParkingMonthlyPass>(`${this.apiUrl}/${id}`);
   }
+
+  deleteParkingMonthlyPassById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
