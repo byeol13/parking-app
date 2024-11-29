@@ -41,9 +41,16 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let reservation">
       <button mat-stroked-button (click)="viewDetails(reservation.id)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(reservation.id)">Delete</button>
     </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<app-parking-one-time-res-delete *ngIf="showDeleteDialog"
+                                  [oneTimeResId]="oneTimeResIdToDelete"
+                                  (delete)="deleteOneTimeResById($event)"
+                                  (cancelDelete)="cancel()">
+</app-parking-one-time-res-delete>

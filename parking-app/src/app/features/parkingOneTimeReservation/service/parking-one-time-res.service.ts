@@ -19,4 +19,8 @@ export class ParkingOneTimeResService {
   getOneTimeResById(id: number): Observable<ParkingOneTimeRes> {
     return this.http.get<ParkingOneTimeRes>(`${this.apiUrl}/${id}`);
   }
+
+  deleteOneTimeResById(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
 }
