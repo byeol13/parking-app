@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter @Setter
 public class OffersDTO {
-    private Integer offerId;
+    private Integer offersId;
     private LocalDate issuedOn;
     private LocalDate validTill;
     private LocalDate bookingDateFrom;
@@ -15,5 +15,6 @@ public class OffersDTO {
     private Integer discountInPercent;
     private Integer maxAmountOffer;
     private Integer discountInAmount;
+    private String offerCode;
     private ParkingLotDTO parkingLotDTO;
 }
