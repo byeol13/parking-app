@@ -13,7 +13,7 @@ public class ParkingLotDTO {
     private String address;
     private String zip;
     private String isReentryAllowed;
-    private String operatingComapnyN;
+    private String operatingCompanyN;
     private String isValetParkingAvailable;
     private String operationalInNight;
     private String minimumHrToPay;
