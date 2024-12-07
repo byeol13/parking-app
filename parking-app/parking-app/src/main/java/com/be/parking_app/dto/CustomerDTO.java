@@ -10,7 +10,7 @@ public class CustomerDTO {
     private Integer customerId;
     private LocalDate registrationDate;
     private String isRegularCusto;
-    private String contactNumber;
+    private Integer contactNumber;
     private String firstName;
     private String lastName;
     private String billingAddress;

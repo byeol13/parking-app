@@ -16,7 +16,7 @@ public class ParkingLotDTO {
     private String operatingCompanyN;
     private String isValetParkingAvailable;
     private String operationalInNight;
-    private String minimumHrToPay;
+    private Integer minimumHrToPay;
     private String isMonthlyPassAllow;
     private Integer monthlyPassCost;
 }
