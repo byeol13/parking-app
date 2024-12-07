@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 @Getter @Setter
 public class ParkingLotDTO {
-    private Integer id;
+    private Integer parkingLotId;
     private Integer numberOfBlocks;
     private String isSlotAvailable;
     private String address;

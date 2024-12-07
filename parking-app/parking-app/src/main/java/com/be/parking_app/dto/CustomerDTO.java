@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Getter @Setter
 public class CustomerDTO {
-    private Integer id;
+    private Integer customerId;
     private LocalDate registrationDate;
     private String isRegularCusto;
     private String contactNumber;
