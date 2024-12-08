@@ -28,8 +28,8 @@ public class ParkingOneTimeReservationEntity {
     @Column(name = "basic_parking_cost", nullable = true, unique = false)
     private Integer basicParkingCost;
 
-    @Column(name = "offer_cost", nullable = true, unique = false)
-    private String offerCost;
+    @Column(name = "offer_code", nullable = true, unique = false)
+    private String offerCode;
 
     @Column(name = "net_cost", nullable = true, unique = false)
     private Integer netCost;
@@ -38,8 +38,8 @@ public class ParkingOneTimeReservationEntity {
     private String isPaid;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
-    private CustomerEntity customerEntity;
+    @JoinColumn(name = "customer_vehicle_id", nullable = false)
+    private VehicleEntity vehicleEntity;
 
     @ManyToOne
     @JoinColumn(name = "parking_lot_id", nullable = false)
