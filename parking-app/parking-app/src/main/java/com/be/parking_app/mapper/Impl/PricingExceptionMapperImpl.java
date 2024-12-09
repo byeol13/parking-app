@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PricingExceptionImpl implements PricingExceptionMapperInterface {
+public class PricingExceptionMapperImpl implements PricingExceptionMapperInterface {
 
     @Autowired
     private ParkingLotMapperInterface parkingLotMapper;
