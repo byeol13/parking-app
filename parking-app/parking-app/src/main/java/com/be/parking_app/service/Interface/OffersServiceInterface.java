@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface OffersServiceInterface {
 
-    List<OffersDTO> getAllOfferData();
+    List<OffersDTO> getAllOffersData();
 
     OffersDTO getOfferObjectById(Integer id);
 
