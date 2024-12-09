@@ -1,8 +1,9 @@
-package com.be.parking_app.mapper.Impl;
+package com.be.parking_app.service.Impl;
 
 import com.be.parking_app.dto.ParkingMonthlyPassDTO;
-import com.be.parking_app.mapper.Interface.ParkingMonthlyPassServiceInterface;
+import com.be.parking_app.mapper.Impl.ParkingMonthlyPassMapperImpl;
 import com.be.parking_app.repository.ParkingMonthlyPassRepository;
+import com.be.parking_app.service.Interface.ParkingMonthlyPassServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.be.parking_app.mapper.Interface;
+package com.be.parking_app.service.Interface;
 
 import com.be.parking_app.dto.ParkingMonthlyPassDTO;
 
