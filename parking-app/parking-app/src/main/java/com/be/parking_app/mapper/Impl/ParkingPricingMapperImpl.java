@@ -14,7 +14,7 @@ public class ParkingPricingMapperImpl implements ParkingPricingMapperInterface {
     private ParkingLotMapperInterface parkingLotMapper;
 
     @Override
-    public ParkingPricingDTO toDto(ParkingPricingEntity entity) {
+    public ParkingPricingDTO toDTO(ParkingPricingEntity entity) {
         if (entity == null) return null;
 
         ParkingPricingDTO dto = new ParkingPricingDTO();
