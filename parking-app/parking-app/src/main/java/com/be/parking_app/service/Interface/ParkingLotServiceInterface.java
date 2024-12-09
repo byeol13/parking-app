@@ -8,7 +8,7 @@ public interface ParkingLotServiceInterface {
 
     List<ParkingLotDTO> getAllParkingLotData();
     ParkingLotDTO getParkingLotObjectById(Integer id);
-    ParkingLotDTO insertNewCategoryObjectData(ParkingLotDTO body);
+    ParkingLotDTO insertNewParkingLotObjectData(ParkingLotDTO body);
     ParkingLotDTO updateExistingParkingLotObjectData(ParkingLotDTO body);
     ParkingLotDTO deleteParkingLotObjectData(Integer id);
 }
