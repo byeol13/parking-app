@@ -27,4 +27,9 @@ public class CustomerController {
     public CustomerDTO getCustomerById(@Validated @RequestParam(name = "customerId") Integer id) {
         return service.getCustomerObjectById(id);
     }
+
+    @PostMapping("/newCustomer")
+    public CustomerDTO createCustomer(@Validated @RequestBody CustomerDTO body) {
+        return service.insertNewCustomerObjectData(body);
+    }
 }
