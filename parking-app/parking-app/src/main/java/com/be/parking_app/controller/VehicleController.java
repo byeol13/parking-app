@@ -4,10 +4,8 @@ import com.be.parking_app.dto.VehicleDTO;
 import com.be.parking_app.service.Impl.VehicleServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class VehicleController {
     @GetMapping("/getAllVehicles")
     private List<VehicleDTO> getAllVehicle() {
         return service.getAllVehicleData();
+    }
+
+    @GetMapping("/getVehicleById")
+    public VehicleDTO getVehicleById(@Validated @RequestParam(name = "vehicleId") Integer id) {
+        return service.getVehicleObjectById(id);
     }
 }
