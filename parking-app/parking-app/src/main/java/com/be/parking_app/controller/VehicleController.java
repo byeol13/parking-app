@@ -27,4 +27,9 @@ public class VehicleController {
     public VehicleDTO getVehicleById(@Validated @RequestParam(name = "vehicleId") Integer id) {
         return service.getVehicleObjectById(id);
     }
+
+    @PostMapping("/newVehicle")
+    public VehicleDTO createVehicle(@Validated @RequestBody VehicleDTO body) {
+        return service.insertNewVehicleObjectData(body);
+    }
 }
