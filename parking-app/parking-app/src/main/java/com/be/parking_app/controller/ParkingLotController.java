@@ -32,5 +32,10 @@ public class ParkingLotController {
     public ParkingLotDTO createParkingLot(@Validated @RequestBody ParkingLotDTO body) {
         return service.insertNewParkingLotObjectData(body);
     }
+
+    @PutMapping("/updateParkingLot")
+    public ParkingLotDTO updateParkingLot(@Validated @RequestBody ParkingLotDTO body) {
+        return service.updateExistingParkingLotObjectData(body);
+    }
 }
 
