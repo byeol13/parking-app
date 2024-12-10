@@ -37,4 +37,9 @@ public class OffersController {
     public OffersDTO updateOffer(@Validated @RequestBody OffersDTO body) {
         return service.updateExistingOfferObjectData(body);
     }
+
+    @DeleteMapping("/deleteOffer/{id}")
+    public OffersDTO deleteOffer(@Validated @PathVariable("id") Integer id) {
+        return service.deleteOfferObjectData(id);
+    }
 }
