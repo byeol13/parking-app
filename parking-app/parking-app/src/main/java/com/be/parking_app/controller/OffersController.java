@@ -32,4 +32,9 @@ public class OffersController {
     public OffersDTO createOffer(@Validated @RequestBody OffersDTO body) {
         return service.insertNewOfferObjectData(body);
     }
+
+    @PutMapping("/updateOffer")
+    public OffersDTO updateOffer(@Validated @RequestBody OffersDTO body) {
+        return service.updateExistingOfferObjectData(body);
+    }
 }
