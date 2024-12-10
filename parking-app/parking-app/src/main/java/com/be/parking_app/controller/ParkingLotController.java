@@ -27,4 +27,10 @@ public class ParkingLotController {
     public ParkingLotDTO getParkingLotById(@Validated @RequestParam(name = "parkingLotId") Integer id) {
         return service.getParkingLotObjectById(id);
     }
+
+    @PostMapping("/newParkingLot")
+    public ParkingLotDTO createParkingLot(@Validated @RequestBody ParkingLotDTO body) {
+        return service.insertNewParkingLotObjectData(body);
+    }
 }
+
