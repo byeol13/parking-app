@@ -37,4 +37,9 @@ public class VehicleController {
     public VehicleDTO updateVehicle(@Validated @RequestBody VehicleDTO   body) {
         return service.updateExistingVehicleObjectData(body);
     }
+
+    @DeleteMapping("/deleteVehicle/{id}")
+    public VehicleDTO deleteVehicle(@Validated @PathVariable("id") Integer id) {
+        return service.deleteVehicleObjectData(id);
+    }
 }
