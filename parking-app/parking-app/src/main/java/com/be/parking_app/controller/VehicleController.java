@@ -32,4 +32,9 @@ public class VehicleController {
     public VehicleDTO createVehicle(@Validated @RequestBody VehicleDTO body) {
         return service.insertNewVehicleObjectData(body);
     }
+
+    @PutMapping("/updateVehicle")
+    public VehicleDTO updateVehicle(@Validated @RequestBody VehicleDTO   body) {
+        return service.updateExistingVehicleObjectData(body);
+    }
 }
