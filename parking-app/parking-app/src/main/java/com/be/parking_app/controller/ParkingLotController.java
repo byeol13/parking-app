@@ -37,5 +37,10 @@ public class ParkingLotController {
     public ParkingLotDTO updateParkingLot(@Validated @RequestBody ParkingLotDTO body) {
         return service.updateExistingParkingLotObjectData(body);
     }
+
+    @DeleteMapping("/deleteParkingLot/{id}")
+    public ParkingLotDTO deleteParkingLot(@Validated @PathVariable("id") Integer id) {
+        return service.deleteParkingLotObjectData(id);
+    }
 }
 
