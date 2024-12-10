@@ -27,4 +27,9 @@ public class OffersController {
     public OffersDTO getOfferById(@Validated @RequestParam(name = "offerId") Integer id) {
         return service.getOfferObjectById(id);
     }
+
+    @PostMapping("/newOffer")
+    public OffersDTO createOffer(@Validated @RequestBody OffersDTO body) {
+        return service.insertNewOfferObjectData(body);
+    }
 }
