@@ -4,10 +4,8 @@ import com.be.parking_app.dto.CustomerDTO;
 import com.be.parking_app.service.Impl.CustomerServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class CustomerController {
     @GetMapping("/getAllCustomers")
     public List<CustomerDTO> getAllCustomers() {
         return service.getAllCustomerData();
+    }
+
+    @GetMapping("/getCustomerById")
+    public CustomerDTO getCustomerById(@Validated @RequestParam(name = "customerId") Integer id) {
+        return service.getCustomerObjectById(id);
     }
 }
