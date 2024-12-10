@@ -37,4 +37,9 @@ public class CustomerController {
     public CustomerDTO updateCustomer(@Validated @RequestBody CustomerDTO body) {
         return service.updateExistingCustomerObjectData(body);
     }
+
+    @DeleteMapping("/deleteCustomer/{id}")
+    public CustomerDTO deleteCustomer(@Validated @PathVariable("id") Integer id) {
+        return service.deleteCustomerObjectData(id);
+    }
 }
