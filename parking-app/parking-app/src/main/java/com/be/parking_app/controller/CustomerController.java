@@ -32,4 +32,9 @@ public class CustomerController {
     public CustomerDTO createCustomer(@Validated @RequestBody CustomerDTO body) {
         return service.insertNewCustomerObjectData(body);
     }
+
+    @PutMapping("/updateCustomer")
+    public CustomerDTO updateCustomer(@Validated @RequestBody CustomerDTO body) {
+        return service.updateExistingCustomerObjectData(body);
+    }
 }
