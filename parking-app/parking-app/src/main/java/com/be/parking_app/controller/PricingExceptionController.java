@@ -33,4 +33,9 @@ public class PricingExceptionController {
     public PricingExceptionDTO createPricingException(@Validated @RequestBody PricingExceptionDTO body) {
         return service.insertNewPricingExceptionObjectData(body);
     }
+
+    @PutMapping("/updatePricingException")
+    public PricingExceptionDTO updatePricingException(@Validated @RequestBody PricingExceptionDTO   body) {
+        return service.updateExistingPricingExceptionObjectData(body);
+    }
 }
