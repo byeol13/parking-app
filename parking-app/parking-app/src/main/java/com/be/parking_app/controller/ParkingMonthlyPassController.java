@@ -33,4 +33,9 @@ public class ParkingMonthlyPassController {
     public ParkingMonthlyPassDTO createParkingMonthlyPass(@Validated @RequestBody ParkingMonthlyPassDTO body) {
         return service.insertNewParkingMonthlyPassObjectData(body);
     }
+
+    @PutMapping("/updateMonthlyPass")
+    public ParkingMonthlyPassDTO updateParkingMonthlyPass(@Validated @RequestBody ParkingMonthlyPassDTO   body) {
+        return service.updateExistingParkingMonthlyPassObjectData(body);
+    }
 }
