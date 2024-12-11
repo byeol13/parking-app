@@ -33,4 +33,9 @@ public class ParkingOneTimeReservationController {
     public ParkingOneTimeReservationDTO createParkingOneTimeReservation(@Validated @RequestBody ParkingOneTimeReservationDTO body) {
         return service.insertNewParkingOneTimeReservationObjectData(body);
     }
+
+    @PutMapping("/updateOneTimeReservation")
+    public ParkingOneTimeReservationDTO updateParkingOneTimeReservation(@Validated @RequestBody ParkingOneTimeReservationDTO body) {
+        return service.updateExistingParkingOneTimeReservationObjectData(body);
+    }
 }
