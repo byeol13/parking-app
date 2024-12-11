@@ -20,12 +20,17 @@ public class ParkingMonthlyPassController {
     private ParkingMonthlyPassServiceImpl service;
 
     @GetMapping("/getAllMonthlyPasses")
-    private List<ParkingMonthlyPassDTO> getAllMonthlyPasses() {
+    private List<ParkingMonthlyPassDTO> getAllParkingMonthlyPasses() {
         return service.getAllParkingMonthlyPassData();
     }
 
     @GetMapping("/getMonthlyPassById")
-    public ParkingMonthlyPassDTO getMonthlyPassById(@Validated @RequestParam(name = "monthlyPassId") Integer id) {
+    public ParkingMonthlyPassDTO getParkingMonthlyPassById(@Validated @RequestParam(name = "monthlyPassId") Integer id) {
         return service.getParkingMonthlyPassObjectById(id);
+    }
+
+    @PostMapping("/newMonthlyPass")
+    public ParkingMonthlyPassDTO createParkingMonthlyPass(@Validated @RequestBody ParkingMonthlyPassDTO body) {
+        return service.insertNewParkingMonthlyPassObjectData(body);
     }
 }
