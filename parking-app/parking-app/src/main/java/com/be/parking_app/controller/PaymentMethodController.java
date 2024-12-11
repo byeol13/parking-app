@@ -33,4 +33,9 @@ public class PaymentMethodController {
     public PaymentMethodDTO createPaymentMethod(@Validated @RequestBody PaymentMethodDTO body) {
         return service.insertNewPaymentMethodObjectData(body);
     }
+
+    @PutMapping("/updatePaymentMethod")
+    public PaymentMethodDTO updatePaymentMethod(@Validated @RequestBody PaymentMethodDTO body) {
+        return service.updateExistingPaymentMethodObjectData(body);
+    }
 }
