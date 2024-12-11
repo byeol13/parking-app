@@ -33,4 +33,9 @@ public class ParkingPricingController {
     public ParkingPricingDTO createParkingPricing(@Validated @RequestBody ParkingPricingDTO body) {
         return service.insertNewParkingPricingObjectData(body);
     }
+
+    @PutMapping("/updateParkingPricing")
+    public ParkingPricingDTO updateParkingPricing(@Validated @RequestBody ParkingPricingDTO body) {
+        return service.updateExistingParkingPricingObjectData(body);
+    }
 }
