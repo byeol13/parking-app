@@ -28,4 +28,9 @@ public class ParkingPricingController {
     public ParkingPricingDTO getParkingPricingById(@Validated @RequestParam(name = "parkingPricingId") Integer id) {
         return service.getParkingPricingObjectById(id);
     }
+
+    @PostMapping("/newParkingPricing")
+    public ParkingPricingDTO createParkingPricing(@Validated @RequestBody ParkingPricingDTO body) {
+        return service.insertNewParkingPricingObjectData(body);
+    }
 }
