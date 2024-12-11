@@ -28,4 +28,9 @@ public class PaymentMethodController {
     public PaymentMethodDTO getPaymentMethodById(@Validated @RequestParam(name = "paymentMethodId") Integer id) {
         return service.getPaymentMethodObjectById(id);
     }
+
+    @PostMapping("/newPaymentMethod")
+    public PaymentMethodDTO createPaymentMethod(@Validated @RequestBody PaymentMethodDTO body) {
+        return service.insertNewPaymentMethodObjectData(body);
+    }
 }
