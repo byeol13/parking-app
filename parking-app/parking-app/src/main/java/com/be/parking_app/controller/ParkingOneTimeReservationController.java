@@ -1,7 +1,6 @@
 package com.be.parking_app.controller;
 
 import com.be.parking_app.dto.ParkingOneTimeReservationDTO;
-import com.be.parking_app.dto.VehicleDTO;
 import com.be.parking_app.service.Impl.ParkingOneTimeReservationServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +36,10 @@ public class ParkingOneTimeReservationController {
     @PutMapping("/updateOneTimeReservation")
     public ParkingOneTimeReservationDTO updateParkingOneTimeReservation(@Validated @RequestBody ParkingOneTimeReservationDTO body) {
         return service.updateExistingParkingOneTimeReservationObjectData(body);
+    }
+
+    @DeleteMapping("/deleteOneTimeReservation/{id}")
+    public ParkingOneTimeReservationDTO deleteParkingOneTimeReservation(@Validated @PathVariable("id") Integer id) {
+        return service.deleteParkingOneTimeReservationObjectData(id);
     }
 }

@@ -1,7 +1,6 @@
 package com.be.parking_app.controller;
 
 import com.be.parking_app.dto.PricingExceptionDTO;
-import com.be.parking_app.dto.VehicleDTO;
 import com.be.parking_app.service.Impl.PricingExceptionServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
