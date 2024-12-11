@@ -38,4 +38,9 @@ public class PaymentMethodController {
     public PaymentMethodDTO updatePaymentMethod(@Validated @RequestBody PaymentMethodDTO body) {
         return service.updateExistingPaymentMethodObjectData(body);
     }
+
+    @DeleteMapping("/deletePaymentMethod/{id}")
+    public PaymentMethodDTO deletePaymentMethod(@Validated @PathVariable("id") Integer id) {
+        return service.deletePaymentMethodObjectData(id);
+    }
 }
