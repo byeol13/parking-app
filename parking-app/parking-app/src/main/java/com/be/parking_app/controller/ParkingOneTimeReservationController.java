@@ -28,4 +28,9 @@ public class ParkingOneTimeReservationController {
     public ParkingOneTimeReservationDTO getParkingOneTimeReservationById(@Validated @RequestParam(name = "oneTimeReservationId") Integer id) {
         return service.getParkingOneTimeReservationObjectById(id);
     }
+
+    @PostMapping("/newOneTimeReservation")
+    public ParkingOneTimeReservationDTO createParkingOneTimeReservation(@Validated @RequestBody ParkingOneTimeReservationDTO body) {
+        return service.insertNewParkingOneTimeReservationObjectData(body);
+    }
 }
