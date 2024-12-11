@@ -38,4 +38,9 @@ public class ParkingPricingController {
     public ParkingPricingDTO updateParkingPricing(@Validated @RequestBody ParkingPricingDTO body) {
         return service.updateExistingParkingPricingObjectData(body);
     }
+
+    @DeleteMapping("/deleteParkingPricing/{id}")
+    public ParkingPricingDTO deleteParkingPricing(@Validated @PathVariable("id") Integer id) {
+        return service.deleteParkingPricingObjectData(id);
+    }
 }
