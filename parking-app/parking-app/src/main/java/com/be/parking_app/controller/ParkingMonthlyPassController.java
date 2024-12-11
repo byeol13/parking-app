@@ -5,10 +5,8 @@ import com.be.parking_app.dto.VehicleDTO;
 import com.be.parking_app.service.Impl.ParkingMonthlyPassServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,5 +22,10 @@ public class ParkingMonthlyPassController {
     @GetMapping("/getAllMonthlyPasses")
     private List<ParkingMonthlyPassDTO> getAllMonthlyPasses() {
         return service.getAllParkingMonthlyPassData();
+    }
+
+    @GetMapping("/getMonthlyPassById")
+    public ParkingMonthlyPassDTO getMonthlyPassById(@Validated @RequestParam(name = "monthlyPassId") Integer id) {
+        return service.getParkingMonthlyPassObjectById(id);
     }
 }
