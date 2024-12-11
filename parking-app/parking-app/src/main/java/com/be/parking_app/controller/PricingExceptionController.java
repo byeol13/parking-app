@@ -38,4 +38,9 @@ public class PricingExceptionController {
     public PricingExceptionDTO updatePricingException(@Validated @RequestBody PricingExceptionDTO   body) {
         return service.updateExistingPricingExceptionObjectData(body);
     }
+
+    @DeleteMapping("/deletePricingException/{id}")
+    public PricingExceptionDTO deletePricingException(@Validated @PathVariable("id") Integer id) {
+        return service.deletePricingExceptionObjectData(id);
+    }
 }
