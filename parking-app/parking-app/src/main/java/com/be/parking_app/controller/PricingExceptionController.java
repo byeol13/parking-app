@@ -28,4 +28,9 @@ public class PricingExceptionController {
     public PricingExceptionDTO getPricingExceptionById(@Validated @RequestParam(name = "pricingExceptionId") Integer id) {
         return service.getPricingExceptionObjectById(id);
     }
+
+    @PostMapping("/newPricingException")
+    public PricingExceptionDTO createPricingException(@Validated @RequestBody PricingExceptionDTO body) {
+        return service.insertNewPricingExceptionObjectData(body);
+    }
 }
