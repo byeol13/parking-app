@@ -38,4 +38,9 @@ public class ParkingMonthlyPassController {
     public ParkingMonthlyPassDTO updateParkingMonthlyPass(@Validated @RequestBody ParkingMonthlyPassDTO   body) {
         return service.updateExistingParkingMonthlyPassObjectData(body);
     }
+
+    @DeleteMapping("/deleteMonthlyPass/{id}")
+    public ParkingMonthlyPassDTO deleteParkingMonthlyPass(@Validated @PathVariable("id") Integer id) {
+        return service.deleteParkingMonthlyPassObjectData(id);
+    }
 }
