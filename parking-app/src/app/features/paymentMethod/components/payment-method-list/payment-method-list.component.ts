@@ -35,7 +35,7 @@ export class PaymentMethodListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/paymentMethod`, id]);
+    this.router.navigate([`/paymentMethod`], {queryParams: { paymentMethodId: id }});
   }
 
   openDeleteDialog(id: number) {

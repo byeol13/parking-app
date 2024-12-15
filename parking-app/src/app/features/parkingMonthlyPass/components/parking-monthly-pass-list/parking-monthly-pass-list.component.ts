@@ -35,7 +35,7 @@ export class ParkingMonthlyPassListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate(['/parkingMonthlyPass', id]);
+    this.router.navigate(['/parkingMonthlyPass'], {queryParams: { monthlyPassId: id }});
   }
 
   openDeleteDialog(id: number) {

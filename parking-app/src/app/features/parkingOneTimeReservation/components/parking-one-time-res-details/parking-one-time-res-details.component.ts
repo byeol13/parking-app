@@ -21,7 +21,7 @@ export class ParkingOneTimeResDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'vehicleNumber', 'customerName', 'parkingLotAddress', 'bookingTime', 'pay_for_min_hr', 'booking_for_hr', 'basic_parking_cost', 'offer_code', 'netCost', 'is_paid'];
 
   constructor(private parkingOneTimeResService: ParkingOneTimeResService, private datePipe: DatePipe, private activatedRoute: ActivatedRoute){
-    this.oneTimeResId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.oneTimeResId = this.activatedRoute.snapshot.queryParamMap.get('oneTimeResId');
   }
 
   ngOnInit(): void {

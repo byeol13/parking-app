@@ -1,7 +1,7 @@
 export interface Customer {
-  id: number,
-  registration_date: Date,
-  is_regular_customer: boolean,
+  customerId: number,
+  registrationDate: Date,
+  isRegularCustomer: boolean,
   contactNumber?: number,
   firstName: string,
   lastName: string,

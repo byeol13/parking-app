@@ -21,7 +21,7 @@ export class ParkingLotDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'number_of_blocks', 'is_slot_available', 'address', 'zip', 'operating_company_n', 'minimum_hr_to_pay', 'is_reentry_allowed', 'is_valet_parking_available', 'operational_in_night', 'is_monthly_pass_allow', 'monthly_pass_cost'];
 
   constructor(private parkingLotService: ParkingLotService, private activatedRoute: ActivatedRoute){
-    this.parkingLotId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.parkingLotId = this.activatedRoute.snapshot.queryParamMap.get('parkingLotId');
   }
 
   ngOnInit(): void {

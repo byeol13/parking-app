@@ -38,9 +38,9 @@ export class CustomerListComponent implements OnInit{
   getFormattedDate(date: string) {
     return this.datePipe.transform(date, 'MMMM d, yyyy');
   }
-
+  
   viewDetails(id: number) {
-    this.router.navigate(['/customer', id]);
+    this.router.navigate(['/customer'], { queryParams: { customerId: id } });
   }
 
   openDeleteDialog(id: number) {

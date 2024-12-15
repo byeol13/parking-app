@@ -21,7 +21,7 @@ export class ParkingMonthlyPassDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'customerName', 'customerContact', 'billingAddress', 'parkingLotAddress', 'startDate', 'duration', 'cost', 'valetParking', 'nightOps'];
 
   constructor(private parkingMonthlyPassService: ParkingMonthlyPassService, private activatedRoute: ActivatedRoute){
-    this.monthlyPassId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.monthlyPassId = this.activatedRoute.snapshot.queryParamMap.get('monthlyPassId');
   }
   
   ngOnInit(): void {

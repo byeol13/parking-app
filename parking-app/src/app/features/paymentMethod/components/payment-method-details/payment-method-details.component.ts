@@ -21,7 +21,7 @@ export class PaymentMethodDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'first_name', 'last_name', 'card_type','card_number', 'expiry_month', 'expiry_year', 'security_code'];
 
   constructor(private paymentMethodService: PaymentMethodService, private activatedRoute: ActivatedRoute){
-    this.paymentMethodId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.paymentMethodId = this.activatedRoute.snapshot.queryParamMap.get('paymentMethodId');
   }
 
   ngOnInit(): void {

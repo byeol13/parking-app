@@ -40,7 +40,7 @@ export class ParkingOneTimeResListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/parkingOneTimeReservation`, id]);
+    this.router.navigate([`/parkingOneTimeReservation`], {queryParams: { oneTimeResId: id }});
   }
 
   openDeleteDialog(id: number) {

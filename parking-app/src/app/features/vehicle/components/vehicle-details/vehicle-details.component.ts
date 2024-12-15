@@ -21,7 +21,7 @@ export class VehicleDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'vehicle_number', 'first_name', 'last_name', 'contact_number', 'billing_address'];
 
   constructor(private vehicleService: VehicleService, private activatedRoute: ActivatedRoute){
-    this.vehicleId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.vehicleId = this.activatedRoute.snapshot.queryParamMap.get('vehicleId');
   }
 
   ngOnInit(): void {

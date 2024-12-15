@@ -35,7 +35,7 @@ export class OffersListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`offers`, id]);
+    this.router.navigate([`offers`], {queryParams: { offerId: id }});
   }
 
   openDeleteDialog(id: number) {

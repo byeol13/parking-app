@@ -20,21 +20,21 @@ import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPas
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
-  {path: 'customer/:id', component: CustomerDetailsComponent},
+  {path: 'customer', component: CustomerDetailsComponent},
   {path: 'dashboard/offers', component: OffersListComponent},
-  {path: 'offers/:id', component: OffersDetailsComponent},
+  {path: 'offers', component: OffersDetailsComponent},
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
-  {path: 'parkingLot/:id', component: ParkingLotDetailsComponent},
+  {path: 'parkingLot', component: ParkingLotDetailsComponent},
   {path: 'dashboard/parkingMonthlyPass', component: ParkingMonthlyPassListComponent},
-  {path: 'parkingMonthlyPass/:id', component: ParkingMonthlyPassDetailsComponent},
+  {path: 'parkingMonthlyPass', component: ParkingMonthlyPassDetailsComponent},
   {path: 'dashboard/parkingOneTimeReservation', component: ParkingOneTimeResListComponent},
-  {path: 'parkingOneTimeReservation/:id', component: ParkingOneTimeResDetailsComponent},
+  {path: 'parkingOneTimeReservation', component: ParkingOneTimeResDetailsComponent},
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
-  {path: 'parkingPricing/:id', component: ParkingPricingDetailsComponent},
+  {path: 'parkingPricing', component: ParkingPricingDetailsComponent},
   {path: 'dashboard/paymentMethod', component: PaymentMethodListComponent},
-  {path: 'paymentMethod/:id', component: PaymentMethodDetailsComponent},
+  {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
   {path: 'dashboard/pricingException', component: PricingExceptionListComponent},
-  {path: 'pricingException/:id', component: PricingExceptionDetailsComponent},
+  {path: 'pricingException', component: PricingExceptionDetailsComponent},
   {path: 'dashboard/vehicle', component: VehicleListComponent},
-  {path: 'vehicle/:id', component: VehicleDetailsComponent}
+  {path: 'vehicle', component: VehicleDetailsComponent}
 ];

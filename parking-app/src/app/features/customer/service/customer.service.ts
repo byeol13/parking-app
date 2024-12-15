@@ -8,19 +8,19 @@ import { Customer } from '../../../shared/models/Customer.model';
 })
 export class CustomerService {
 
-  private apiUrl = `http://localhost:3000/customer`;
+  private apiUrl = `http://localhost:8080/customers`;
 
   constructor(private http: HttpClient) { }
 
   getAllCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.apiUrl);
+    return this.http.get<Customer[]>(`${this.apiUrl}/getAllCustomers`);
   }
 
   getCustomerById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(`${this.apiUrl}/${id}`);
+    return this.http.get<Customer>(`${this.apiUrl}/getCustomerById?customerId=${id}`);
   }
 
   deleteCustomerById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteCustomer/${id}`);
   }
 }

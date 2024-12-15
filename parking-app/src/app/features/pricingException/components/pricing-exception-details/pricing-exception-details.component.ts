@@ -21,7 +21,7 @@ export class PricingExceptionDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'parking_lot_address', 'zip', 'operating_company', 'date', 'morning_hr_cost', 'midday_hr_cost', 'evening_hr_cost', 'all_day_cost'];
 
   constructor(private pricingExceptionService: PrincingExceptionService, private activatedRoute: ActivatedRoute){
-    this.pricingExceptionId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.pricingExceptionId = this.activatedRoute.snapshot.queryParamMap.get('pricingExceptionId');
   }
   
   ngOnInit(): void {

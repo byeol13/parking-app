@@ -9,60 +9,60 @@
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> Reservation ID </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.id }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.oneTimeResId }} </td>
       </ng-container>
     
       <ng-container matColumnDef="vehicleNumber">
         <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.customer_vehicle_id.vehicle_number }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.vehicleDTO.vehicleNumber }} </td>
       </ng-container>
     
       <ng-container matColumnDef="customerName">
         <th mat-header-cell *matHeaderCellDef> Customer Name </th>
         <td mat-cell *matCellDef="let reservation"> 
-          {{ reservation.customer_vehicle_id.customer_id.first_name }} 
-          {{ reservation.customer_vehicle_id.customer_id.last_name }} 
+          {{ reservation.vehicleDTO.customerDTO.firstName }} 
+          {{ reservation.vehicleDTO.customerDTO.lastName }} 
         </td>
       </ng-container>
     
       <ng-container matColumnDef="parkingLotAddress">
         <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.parking_lot_id.address }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.parkingLotDTO.address }} </td>
       </ng-container>
     
       <ng-container matColumnDef="bookingTime">
         <th mat-header-cell *matHeaderCellDef> Booking Time </th>
-        <td mat-cell *matCellDef="let reservation"> {{ getFormattedDate(reservation.start_timestamp) }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ getFormattedDate(reservation.startTimestamp) }} </td>
       </ng-container>
 
       <ng-container matColumnDef="pay_for_min_hr">
         <th mat-header-cell *matHeaderCellDef> Specific Duration </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.pay_for_min_hr === 'Y' ? 'Yes' : 'No'}} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.payForMinHr === 'Y' ? 'Yes' : 'No'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="booking_for_hr">
         <th mat-header-cell *matHeaderCellDef> Hours Booked </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.booking_for_hr }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.bookingForHr }} </td>
       </ng-container>
 
       <ng-container matColumnDef="basic_parking_cost">
         <th mat-header-cell *matHeaderCellDef> Basic Cost </th>
-        <td mat-cell *matCellDef="let reservation"> $ {{ reservation.basic_parking_cost }} </td>
+        <td mat-cell *matCellDef="let reservation"> $ {{ reservation.basicParkingCost }} </td>
       </ng-container>
 
       <ng-container matColumnDef="offer_code">
         <th mat-header-cell *matHeaderCellDef> Offer Code </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.offer_code }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.offerCode }} </td>
       </ng-container>
     
       <ng-container matColumnDef="netCost">
         <th mat-header-cell *matHeaderCellDef> Net Cost </th>
-        <td mat-cell *matCellDef="let reservation"> $ {{ reservation.net_cost }} </td>
+        <td mat-cell *matCellDef="let reservation"> $ {{ reservation.netCost }} </td>
       </ng-container>
 
       <ng-container matColumnDef="is_paid">
         <th mat-header-cell *matHeaderCellDef> Paid </th>
-        <td mat-cell *matCellDef="let reservation"> {{ reservation.is_paid === 'Y' ? 'Yes' : 'No' }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.isPaid === 'Y' ? 'Yes' : 'No' }} </td>
       </ng-container>
     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

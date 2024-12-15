@@ -22,7 +22,7 @@ export class CustomerDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'first_name', 'last_name', 'contact_number', 'billing_address', 'registration_date', 'is_regular_customer'];
 
   constructor(private customerService: CustomerService, private datePipe: DatePipe, private activatedRoute: ActivatedRoute){
-    this.customerId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.customerId = this.activatedRoute.snapshot.queryParamMap.get('customerId');
   }
 
   ngOnInit(): void {
@@ -33,7 +33,6 @@ export class CustomerDetailsComponent implements OnInit{
     if(this.customerId) {
       this.customerService.getCustomerById(this.customerId).subscribe((res) => {
         this.customers = res;
-        console.log("After Service", this.customers)
       })
     }
   }

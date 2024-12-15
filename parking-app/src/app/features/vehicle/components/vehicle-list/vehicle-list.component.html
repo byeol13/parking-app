@@ -6,29 +6,29 @@
  
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let vehicle">{{ vehicle.id }}</td>
+    <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleId }}</td>
   </ng-container>
 
   <ng-container matColumnDef="vehicle_number">
     <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
-    <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicle_number }}</td>
+    <td mat-cell *matCellDef="let vehicle">{{ vehicle.vehicleNumber }}</td>
   </ng-container>
 
   <ng-container matColumnDef="first_name">
     <th mat-header-cell *matHeaderCellDef> Owner First Name </th>
-    <td mat-cell *matCellDef="let vehicle">{{ vehicle.customer_id.first_name }}</td>
+    <td mat-cell *matCellDef="let vehicle">{{ vehicle.customerDTO.firstName }}</td>
   </ng-container>
 
   <ng-container matColumnDef="last_name">
     <th mat-header-cell *matHeaderCellDef> Owner Last  Name </th>
-    <td mat-cell *matCellDef="let vehicle">{{ vehicle.customer_id.last_name }}</td>
+    <td mat-cell *matCellDef="let vehicle">{{ vehicle.customerDTO.lastName }}</td>
   </ng-container>
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let vehicle">
-      <button mat-stroked-button (click)="viewDetails(vehicle.id)">View More</button>
-      <button mat-stroked-button (click)="openDeleteDialog(vehicle.id)">Delete</button>
+      <button mat-stroked-button (click)="viewDetails(vehicle.vehicleId)">View More</button>
+      <button mat-stroked-button (click)="openDeleteDialog(vehicle.vehicleId)">Delete</button>
     </td>
   </ng-container>
 

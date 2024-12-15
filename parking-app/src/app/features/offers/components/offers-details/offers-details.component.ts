@@ -21,7 +21,7 @@ export class OffersDetailsComponent implements OnInit{
   displayedColumns: string[] = ['offer_code', 'issued_on', 'valid_till', 'booking_date_from', 'booking_date_till', 'discount_in_percent', 'max_amount_offer', 'discount_in_amount', 'parking_lot_address', 'parking_lot_zip'];
 
   constructor(private offersService: OffersService, private activatedRoute: ActivatedRoute){
-    this.offerId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.offerId = this.activatedRoute.snapshot.queryParamMap.get('offerId');
   }
 
   ngOnInit(): void {

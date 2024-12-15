@@ -22,7 +22,7 @@ export class ParkingPricingDetailsComponent implements OnInit{
   displayedColumns: string[] = ['id', 'parking_lot_address', 'zip', 'operating_company', 'day_of_week', 'morning_hr_cost', 'midday_hr_cost', 'evening_hr_cost', 'all_day_cost'];
 
   constructor(private parkingPricingService: ParkingPricingService, private activatedRoute: ActivatedRoute){
-    this.parkingPricingId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.parkingPricingId = this.activatedRoute.snapshot.queryParamMap.get('parkingPricingId');
   }
 
   ngOnInit(): void {

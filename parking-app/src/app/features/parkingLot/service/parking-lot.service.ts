@@ -8,19 +8,19 @@ import { ParkingLot } from '../../../shared/models/ParkingLot.model';
 })
 export class ParkingLotService {
 
-  private apiUrl = `http://localhost:3000/parking_lot`;
+  private apiUrl = `http://localhost:8080/parking-lot`;
 
   constructor(private http: HttpClient) { }
 
   getAllParkingLots(): Observable<ParkingLot[]> {
-    return this.http.get<ParkingLot[]>(this.apiUrl);
+    return this.http.get<ParkingLot[]>(`${this.apiUrl}/getAllParkingLots`);
   }
 
   getParkingLotById(id: number): Observable<ParkingLot> {
-    return this.http.get<ParkingLot>(`${this.apiUrl}/${id}`);
+    return this.http.get<ParkingLot>(`${this.apiUrl}/getParkingLotById?parkingLotId=${id}`);
   }
 
   deleteParkingLotById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteParkingLot/${id}`);
   }
 }

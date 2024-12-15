@@ -4,7 +4,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { ParkingLotService } from '../../service/parking-lot.service';
 import { ParkingLot } from '../../../../shared/models/ParkingLot.model';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ParkingLotDeleteComponent } from '../parking-lot-delete/parking-lot-delete.component';
@@ -36,7 +35,7 @@ export class ParkingLotListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/parkingLot`, id]);
+    this.router.navigate(['/parkingLot'], { queryParams: { parkingLotId: id } });
   }
 
   openDeleteDialog(id: number) {

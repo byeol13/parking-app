@@ -40,7 +40,7 @@ export class ParkingPricingListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/parkingPricing`, id]);
+    this.router.navigate([`/parkingPricing`], {queryParams: { parkingPricingId: id }});
   }
 
   openDeleteDialog(id: number) {

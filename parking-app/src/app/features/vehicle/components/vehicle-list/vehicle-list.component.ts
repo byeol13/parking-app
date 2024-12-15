@@ -35,7 +35,7 @@ export class VehicleListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/vehicle`, id]);
+    this.router.navigate([`/vehicle`], {queryParams: { vehicleId: id }});
   }
 
   openDeleteDialog(id: number) {

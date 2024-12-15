@@ -8,19 +8,19 @@ import { Offer } from '../../../shared/models/Offer.model';
 })
 export class OffersService {
 
-  private apiUrl = `http://localhost:3000/offers`;
+  private apiUrl = `http://localhost:8080/offers`;
 
   constructor(private http: HttpClient) { }
 
   getAllOffers(): Observable<Offer[]> {
-    return this.http.get<Offer[]>(this.apiUrl);
+    return this.http.get<Offer[]>(`${this.apiUrl}/getAllOffers`);
   }
 
   getOfferById(id: number): Observable<Offer> {
-    return this.http.get<Offer>(`${this.apiUrl}/${id}`);
+    return this.http.get<Offer>(`${this.apiUrl}/getOfferById?offerId=${id}`);
   }
 
   deleteOfferById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteOffer/${id}`);
   }
 }

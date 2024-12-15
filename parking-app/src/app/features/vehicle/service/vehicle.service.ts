@@ -8,19 +8,19 @@ import { Vehicle } from '../../../shared/models/Vehicle.model';
 })
 export class VehicleService {
 
-  private apiUrl = `http://localhost:3000/vehicle`;
+  private apiUrl = `http://localhost:8080/vehicles`;
 
   constructor(private http: HttpClient) { }
 
   getAllVehicles(): Observable<Vehicle[]> {
-    return this.http.get<Vehicle[]>(this.apiUrl);
+    return this.http.get<Vehicle[]>(`${this.apiUrl}/getAllVehicles`);
   }
 
   getVehicleById(id: number): Observable<Vehicle> {
-    return this.http.get<Vehicle>(`${this.apiUrl}/${id}`);
+    return this.http.get<Vehicle>(`${this.apiUrl}/getVehicleById?vehicleId=${id}`);
   }
 
   deleteVehicleById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteVehicle/${id}`);
   }
 }

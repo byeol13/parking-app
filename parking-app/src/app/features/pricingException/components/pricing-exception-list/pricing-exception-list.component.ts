@@ -35,7 +35,7 @@ export class PricingExceptionListComponent implements OnInit{
   }
 
   viewDetails(id: number) {
-    this.router.navigate([`/pricingException`, id]);
+    this.router.navigate([`/pricingException`], {queryParams: { pricingExceptionId: id }});
   }
 
   openDeleteDialog(id: number) {

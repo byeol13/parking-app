@@ -8,19 +8,19 @@ import { ParkingMonthlyPass } from '../../../shared/models/ParkingMonthlyPass.mo
 })
 export class ParkingMonthlyPassService {
 
-  private apiUrl = `http://localhost:3000/parking_monthly_pass`;
+  private apiUrl = `http://localhost:8080/parkingMonthlyPass`;
 
   constructor(private http: HttpClient) { }
 
   getAllParkingMonthlyPasses(): Observable<ParkingMonthlyPass[]> {
-    return this.http.get<ParkingMonthlyPass[]>(this.apiUrl);
+    return this.http.get<ParkingMonthlyPass[]>(`${this.apiUrl}/getAllMonthlyPasses`);
   }
 
   getParkingMonthlyPassById(id: number): Observable<ParkingMonthlyPass> {
-    return this.http.get<ParkingMonthlyPass>(`${this.apiUrl}/${id}`);
+    return this.http.get<ParkingMonthlyPass>(`${this.apiUrl}/getMonthlyPassById?monthlyPassId=${id}`);
   }
 
   deleteParkingMonthlyPassById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deleteMonthlyPass/${id}`);
   }
 }

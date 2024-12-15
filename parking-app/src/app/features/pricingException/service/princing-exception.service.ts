@@ -8,20 +8,20 @@ import { PricingException } from '../../../shared/models/PricingException.model'
 })
 export class PrincingExceptionService {
 
-  private apiUrl = `http://localhost:3000/pricing_exception`;
+  private apiUrl = `http://localhost:8080/pricingException`;
 
   constructor(private http: HttpClient) { }
 
   getAllPricingExceptions(): Observable<PricingException[]> {
-    return this.http.get<PricingException[]>(this.apiUrl);
+    return this.http.get<PricingException[]>(`${this.apiUrl}/getAllPricingExceptions`);
   }
 
   getPricingExceptionById(id: number): Observable<PricingException> {
-    return this.http.get<PricingException>(`${this.apiUrl}/${id}`);
+    return this.http.get<PricingException>(`${this.apiUrl}/getPricingExceptionById?pricingExceptionId=${id}`);
   }
 
   deletePricingExceptionById(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/deletePricingException/${id}`);
   }
 
 }
