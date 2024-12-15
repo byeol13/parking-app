@@ -239,13 +239,13 @@ LOCK TABLES `payment_method` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `pricing_exeption`
+-- Table structure for table `pricing_exception`
 --
 
-DROP TABLE IF EXISTS `pricing_exeption`;
+DROP TABLE IF EXISTS `pricing_exception`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pricing_exeption` (
+CREATE TABLE `pricing_exception` (
   `id` int NOT NULL AUTO_INCREMENT,
   `parking_lot_id` int DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -255,17 +255,17 @@ CREATE TABLE `pricing_exeption` (
   `all_day_cost` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `parking_lot_id` (`parking_lot_id`),
-  CONSTRAINT `pricing_exeption_ibfk_1` FOREIGN KEY (`parking_lot_id`) REFERENCES `parking_lot` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `pricing_exception_ibfk_1` FOREIGN KEY (`parking_lot_id`) REFERENCES `parking_lot` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pricing_exeption`
+-- Dumping data for table `pricing_exception`
 --
 
-LOCK TABLES `pricing_exeption` WRITE;
-/*!40000 ALTER TABLE `pricing_exeption` DISABLE KEYS */;
-/*!40000 ALTER TABLE `pricing_exeption` ENABLE KEYS */;
+LOCK TABLES `pricing_exception` WRITE;
+/*!40000 ALTER TABLE `pricing_exception` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pricing_exception` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
