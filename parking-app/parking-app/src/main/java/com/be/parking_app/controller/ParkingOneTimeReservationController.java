@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/vehicles")
+@RequestMapping("/parkingOneTimeReservations")
 public class ParkingOneTimeReservationController {
 
     @Autowired

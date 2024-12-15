@@ -18,7 +18,7 @@ public class PaymentMethodController {
     @Autowired
     private PaymentMethodServiceImpl service;
 
-    @GetMapping("/getALlPaymentMethods")
+    @GetMapping("/getAllPaymentMethods")
     private List<PaymentMethodDTO> getAllPaymentMethods() {
         return service.getAllPaymentMethodData();
     }

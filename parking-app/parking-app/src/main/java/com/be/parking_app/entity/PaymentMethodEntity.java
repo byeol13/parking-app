@@ -18,7 +18,7 @@ public class PaymentMethodEntity {
     private String cardType;
 
     @Column(name = "card_number", nullable = true, unique = false)
-    private Integer cardNumber;
+    private Long cardNumber;
 
     @Column(name = "expiry_month", nullable = true, unique = false)
     private Integer expiryMonth;

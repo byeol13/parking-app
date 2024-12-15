@@ -7,7 +7,7 @@ import lombok.Setter;
 public class PaymentMethodDTO {
     private Integer paymentMethodId;
     private String cardType;
-    private Integer cardNumber;
+    private Long cardNumber;
     private Integer expiryMonth;
     private Integer expiryYear;
     private Integer securityCode;
