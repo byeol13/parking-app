@@ -5,7 +5,7 @@ import { ParkingLot } from '../../../shared/models/ParkingLot.model';
 
 @Injectable({
   providedIn: 'root'
-})
+})  
 export class ParkingLotService {
 
   private apiUrl = `http://localhost:8080/parking-lot`;
@@ -22,5 +22,9 @@ export class ParkingLotService {
 
   deleteParkingLotById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteParkingLot/${id}`);
+  }
+
+  addParkingLot(parkingLot: ParkingLot): Observable<ParkingLot> {
+    return this.http.post<ParkingLot>(`${this.apiUrl}/newParkingLot`, parkingLot);
   }
 }

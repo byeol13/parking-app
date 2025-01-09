@@ -17,6 +17,8 @@ import { ParkingPricingDetailsComponent } from './features/parkingPricing/compon
 import { PricingExceptionDetailsComponent } from './features/pricingException/components/pricing-exception-details/pricing-exception-details.component';
 import { ParkingOneTimeResDetailsComponent } from './features/parkingOneTimeReservation/components/parking-one-time-res-details/parking-one-time-res-details.component';
 import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPass/components/parking-monthly-pass-details/parking-monthly-pass-details.component';
+import { ReservationsMenuComponent } from './features/reservations/components/reservations-menu/reservations-menu.component';
+import { AddParkingLotComponent } from './features/parkingLot/components/add-parking-lot/add-parking-lot.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -25,9 +27,10 @@ export const routes: Routes = [
   {path: 'offers', component: OffersDetailsComponent},
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
   {path: 'parkingLot', component: ParkingLotDetailsComponent},
-  {path: 'dashboard/parkingMonthlyPass', component: ParkingMonthlyPassListComponent},
+  {path: 'addParkingLot', component: AddParkingLotComponent},
+  {path: 'parkingMonthlyPassList', component: ParkingMonthlyPassListComponent},
   {path: 'parkingMonthlyPass', component: ParkingMonthlyPassDetailsComponent},
-  {path: 'dashboard/parkingOneTimeReservation', component: ParkingOneTimeResListComponent},
+  {path: 'parkingOneTimeReservationList', component: ParkingOneTimeResListComponent},
   {path: 'parkingOneTimeReservation', component: ParkingOneTimeResDetailsComponent},
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
   {path: 'parkingPricing', component: ParkingPricingDetailsComponent},
@@ -36,5 +39,6 @@ export const routes: Routes = [
   {path: 'dashboard/pricingException', component: PricingExceptionListComponent},
   {path: 'pricingException', component: PricingExceptionDetailsComponent},
   {path: 'dashboard/vehicle', component: VehicleListComponent},
-  {path: 'vehicle', component: VehicleDetailsComponent}
+  {path: 'vehicle', component: VehicleDetailsComponent},
+  {path: 'dashboard/reservationsMenu', component: ReservationsMenuComponent}
 ];

@@ -4,14 +4,14 @@ import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { ParkingLotService } from '../../service/parking-lot.service';
 import { ParkingLot } from '../../../../shared/models/ParkingLot.model';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ParkingLotDeleteComponent } from '../parking-lot-delete/parking-lot-delete.component';
 
 @Component({
   selector: 'app-parking-lot-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingLotDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingLotDeleteComponent, RouterModule],
   templateUrl: './parking-lot-list.component.html',
   styleUrl: './parking-lot-list.component.css'
 })

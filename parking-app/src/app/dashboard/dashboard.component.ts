@@ -17,15 +17,16 @@ import { RouterModule } from '@angular/router';
 export class DashboardComponent {
 
   routes: {path: string, label: string}[] = [
-    {path: '/dashboard/customer', label: 'Customer'},
-    {path: '/dashboard/vehicle', label: 'Vehicles'},
-    {path: '/dashboard/parkingLot', label: 'Parking Lot'},
-    {path: '/dashboard/parkingMonthlyPass', label: 'Parking Monthly Pass'},
-    {path: '/dashboard/parkingOneTimeReservation', label: 'One Time Reservation'},
-    {path: '/dashboard/parkingPricing', label: 'Parking Pricing'},
-    {path: '/dashboard/paymentMethod', label: 'Payment Method'},
-    {path: '/dashboard/pricingException', label: 'Pricing Exceptions'},
+    {path: '/dashboard/parkingLot', label: 'Parking Lots Management'},
     {path: '/dashboard/offers', label: 'Offers'},
+    {path: '/dashboard/customer', label: 'Customers Management'},
+    {path: '/dashboard/reservationsMenu', label: 'Reservations'}
+    // {path: '/dashboard/vehicle', label: 'Vehicles'},
+    // {path: '/dashboard/parkingMonthlyPass', label: 'Parking Monthly Pass'},
+    // {path: '/dashboard/parkingOneTimeReservation', label: 'One Time Reservation'}
+    // {path: '/dashboard/parkingPricing', label: 'Parking Pricing'},
+    // {path: '/dashboard/paymentMethod', label: 'Payment Method'},
+    // {path: '/dashboard/pricingException', label: 'Pricing Exceptions'}
   ]
 
 }
