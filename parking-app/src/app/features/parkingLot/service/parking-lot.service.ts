@@ -27,4 +27,8 @@ export class ParkingLotService {
   addParkingLot(parkingLot: ParkingLot): Observable<ParkingLot> {
     return this.http.post<ParkingLot>(`${this.apiUrl}/newParkingLot`, parkingLot);
   }
+
+  updateParkingLot(parkingLot: ParkingLot): Observable<ParkingLot> {
+    return this.http.put<ParkingLot>(`${this.apiUrl}/updateParkingLot`, parkingLot);
+  }
 }

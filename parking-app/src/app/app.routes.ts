@@ -1,3 +1,4 @@
+import { UpdateParkingLotComponent } from './features/parkingLot/components/update-parking-lot/update-parking-lot.component';
 import { Routes } from '@angular/router';
 import { CustomerListComponent } from './features/customer/components/customer-list/customer-list.component';
 import { OffersListComponent } from './features/offers/components/offers-list/offers-list.component';
@@ -28,6 +29,7 @@ export const routes: Routes = [
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
   {path: 'parkingLot', component: ParkingLotDetailsComponent},
   {path: 'addParkingLot', component: AddParkingLotComponent},
+  {path: 'updateParkingLot/:parkingLotId', component: UpdateParkingLotComponent},
   {path: 'parkingMonthlyPassList', component: ParkingMonthlyPassListComponent},
   {path: 'parkingMonthlyPass', component: ParkingMonthlyPassDetailsComponent},
   {path: 'parkingOneTimeReservationList', component: ParkingOneTimeResListComponent},

@@ -41,7 +41,7 @@ export class AddParkingLotComponent {
 
     this.parkingLotForm.get('monthlyPassCost')?.disable();
 
-    this.parkingLotForm.get('isMonthlyPassAllow')?.valueChanges.subscribe(value => {
+    this.parkingLotForm.get('isMonthlyPassAllow')?.valueChanges.subscribe((value) => {
       if (value === 'Y') {
         this.parkingLotForm.get('monthlyPassCost')?.enable();
       } else {

@@ -35,6 +35,7 @@
     <td mat-cell *matCellDef="let parkingLot">
       <button mat-stroked-button (click)="viewDetails(parkingLot.parkingLotId)">View More</button>
       <button mat-stroked-button (click)="openDeleteDialog(parkingLot.parkingLotId)">Delete</button>
+      <button mat-stroked-button [routerLink]="['/updateParkingLot', parkingLot.parkingLotId]">Edit</button>
     </td>
   </ng-container>
 
