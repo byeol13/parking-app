@@ -38,7 +38,7 @@ export class ParkingPricingListComponent implements OnInit{
   showDeleteDialog = false;
   parkingPricingIdToDelete: number | undefined;
 
-  constructor(private parkingPricingService: ParkingPricingService, private activatedRoute: ActivatedRoute, private fb: FormBuilder, private dialog: MatDialog){}
+  constructor(private parkingPricingService: ParkingPricingService, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
 
   ngOnInit(): void {
     this.parkingLotId = +this.activatedRoute.snapshot.paramMap.get('parkingLotId')!;
@@ -57,7 +57,7 @@ export class ParkingPricingListComponent implements OnInit{
 
   toggleAddPricing() {
     const dialogRef = this.dialog.open(AddParkingPricingComponent, {
-      width: '550px',
+      width: '550px'
     });
 
     dialogRef.afterClosed().subscribe((res) => {
@@ -125,7 +125,7 @@ export class ParkingPricingListComponent implements OnInit{
         });
 
       }
-    })
+    });
   }
 
 }

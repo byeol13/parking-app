@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-title>Add Pricing Exception</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="addPricingExceptionForm">
+
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="exceptionDatePicker" formControlName="date"/>
+        <mat-datepicker-toggle matSuffix [for]="exceptionDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #exceptionDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Morning Hour Cost</mat-label>
+        <input matInput type="number" formControlName="morningHrCost" placeholder="Enter morning cost">
+        <mat-error *ngIf="addPricingExceptionForm.get('morningHrCost')?.invalid">Valid cost is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Midday Hour Cost</mat-label>
+        <input matInput type="number" formControlName="middayHrCost" placeholder="Enter midday cost">
+        <mat-error *ngIf="addPricingExceptionForm.get('middayHrCost')?.invalid">Valid cost is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Evening Hour Cost</mat-label>
+        <input matInput type="number" formControlName="eveningHrCost" placeholder="Enter evening cost">
+        <mat-error *ngIf="addPricingExceptionForm.get('eveningHrCost')?.invalid">Valid cost is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>All Day Cost</mat-label>
+        <input matInput type="number" formControlName="allDayCost" placeholder="Enter all-day cost">
+        <mat-error *ngIf="addPricingExceptionForm.get('allDayCost')?.invalid">Valid cost is required</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+      <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+    </form>
+  </mat-card-content>
+</mat-card>

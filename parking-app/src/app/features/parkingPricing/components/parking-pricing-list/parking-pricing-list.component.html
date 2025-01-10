@@ -9,6 +9,7 @@
 </mat-card>
 
 <table mat-table *ngIf="parkingPricing.length > 0" [dataSource]="parkingPricing" class="mat-elevation-z8">
+
   <ng-container matColumnDef="dayOfWeek">
     <th mat-header-cell *matHeaderCellDef> Day of Week </th>
     <td mat-cell *matCellDef="let pricing"> {{getDayName(pricing.dayOfWeek)}} </td>

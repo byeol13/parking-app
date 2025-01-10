@@ -34,7 +34,7 @@
     <th mat-header-cell *matHeaderCellDef> Manage </th>
     <td mat-cell *matCellDef="let parkingLot">
       <button mat-stroked-button [routerLink]="['/currentParkingPricing', parkingLot.parkingLotId]">Pricings</button>
-      <button mat-stroked-button>Pricing Exception</button>
+      <button mat-stroked-button [routerLink]="['/pricingException', parkingLot.parkingLotId]">Pricing Exception</button>
     </td>
   </ng-container>
 

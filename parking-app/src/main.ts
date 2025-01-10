@@ -10,12 +10,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { routes } from './app/app.routes';
 import { DatePipe } from '@angular/common';
+import { MatNativeDateModule } from '@angular/material/core';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
     provideHttpClient(), 
-    importProvidersFrom(MatSidenavModule, MatToolbarModule, MatListModule), 
+    importProvidersFrom(MatSidenavModule, MatToolbarModule, MatListModule, MatNativeDateModule), 
     provideAnimationsAsync(),
     DatePipe,
   ]

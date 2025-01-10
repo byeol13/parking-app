@@ -3,15 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PrincingExceptionService } from '../../service/princing-exception.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { PricingExceptionDeleteComponent } from '../pricing-exception-delete/pricing-exception-delete.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
+import { AddPricingExceptionComponent } from '../add-pricing-exception/add-pricing-exception.component';
+import { AddPricingExceptionDialogComponent } from '../add-pricing-exception-dialog/add-pricing-exception-dialog.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-pricing-exception-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, PricingExceptionDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, PricingExceptionDeleteComponent, MatCardModule],
   templateUrl: './pricing-exception-list.component.html',
   styleUrl: './pricing-exception-list.component.css'
 })
@@ -19,23 +24,22 @@ export class PricingExceptionListComponent implements OnInit{
 
   pricingExceptionIdToDelete: number | undefined;
   pricingExceptions: PricingException[] = [];
-  displayedColumns: string[] = ['id', 'parking_lot_address', 'date', 'morning_hr_cost', 'midday_hr_cost', 'evening_hr_cost', 'all_day_cost', 'actions'];
+  displayedColumns: string[] = ['id', 'date', 'morning_hr_cost', 'midday_hr_cost', 'evening_hr_cost', 'all_day_cost', 'actions'];
+  parkingLotId: any;
   showDeleteDialog = false;
+  noPricingExceptionMessage: string = "No pricing exceptions available for this parking lot"
 
-  constructor(private pricingExceptionService: PrincingExceptionService, private router: Router){}
+  constructor(private pricingExceptionService: PrincingExceptionService, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
 
   ngOnInit(): void {
-   this.loadAllPricingExceptions(); 
+    this.parkingLotId = +this.activatedRoute.snapshot.paramMap.get('parkingLotId')!;
+    this.loadPricingExceptions(); 
   }
 
-  loadAllPricingExceptions() {
-    this.pricingExceptionService.getAllPricingExceptions().subscribe((res) => {
-      this.pricingExceptions = res;
-    })
-  }
-
-  viewDetails(id: number) {
-    this.router.navigate([`/pricingException`], {queryParams: { pricingExceptionId: id }});
+  loadPricingExceptions() {
+    this.pricingExceptionService.getAllPricingExceptions().subscribe((res: PricingException[]) => {
+      this.pricingExceptions = res.filter(pricingException => pricingException.parkingLotDTO.parkingLotId === this.parkingLotId);
+    });
   }
 
   openDeleteDialog(id: number) {
@@ -45,13 +49,41 @@ export class PricingExceptionListComponent implements OnInit{
 
   deletePricingExceptionById(id: number) {
     this.pricingExceptionService.deletePricingExceptionById(id).subscribe(() => {
-      this.loadAllPricingExceptions();
+      this.loadPricingExceptions();
       this.showDeleteDialog = false;
     })
   }
 
   cancel() {
     this.showDeleteDialog = false;
+  }
+
+  toggleAddPricingException() {
+    const addDialog = this.dialog.open(AddPricingExceptionComponent, {
+      width: '550px'
+    });
+
+    addDialog.afterClosed().subscribe((res) => {
+      if(res) {
+        const newPricingException = {
+          ...res,
+          parkingLotDTO: {
+            parkingLotId: this.parkingLotId
+          }
+        };
+
+        this.pricingExceptionService.addPricingException(newPricingException).subscribe(() => {
+
+          const successfulMessage = this.dialog.open(AddPricingExceptionDialogComponent, {
+            width: '400px', height: '200px'
+          });
+
+          successfulMessage.afterClosed().subscribe(() => {
+            this.loadPricingExceptions();
+          })
+        });
+      }
+    });
   }
 
 }

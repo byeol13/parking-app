@@ -24,4 +24,8 @@ export class PrincingExceptionService {
     return this.http.delete<void>(`${this.apiUrl}/deletePricingException/${id}`);
   }
 
+  addPricingException(pricingException: PricingException): Observable<PricingException> {
+    return this.http.post<PricingException>(`${this.apiUrl}/newPricingException`, pricingException);
+  }
+
 }
