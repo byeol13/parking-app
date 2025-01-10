@@ -23,4 +23,8 @@ export class ParkingPricingService {
   deleteParkingPricingById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteParkingPricing/${id}`);
   }
+
+  addParkingPricing(parkingPricing: ParkingPricing): Observable<ParkingPricing> {
+    return this.http.post<ParkingPricing>(`${this.apiUrl}/newParkingPricing`, parkingPricing);
+  }
 }

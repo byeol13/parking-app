@@ -19,7 +19,7 @@ export class ParkingLotListComponent implements OnInit{
 
   parkingLotIdToDelete: number | undefined;
   parkingLots: ParkingLot[] = [];
-  displayedColumns: string[] = ['id', 'number_of_blocks', 'is_slot_available', 'address', 'minimum_hr_to_pay', 'actions'];
+  displayedColumns: string[] = ['id', 'number_of_blocks', 'is_slot_available', 'address', 'minimum_hr_to_pay', 'manage', 'actions'];
   showDeleteDialog = false;
 
   constructor(private parkingLotService: ParkingLotService, private router: Router){}
