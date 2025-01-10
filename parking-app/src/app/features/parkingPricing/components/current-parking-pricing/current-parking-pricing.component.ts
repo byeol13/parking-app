@@ -15,11 +15,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialog } from '@angular/material/dialog';
 import { AddParkingLotDialogComponent } from '../../../parkingLot/components/add-parking-lot-dialog/add-parking-lot-dialog.component';
 import { AddParkingPricingDialogComponent } from '../add-parking-pricing-dialog/add-parking-pricing-dialog.component';
+import { ParkingPricingDeleteComponent } from '../parking-pricing-delete/parking-pricing-delete.component';
 
 @Component({
   selector: 'app-current-parking-pricing',
   standalone: true,
-  imports: [MatTableModule, MatCardModule, CommonModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatOptionModule, MatSelectModule, ReactiveFormsModule, MatInputModule],
+  imports: [MatTableModule, MatCardModule, CommonModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatOptionModule, MatSelectModule, ReactiveFormsModule, MatInputModule, ParkingPricingDeleteComponent],
   templateUrl: './current-parking-pricing.component.html',
   styleUrl: './current-parking-pricing.component.css'
 })
@@ -32,6 +33,8 @@ export class CurrentParkingPricingComponent implements OnInit{
 
   dayOfWeekNames: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   isAddingPricing = false;
+  showDeleteDialog = false;
+  parkingPricingIdToDelete: number | undefined;
 
   addPricingForm: FormGroup;
 
@@ -92,5 +95,21 @@ export class CurrentParkingPricingComponent implements OnInit{
   onCancel() {
     this.isAddingPricing = false;  
     this.addPricingForm.reset(); 
+  }
+
+  openDeleteDialog(id: number) {
+    this.parkingPricingIdToDelete = id;
+    this.showDeleteDialog = true;
+  }
+
+  deleteParkingPricingById(id: number) {
+    this.parkingPricingService.deleteParkingPricingById(id).subscribe(() => {
+      this.loadParkingPricing();
+      this.showDeleteDialog = false;
+    });
+  }
+
+  onCancelDelete() {
+    this.showDeleteDialog = false;
   }
 }

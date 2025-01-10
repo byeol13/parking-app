@@ -51,9 +51,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-<app-parking-pricing-delete *ngIf="showDeleteDialog"
-                            [parkingPricingId]="parkingPricingIdToDelete"
-                            (delete)="deleteParkingPricingById($event)"
-                            (cancelDelete)="cancelDelete()">
-</app-parking-pricing-delete>

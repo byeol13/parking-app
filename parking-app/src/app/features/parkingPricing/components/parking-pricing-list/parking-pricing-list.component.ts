@@ -11,7 +11,7 @@ import { ParkingPricingDeleteComponent } from '../parking-pricing-delete/parking
 @Component({
   selector: 'app-parking-pricing-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingPricingDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule],
   templateUrl: './parking-pricing-list.component.html',
   styleUrl: './parking-pricing-list.component.css'
 })

@@ -36,9 +36,9 @@
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let parkingLot">
+    <td mat-cell *matCellDef="let pricing">
       <button mat-stroked-button>Edit</button>
-      <button mat-stroked-button>Delete</button>
+      <button mat-stroked-button (click)="openDeleteDialog(pricing.parkingPricingId)">Delete</button>
     </td>
   </ng-container>
 
@@ -95,3 +95,9 @@
     </mat-card-content>
   </mat-card>  
 </div>
+
+<app-parking-pricing-delete *ngIf="showDeleteDialog"
+                            [parkingPricingId]="parkingPricingIdToDelete"
+                            (delete)="deleteParkingPricingById($event)"
+                            (cancelDelete)="onCancelDelete()">
+</app-parking-pricing-delete>
