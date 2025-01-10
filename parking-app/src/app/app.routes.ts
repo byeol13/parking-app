@@ -19,6 +19,7 @@ import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPas
 import { ReservationsMenuComponent } from './features/reservations/components/reservations-menu/reservations-menu.component';
 import { AddParkingLotComponent } from './features/parkingLot/components/add-parking-lot/add-parking-lot.component';
 import { AddParkingPricingComponent } from './features/parkingPricing/components/add-parking-pricing/add-parking-pricing.component';
+import { UpdateParkingPricingComponent } from './features/parkingPricing/components/update-parking-pricing/update-parking-pricing.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -36,7 +37,8 @@ export const routes: Routes = [
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
   // {path: 'parkingPricing', component: ParkingPricingDetailsComponent},
   {path: 'currentParkingPricing/:parkingLotId', component: ParkingPricingListComponent},
-  {path: 'addParkingPricing', component: AddParkingPricingComponent},
+  // {path: 'addParkingPricing', component: AddParkingPricingComponent},
+  {path: 'updateParkingPricing/:parkingPricingId', component: UpdateParkingPricingComponent},
   {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
   {path: 'dashboard/pricingException', component: PricingExceptionListComponent},
   {path: 'pricingException', component: PricingExceptionDetailsComponent},

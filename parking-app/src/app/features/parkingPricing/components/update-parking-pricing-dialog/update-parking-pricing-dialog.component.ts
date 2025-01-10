@@ -4,18 +4,17 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-add-parking-pricing-dialog',
+  selector: 'app-update-parking-pricing-dialog',
   standalone: true,
   imports: [MatIconModule, MatButtonModule],
-  templateUrl: './add-parking-pricing-dialog.component.html',
-  styleUrl: './add-parking-pricing-dialog.component.css'
+  templateUrl: './update-parking-pricing-dialog.component.html',
+  styleUrl: './update-parking-pricing-dialog.component.css'
 })
-export class AddParkingPricingDialogComponent {
+export class UpdateParkingPricingDialogComponent {
 
-  constructor(private dialogRef: MatDialogRef<AddParkingPricingDialogComponent>){}
+  constructor(private dialogRef: MatDialogRef<UpdateParkingPricingDialogComponent>){}
 
   onOkay() {
     this.dialogRef.close();
   }
-
 }

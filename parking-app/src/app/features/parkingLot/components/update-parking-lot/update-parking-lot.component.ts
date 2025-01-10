@@ -92,7 +92,7 @@ export class UpdateParkingLotComponent implements OnInit{
         operationalInNight: this.parkingLotForm.get('operationalInNight')?.value,
         minimumHrToPay: this.parkingLotForm.get('minimumHrToPay')?.value,
         isMonthlyPassAllow: this.parkingLotForm.get('isMonthlyPassAllow')?.value,
-        monthlyPassCost: this.parkingLotForm.get('monthlyPassCost')?.value,
+        monthlyPassCost: this.parkingLotForm.get('monthlyPassCost')?.value
       };
 
       this.parkingLotService.updateParkingLot(updatedParkingLot).subscribe(() => {

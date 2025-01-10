@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ParkingPricing } from '../../../shared/models/ParkingPricing.model';
+import { ParkingLot } from '../../../shared/models/ParkingLot.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,9 @@ export class ParkingPricingService {
 
   addParkingPricing(parkingPricing: ParkingPricing): Observable<ParkingPricing> {
     return this.http.post<ParkingPricing>(`${this.apiUrl}/newParkingPricing`, parkingPricing);
+  }
+
+  updateParkingPricing(parkingPricing: ParkingPricing): Observable<ParkingPricing> {
+    return this.http.put<ParkingPricing>(`${this.apiUrl}/updateParkingPricing`, parkingPricing);
   }
 }
