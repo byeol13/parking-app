@@ -4,15 +4,15 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'app-add-parking-lot-dialog',
+  selector: 'app-add-customer-dialog',
   standalone: true,
   imports: [MatIconModule, MatButtonModule],
-  templateUrl: './add-parking-lot-dialog.component.html',
-  styleUrl: './add-parking-lot-dialog.component.css'
+  templateUrl: './add-customer-dialog.component.html',
+  styleUrl: './add-customer-dialog.component.css'
 })
-export class AddParkingLotDialogComponent {
+export class AddCustomerDialogComponent {
 
-  constructor(private dialogRef: MatDialogRef<AddParkingLotDialogComponent>){}
+  constructor(private dialogRef: MatDialogRef<AddCustomerDialogComponent>){}
 
   onConfirm() {
     this.dialogRef.close('confirm');

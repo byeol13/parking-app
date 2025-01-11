@@ -1,0 +1,57 @@
+<mat-toolbar>
+  <span>New Customer</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="addCustomerForm">
+
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" placeholder="Enter First Name">
+        <mat-error *ngIf="addCustomerForm.get('firstName')?.invalid">First name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName" placeholder="Enter Last Name">
+        <mat-error *ngIf="addCustomerForm.get('lastName')?.invalid">Last name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Billing Address</mat-label>
+        <input matInput formControlName="billingAddress" placeholder="Enter Billing Address">
+        <mat-error *ngIf="addCustomerForm.get('billingAddress')?.invalid">Billing address is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contact Number</mat-label>
+        <input matInput type="number" formControlName="contactNumber" placeholder="Enter Contact Number">
+        <mat-error *ngIf="addCustomerForm.get('contactNumber')?.invalid">Valid contact number is required</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Registration Date</mat-label>
+        <input matInput [matDatepicker]="registrationDatePicker" formControlName="registrationDate">
+        <mat-datepicker-toggle matSuffix [for]="registrationDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #registrationDatePicker></mat-datepicker>
+        <mat-error *ngIf="addCustomerForm.get('registrationDate')?.invalid">Registration date is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Is Regular Customer</mat-label>
+        <mat-select formControlName="isRegularCustomer">
+          <mat-option [value]="'Y'">Yes</mat-option>
+          <mat-option [value]="'N'">No</mat-option>
+        </mat-select>
+        <mat-error *ngIf="addCustomerForm.get('isRegularCustomer')?.invalid">Please select an option</mat-error>
+      </mat-form-field>
+    
+      <div class="buttons">
+        <button mat-raised-button color="primary" (click)="openConfirmationDialog()">Save</button>
+        <button mat-raised-button color="warn" (click)="goBack()">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  

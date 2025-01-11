@@ -5,13 +5,13 @@ import {MatButtonModule} from '@angular/material/button';
 import { Customer } from '../../../../shared/models/Customer.model';
 import { CustomerService } from '../../service/customer.service';
 import { CommonModule, DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CustomerDeleteComponent } from '../customer-delete/customer-delete.component';
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, CustomerDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, CustomerDeleteComponent, RouterModule],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })

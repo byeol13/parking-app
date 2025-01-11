@@ -51,7 +51,6 @@ export class AddParkingLotComponent {
   }
 
   openConfirmationDialog() {
-    console.log('Clicked');
     if(this.parkingLotForm.valid) {
       const addDialog = this.dialog.open(AddParkingLotDialogComponent, {
         width: '500px', height: '250px'

@@ -1,5 +1,6 @@
 <mat-toolbar>
   <span>Customers</span>
+  <button mat-stroked-button [routerLink]="['/addCustomer']">+ Add Customer</button>
 </mat-toolbar>
 
 <table mat-table [dataSource]="customers" class="mat-elevation-z8">

@@ -5,5 +5,5 @@ export interface Customer {
   contactNumber?: number,
   firstName: string,
   lastName: string,
-  billingAdress: string
+  billingAddress: string
 }
