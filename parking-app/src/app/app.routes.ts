@@ -17,12 +17,14 @@ import { ParkingOneTimeResDetailsComponent } from './features/parkingOneTimeRese
 import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPass/components/parking-monthly-pass-details/parking-monthly-pass-details.component';
 import { ReservationsMenuComponent } from './features/reservations/components/reservations-menu/reservations-menu.component';
 import { AddParkingLotComponent } from './features/parkingLot/components/add-parking-lot/add-parking-lot.component';
+import { AddOfferComponent } from './features/offers/components/add-offer/add-offer.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
   {path: 'customer', component: CustomerDetailsComponent},
   {path: 'dashboard/offers', component: OffersListComponent},
   {path: 'offers', component: OffersDetailsComponent},
+  {path: 'addOffer', component: AddOfferComponent},
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
   {path: 'parkingLot', component: ParkingLotDetailsComponent},
   {path: 'addParkingLot', component: AddParkingLotComponent},
@@ -35,7 +37,6 @@ export const routes: Routes = [
   {path: 'currentParkingPricing/:parkingLotId', component: ParkingPricingListComponent},
   {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
   {path: 'pricingException/:parkingLotId', component: PricingExceptionListComponent},
-  // {path: 'pricingException', component: PricingExceptionDetailsComponent},
   {path: 'dashboard/vehicle', component: VehicleListComponent},
   {path: 'vehicle', component: VehicleDetailsComponent},
   {path: 'dashboard/reservationsMenu', component: ReservationsMenuComponent}

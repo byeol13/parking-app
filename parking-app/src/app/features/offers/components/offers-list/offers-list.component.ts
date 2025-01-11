@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Offer } from '../../../../shared/models/Offer.model';
 import { OffersService } from '../../service/offers.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { OffersDeleteComponent } from '../offers-delete/offers-delete.component';
@@ -11,7 +11,7 @@ import { OffersDeleteComponent } from '../offers-delete/offers-delete.component'
 @Component({
   selector: 'app-offers-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, OffersDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, OffersDeleteComponent, RouterModule],
   templateUrl: './offers-list.component.html',
   styleUrl: './offers-list.component.css'
 })

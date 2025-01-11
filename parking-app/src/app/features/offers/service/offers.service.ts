@@ -23,4 +23,8 @@ export class OffersService {
   deleteOfferById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteOffer/${id}`);
   }
+
+  addOffer(offer: Offer): Observable<Offer> {
+    return this.http.post<Offer>(`${this.apiUrl}/newOffer`, offer);
+  }
 }
