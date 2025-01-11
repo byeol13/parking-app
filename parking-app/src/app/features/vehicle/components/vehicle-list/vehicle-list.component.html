@@ -28,6 +28,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let vehicle">
+      <button mat-stroked-button (click)="toggleUpdateVehicle(vehicle.vehicleId)">Edit</button>
       <button mat-stroked-button (click)="openDeleteDialog(vehicle.vehicleId)">Delete</button>
     </td>
   </ng-container>

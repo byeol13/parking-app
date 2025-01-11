@@ -43,8 +43,6 @@ export const routes: Routes = [
   // {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
   {path: 'paymentMethod/:customerId', component: PaymentMethodListComponent},
   {path: 'pricingException/:parkingLotId', component: PricingExceptionListComponent},
-  // {path: 'dashboard/vehicle', component: VehicleListComponent},
-  // {path: 'vehicle', component: VehicleDetailsComponent},
   {path: 'customerVehicles/:customerId', component: VehicleListComponent},
   {path: 'dashboard/reservationsMenu', component: ReservationsMenuComponent}
 ];

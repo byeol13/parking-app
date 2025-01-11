@@ -1,12 +1,17 @@
 <mat-card>
   <mat-card-title>Add Vehicle</mat-card-title>
   <mat-card-content>
-    <form [formGroup]="addVehicleForm">
+    <form [formGroup]="editVehicleForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Vehicle Id</mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Vehicle Number</mat-label>
         <input matInput formControlName="vehicleNumber" placeholder="Enter vehicle number">
-        <mat-error *ngIf="addVehicleForm.get('vehicleNumber')?.hasError('required')">
+        <mat-error *ngIf="editVehicleForm.get('vehicleNumber')?.hasError('required')">
           Vehicle number is required
         </mat-error>
       </mat-form-field>

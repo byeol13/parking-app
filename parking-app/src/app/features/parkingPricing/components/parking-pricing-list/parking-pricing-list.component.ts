@@ -123,7 +123,6 @@ export class ParkingPricingListComponent implements OnInit{
             this.loadParkingPricing(); 
           });
         });
-
       }
     });
   }

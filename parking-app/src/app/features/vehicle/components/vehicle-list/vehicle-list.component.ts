@@ -12,6 +12,8 @@ import { CustomerService } from '../../../customer/service/customer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
 import { AddVehicleDialogComponent } from '../add-vehicle-dialog/add-vehicle-dialog.component';
+import { UpdateVehicleComponent } from '../update-vehicle/update-vehicle.component';
+import { UpdateVehicleDialogComponent } from '../update-vehicle-dialog/update-vehicle-dialog.component';
 
 @Component({
   selector: 'app-vehicle-list',
@@ -92,6 +94,34 @@ export class VehicleListComponent implements OnInit{
           successfulMessage.afterClosed().subscribe(() => {
             this.loadAllVehicles();
           })
+        });
+      }
+    });
+  }
+
+  toggleUpdateVehicle(vehicleId: number) {
+    const dialogRef = this.dialog.open(UpdateVehicleComponent, {
+      width: '550px',
+      data: { vehicleId }
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        const updatedVehicle = {
+          ...res,
+          customerDTO: {
+            customerId: this.customerId
+          }
+        };
+
+        this.vehicleService.updateVehicle(updatedVehicle).subscribe(() => {
+          const successfulMessage = this.dialog.open(UpdateVehicleDialogComponent, {
+            width: '400px', height: '200px'
+          });
+
+          successfulMessage.afterClosed().subscribe(() => {
+            this.loadAllVehicles();
+          });
         });
       }
     });
