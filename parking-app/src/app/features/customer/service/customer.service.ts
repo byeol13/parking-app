@@ -1,7 +1,7 @@
+import { Customer } from './../../../shared/models/Customer.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Customer } from '../../../shared/models/Customer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,9 @@ export class CustomerService {
 
   addCustomer(customer: Customer): Observable<Customer> {
     return this.http.post<Customer>(`${this.apiUrl}/newCustomer`, customer);
+  }
+
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.http.put<Customer>(`${this.apiUrl}/updateCustomer`, customer);
   }
 }

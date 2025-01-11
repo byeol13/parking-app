@@ -20,11 +20,13 @@ import { AddParkingLotComponent } from './features/parkingLot/components/add-par
 import { AddOfferComponent } from './features/offers/components/add-offer/add-offer.component';
 import { UpdateOfferComponent } from './features/offers/components/update-offer/update-offer.component';
 import { AddCustomerComponent } from './features/customer/components/add-customer/add-customer.component';
+import { UpdateCustomerComponent } from './features/customer/components/update-customer/update-customer.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
   {path: 'customer', component: CustomerDetailsComponent},
   {path: 'addCustomer', component: AddCustomerComponent},
+  {path: 'updateCustomer/:customerId', component: UpdateCustomerComponent},
   {path: 'dashboard/offers', component: OffersListComponent},
   {path: 'offers', component: OffersDetailsComponent},
   {path: 'addOffer', component: AddOfferComponent},

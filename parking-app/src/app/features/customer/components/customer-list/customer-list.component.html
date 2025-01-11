@@ -31,6 +31,7 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let customer">
       <button mat-stroked-button (click)="viewDetails(customer.customerId)">View More</button>
+      <button mat-stroked-button [routerLink]="['/updateCustomer', customer.customerId]">Edit</button>
       <button mat-stroked-button (click)="openDeleteDialog(customer.customerId)">Delete</button>
     </td>
   </ng-container>

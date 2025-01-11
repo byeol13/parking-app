@@ -30,7 +30,7 @@ export class AddCustomerComponent {
       lastName: ['', Validators.required],
       billingAddress: ['', Validators.required],
       registrationDate: ['', Validators.required],
-      isRegularCustomer: ['', Validators.required],
+      isRegularCusto: ['', Validators.required],
       contactNumber: ['', [Validators.pattern(/^\d+$/)]]
     });
   }

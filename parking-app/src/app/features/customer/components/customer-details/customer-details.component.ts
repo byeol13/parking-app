@@ -5,13 +5,14 @@ import {MatCardModule} from '@angular/material/card';
 import { CustomerService } from '../../service/customer.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Customer } from '../../../../shared/models/Customer.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @Component({
   selector: 'app-customer-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, RouterModule, MatButtonModule],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'
 })
@@ -19,7 +20,7 @@ export class CustomerDetailsComponent implements OnInit{
 
   customerId: any;
   customers: Customer | undefined;
-  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'contact_number', 'billing_address', 'registration_date', 'is_regular_customer'];
+  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'contact_number', 'billing_address', 'registration_date', 'is_regular_customer', 'actions'];
 
   constructor(private customerService: CustomerService, private datePipe: DatePipe, private activatedRoute: ActivatedRoute){
     this.customerId = this.activatedRoute.snapshot.queryParamMap.get('customerId');
