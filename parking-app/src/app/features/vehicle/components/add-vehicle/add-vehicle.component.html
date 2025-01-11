@@ -1,0 +1,42 @@
+<mat-card>
+  <mat-card-title>Add Vehicle</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="addVehicleForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Vehicle Number</mat-label>
+        <input matInput formControlName="vehicleNumber" placeholder="Enter vehicle number">
+        <mat-error *ngIf="addVehicleForm.get('vehicleNumber')?.hasError('required')">
+          Vehicle number is required
+        </mat-error>
+      </mat-form-field>
+    
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Customer First Name</mat-label>
+        <mat-select formControlName="customerId">
+          <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+            {{ customer.firstName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="addVehicleForm.get('customerId')?.hasError('required')">
+          Customer is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Customer Last Name</mat-label>
+        <mat-select formControlName="customerId">
+          <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+             {{ customer.lastName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="addVehicleForm.get('customerId')?.hasError('required')">
+          Customer is required
+        </mat-error>
+      </mat-form-field> -->
+
+      <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    </form>
+  </mat-card-content>
+</mat-card>

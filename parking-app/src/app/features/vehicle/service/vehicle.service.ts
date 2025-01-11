@@ -23,4 +23,8 @@ export class VehicleService {
   deleteVehicleById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteVehicle/${id}`);
   }
+
+  addVehicle(vehicle: Vehicle): Observable<Vehicle> {
+    return this.http.post<Vehicle>(`${this.apiUrl}/newVehicle`, vehicle);
+  }
 }

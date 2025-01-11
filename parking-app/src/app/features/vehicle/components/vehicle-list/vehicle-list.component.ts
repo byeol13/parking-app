@@ -3,15 +3,20 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Vehicle } from '../../../../shared/models/Vehicle.model';
 import { VehicleService } from '../../service/vehicle.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { VehicleDeleteComponent } from '../vehicle-delete/vehicle-delete.component';
+import { MatCardModule } from '@angular/material/card';
+import { CustomerService } from '../../../customer/service/customer.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
+import { AddVehicleDialogComponent } from '../add-vehicle-dialog/add-vehicle-dialog.component';
 
 @Component({
   selector: 'app-vehicle-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, VehicleDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, VehicleDeleteComponent, MatCardModule],
   templateUrl: './vehicle-list.component.html',
   styleUrl: './vehicle-list.component.css'
 })
@@ -19,23 +24,34 @@ export class VehicleListComponent implements OnInit{
 
   vehicleIdToDelete: number | undefined;
   vehicles: Vehicle[] = [];
-  displayedColumns: string[] = ['id',  'vehicle_number', 'first_name', 'last_name', 'actions'];
+  displayedColumns: string[] = ['vehicle_number', 'first_name', 'last_name', 'actions'];
   showDeleteDialog = false;
+  customerId: any;
 
-  constructor(private vehicleService: VehicleService, private router: Router){}
+  noVehicleMessage: string = "No vehicles available for this customer";
+
+  customerFirstName: string = '';  
+  customerLastName: string = ''; 
+
+  constructor(private vehicleService: VehicleService, private activatedRoute: ActivatedRoute, private customerService: CustomerService, private dialog: MatDialog){}
 
   ngOnInit(): void {
+    this.customerId = +this.activatedRoute.snapshot.paramMap.get('customerId')!;
     this.loadAllVehicles();
+    this.loadCustomerDetails();
   }
 
   loadAllVehicles() {
-    this.vehicleService.getAllVehicles().subscribe((res) => {
-      this.vehicles = res;
-    })
+    this.vehicleService.getAllVehicles().subscribe((res: Vehicle[]) => {
+      this.vehicles = res.filter(vehicle => vehicle.customerDTO.customerId === this.customerId);
+    });
   }
 
-  viewDetails(id: number) {
-    this.router.navigate([`/vehicle`], {queryParams: { vehicleId: id }});
+  loadCustomerDetails() {
+    this.customerService.getCustomerById(this.customerId).subscribe((customer) => {
+      this.customerFirstName = customer.firstName;  
+      this.customerLastName = customer.lastName;    
+    });
   }
 
   openDeleteDialog(id: number) {
@@ -52,6 +68,33 @@ export class VehicleListComponent implements OnInit{
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  toggleAddVehicle() {
+    const addDialog = this.dialog.open(AddVehicleComponent, {
+      width: '550px'
+    });
+
+    addDialog.afterClosed().subscribe((res) => {
+      if (res) {
+        const newVehicle = {
+          ...res, 
+          customerDTO: {
+            customerId: this.customerId
+          }
+        };
+
+        this.vehicleService.addVehicle(newVehicle).subscribe(() => {
+          const successfulMessage = this.dialog.open(AddVehicleDialogComponent, {
+            width: '400px', height: '200px'
+          });
+
+          successfulMessage.afterClosed().subscribe(() => {
+            this.loadAllVehicles();
+          })
+        });
+      }
+    });
   }
 
 }

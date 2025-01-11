@@ -1,7 +1,15 @@
-import { Customer } from "./Customer.model";
+export class Vehicle {
+  vehicleId?: number;
+  customerDTO: { customerId: any };
+  vehicleNumber: string;
 
-export  interface Vehicle {
-  vehicleId: number,
-  customerDTO: Customer,
-  vehicleNumber: string
+  constructor(
+    customerDTO: { customerId: any },
+    vehicleNumber: string,
+    vehicleId?: number
+  ){
+    this.customerDTO = customerDTO;
+    this.vehicleNumber = vehicleNumber;
+    if (vehicleId) this.vehicleId = vehicleId;
+  }
 }

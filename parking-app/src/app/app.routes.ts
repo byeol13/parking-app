@@ -11,8 +11,6 @@ import { VehicleListComponent } from './features/vehicle/components/vehicle-list
 import { CustomerDetailsComponent } from './features/customer/components/customer-details/customer-details.component';
 import { ParkingLotDetailsComponent } from './features/parkingLot/components/parking-lot-details/parking-lot-details.component';
 import { OffersDetailsComponent } from './features/offers/components/offers-details/offers-details.component';
-import { VehicleDetailsComponent } from './features/vehicle/components/vehicle-details/vehicle-details.component';
-import { PaymentMethodDetailsComponent } from './features/paymentMethod/components/payment-method-details/payment-method-details.component';
 import { ParkingOneTimeResDetailsComponent } from './features/parkingOneTimeReservation/components/parking-one-time-res-details/parking-one-time-res-details.component';
 import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPass/components/parking-monthly-pass-details/parking-monthly-pass-details.component';
 import { ReservationsMenuComponent } from './features/reservations/components/reservations-menu/reservations-menu.component';
@@ -21,6 +19,7 @@ import { AddOfferComponent } from './features/offers/components/add-offer/add-of
 import { UpdateOfferComponent } from './features/offers/components/update-offer/update-offer.component';
 import { AddCustomerComponent } from './features/customer/components/add-customer/add-customer.component';
 import { UpdateCustomerComponent } from './features/customer/components/update-customer/update-customer.component';
+import { PaymentMethodListComponent } from './features/paymentMethod/components/payment-method-list/payment-method-list.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -41,9 +40,11 @@ export const routes: Routes = [
   {path: 'parkingOneTimeReservation', component: ParkingOneTimeResDetailsComponent},
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
   {path: 'currentParkingPricing/:parkingLotId', component: ParkingPricingListComponent},
-  {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
+  // {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
+  {path: 'paymentMethod/:customerId', component: PaymentMethodListComponent},
   {path: 'pricingException/:parkingLotId', component: PricingExceptionListComponent},
-  {path: 'dashboard/vehicle', component: VehicleListComponent},
-  {path: 'vehicle', component: VehicleDetailsComponent},
+  // {path: 'dashboard/vehicle', component: VehicleListComponent},
+  // {path: 'vehicle', component: VehicleDetailsComponent},
+  {path: 'customerVehicles/:customerId', component: VehicleListComponent},
   {path: 'dashboard/reservationsMenu', component: ReservationsMenuComponent}
 ];

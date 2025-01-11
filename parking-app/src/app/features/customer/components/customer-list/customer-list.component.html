@@ -27,6 +27,14 @@
     </td>
   </ng-container>
 
+  <ng-container matColumnDef="manage">
+    <th mat-header-cell *matHeaderCellDef> Manage </th>
+    <td mat-cell *matCellDef="let customer">
+      <button mat-stroked-button [routerLink]="['/customerVehicles', customer.customerId]">Vehicles</button>
+      <button mat-stroked-button [routerLink]="['/paymentMethod', customer.customerId]">Payment Method</button>
+    </td>
+  </ng-container>
+
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let customer">

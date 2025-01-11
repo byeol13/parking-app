@@ -19,7 +19,7 @@ export class CustomerListComponent implements OnInit{
 
   customerIdToDelete: number | undefined;
   customers: Customer[] = [];
-  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'registration_date', 'actions'];
+  displayedColumns: string[] = ['id', 'first_name', 'last_name', 'registration_date', 'manage', 'actions'];
   showDeleteDialog = false;
 
   constructor(private customerService: CustomerService, private datePipe: DatePipe, private router: Router){}
