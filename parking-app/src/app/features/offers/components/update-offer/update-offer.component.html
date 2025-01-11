@@ -1,0 +1,86 @@
+<mat-toolbar>
+  <span>Edit Offer</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="editOfferForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Offer Id</mat-label>
+        <input matInput formControlName="id">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Offer Code</mat-label>
+        <input matInput formControlName="offerCode" placeholder="Enter Offer Code">
+        <mat-error *ngIf="editOfferForm.get('offerCode')?.invalid">Offer code is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Parking Lot Address</mat-label>
+        <mat-select formControlName="parkingLotId">
+          <mat-option *ngFor="let parkingLot of parkingLots" [value]="parkingLot.parkingLotId">
+            {{ parkingLot.address }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field appearance="outline">
+        <mat-label>Issued On</mat-label>
+        <input matInput [matDatepicker]="issuedOnPicker" formControlName="issuedOn">
+        <mat-datepicker-toggle matSuffix [for]="issuedOnPicker"></mat-datepicker-toggle>
+        <mat-datepicker #issuedOnPicker></mat-datepicker>
+        <mat-error *ngIf="editOfferForm.get('issuedOn')?.invalid">Valid Issued On date is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Valid Till</mat-label>
+        <input matInput [matDatepicker]="validTillPicker" formControlName="validTill">
+        <mat-datepicker-toggle matSuffix [for]="validTillPicker"></mat-datepicker-toggle>
+        <mat-datepicker #validTillPicker></mat-datepicker>
+        <mat-error *ngIf="editOfferForm.get('validTill')?.invalid">Valid Valid Till date is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Booking Date From</mat-label>
+        <input matInput [matDatepicker]="bookingDateFromPicker" formControlName="bookingDateFrom">
+        <mat-datepicker-toggle matSuffix [for]="bookingDateFromPicker"></mat-datepicker-toggle>
+        <mat-datepicker #bookingDateFromPicker></mat-datepicker>
+        <mat-error *ngIf="editOfferForm.get('bookingDateFrom')?.invalid">Valid Booking Date From is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Booking Date Till</mat-label>
+        <input matInput [matDatepicker]="bookingDateTillPicker" formControlName="bookingDateTill">
+        <mat-datepicker-toggle matSuffix [for]="bookingDateTillPicker"></mat-datepicker-toggle>
+        <mat-datepicker #bookingDateTillPicker></mat-datepicker>
+        <mat-error *ngIf="editOfferForm.get('bookingDateTill')?.invalid">Valid Booking Date Till is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Discount in Percent</mat-label>
+        <input matInput type="number" formControlName="discountInPercent" placeholder="Enter Discount Percentage">
+        <mat-error *ngIf="editOfferForm.get('discountInPercent')?.invalid">Valid percentage is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Max Amount Offer</mat-label>
+        <input matInput type="number" formControlName="maxAmountOffer" placeholder="Enter Max Amount">
+        <mat-error *ngIf="editOfferForm.get('maxAmountOffer')?.invalid">Valid amount is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Discount in Amount</mat-label>
+        <input matInput type="number" formControlName="discountInAmount" placeholder="Enter Discount Amount">
+        <mat-error *ngIf="editOfferForm.get('discountInAmount')?.invalid">Valid discount amount is required</mat-error>
+      </mat-form-field>
+
+      <div class="buttons">
+        <button mat-raised-button (click)="onSubmit()">Save</button>
+        <button mat-raised-button [routerLink]="['/dashboard/offers']">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  

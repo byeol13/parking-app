@@ -50,6 +50,7 @@
     <td mat-cell *matCellDef="let offer">
       <button mat-stroked-button (click)="viewDetails(offer.offersId)">View More</button>
       <button mat-stroked-button (click)="openDeleteDialog(offer.offersId)">Delete</button>
+      <button mat-stroked-button [routerLink]="['/updateOffer', offer.offersId]">Edit</button>
     </td>
   </ng-container>
 

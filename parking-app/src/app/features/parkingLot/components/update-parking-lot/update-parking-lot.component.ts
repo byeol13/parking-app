@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -24,7 +23,7 @@ export class UpdateParkingLotComponent implements OnInit{
   parkingLotId: any;
   parkingLotForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private parkingLotService: ParkingLotService, private router: Router, private dialog: MatDialog, private activatedRoute: ActivatedRoute){
+  constructor(private fb: FormBuilder, private parkingLotService: ParkingLotService, private router: Router, private activatedRoute: ActivatedRoute){
 
     this.parkingLotForm = this.fb.group({
       id: [{value: '', disabled: true}],

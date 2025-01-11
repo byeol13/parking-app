@@ -18,6 +18,7 @@ import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPas
 import { ReservationsMenuComponent } from './features/reservations/components/reservations-menu/reservations-menu.component';
 import { AddParkingLotComponent } from './features/parkingLot/components/add-parking-lot/add-parking-lot.component';
 import { AddOfferComponent } from './features/offers/components/add-offer/add-offer.component';
+import { UpdateOfferComponent } from './features/offers/components/update-offer/update-offer.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
   {path: 'dashboard/offers', component: OffersListComponent},
   {path: 'offers', component: OffersDetailsComponent},
   {path: 'addOffer', component: AddOfferComponent},
+  {path: 'updateOffer/:offersId', component: UpdateOfferComponent},
   {path: 'dashboard/parkingLot', component: ParkingLotListComponent},
   {path: 'parkingLot', component: ParkingLotDetailsComponent},
   {path: 'addParkingLot', component: AddParkingLotComponent},
