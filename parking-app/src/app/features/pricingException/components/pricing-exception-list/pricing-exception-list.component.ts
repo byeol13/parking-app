@@ -2,7 +2,7 @@ import { PricingException } from './../../../../shared/models/PricingException.m
 import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { PrincingExceptionService } from '../../service/princing-exception.service';
+import { PricingExceptionService } from '../../service/pricing-exception.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { AddPricingExceptionComponent } from '../add-pricing-exception/add-pricing-exception.component';
 import { AddPricingExceptionDialogComponent } from '../add-pricing-exception-dialog/add-pricing-exception-dialog.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { UpdatePricingExceptionComponent } from '../update-pricing-exception/update-pricing-exception.component';
+import { UpdatePricingExceptionDialogComponent } from '../update-pricing-exception-dialog/update-pricing-exception-dialog.component';
 
 @Component({
   selector: 'app-pricing-exception-list',
@@ -29,7 +30,7 @@ export class PricingExceptionListComponent implements OnInit{
   showDeleteDialog = false;
   noPricingExceptionMessage: string = "No pricing exceptions available for this parking lot"
 
-  constructor(private pricingExceptionService: PrincingExceptionService, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
+  constructor(private pricingExceptionService: PricingExceptionService, private activatedRoute: ActivatedRoute, private dialog: MatDialog){}
 
   ngOnInit(): void {
     this.parkingLotId = +this.activatedRoute.snapshot.paramMap.get('parkingLotId')!;
@@ -85,5 +86,33 @@ export class PricingExceptionListComponent implements OnInit{
       }
     });
   }
+
+  toggleUpdatePricingException(pricingExceptionId: number) {
+    const dialogRef = this.dialog.open(UpdatePricingExceptionComponent, {
+      width: '550px',
+      data: { pricingExceptionId }
+    });
+
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res) {
+        const updatedPricingException = {
+          ...res,
+          parkingLotDTO: {
+            parkingLotId: this.parkingLotId
+          }
+        };
+
+        this.pricingExceptionService.updatePricingException(updatedPricingException).subscribe(() => {
+          const successfulMessage = this.dialog.open(UpdatePricingExceptionDialogComponent, {
+            width: '400px', height: '200px'
+          });
+
+          successfulMessage.afterClosed().subscribe(() => {
+            this.loadPricingExceptions();
+          })
+        });
+      }
+    });
+  } 
 
 }

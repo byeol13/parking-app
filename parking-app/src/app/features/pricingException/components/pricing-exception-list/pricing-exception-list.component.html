@@ -43,7 +43,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let pricingException">
-      <button mat-stroked-button>Edit</button>
+      <button mat-stroked-button (click)="toggleUpdatePricingException(pricingException.pricingExceptionId)">Edit</button>
       <button mat-stroked-button (click)="openDeleteDialog(pricingException.pricingExceptionId)">Delete</button>
     </td>
   </ng-container>

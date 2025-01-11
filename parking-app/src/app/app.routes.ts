@@ -13,7 +13,6 @@ import { ParkingLotDetailsComponent } from './features/parkingLot/components/par
 import { OffersDetailsComponent } from './features/offers/components/offers-details/offers-details.component';
 import { VehicleDetailsComponent } from './features/vehicle/components/vehicle-details/vehicle-details.component';
 import { PaymentMethodDetailsComponent } from './features/paymentMethod/components/payment-method-details/payment-method-details.component';
-import { PricingExceptionDetailsComponent } from './features/pricingException/components/pricing-exception-details/pricing-exception-details.component';
 import { ParkingOneTimeResDetailsComponent } from './features/parkingOneTimeReservation/components/parking-one-time-res-details/parking-one-time-res-details.component';
 import { ParkingMonthlyPassDetailsComponent } from './features/parkingMonthlyPass/components/parking-monthly-pass-details/parking-monthly-pass-details.component';
 import { ReservationsMenuComponent } from './features/reservations/components/reservations-menu/reservations-menu.component';

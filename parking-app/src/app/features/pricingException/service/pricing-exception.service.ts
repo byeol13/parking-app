@@ -6,7 +6,7 @@ import { PricingException } from '../../../shared/models/PricingException.model'
 @Injectable({
   providedIn: 'root'
 })
-export class PrincingExceptionService {
+export class PricingExceptionService {
 
   private apiUrl = `http://localhost:8080/pricingException`;
 
@@ -26,6 +26,10 @@ export class PrincingExceptionService {
 
   addPricingException(pricingException: PricingException): Observable<PricingException> {
     return this.http.post<PricingException>(`${this.apiUrl}/newPricingException`, pricingException);
+  }
+
+  updatePricingException(pricingException: PricingException): Observable<PricingException> {
+    return this.http.put<PricingException>(`${this.apiUrl}/updatePricingException`, pricingException);
   }
 
 }

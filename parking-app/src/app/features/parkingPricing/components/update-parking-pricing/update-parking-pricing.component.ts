@@ -11,7 +11,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ParkingPricingService } from '../../service/parking-pricing.service';
-import { ParkingPricing } from '../../../../shared/models/ParkingPricing.model';
 
 @Component({
   selector: 'app-update-parking-pricing',
