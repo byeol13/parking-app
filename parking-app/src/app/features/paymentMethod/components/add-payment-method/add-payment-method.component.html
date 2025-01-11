@@ -1,0 +1,69 @@
+<mat-card>
+  <mat-card-title>Add Payment Method</mat-card-title>
+  <mat-card-content>
+
+    <form [formGroup]="addPaymentMethodForm">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Card Type</mat-label>
+        <mat-select formControlName="cardType">
+          <mat-option value="Visa">Visa</mat-option>
+          <mat-option value="MasterCard">MasterCard</mat-option>
+          <mat-option value="American Express">American Express</mat-option>
+        </mat-select>
+        <mat-error *ngIf="addPaymentMethodForm.get('cardType')?.hasError('required')">
+          Card type is required
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Card Number</mat-label>
+        <input matInput formControlName="cardNumber" placeholder="Enter card number">
+        <mat-error *ngIf="addPaymentMethodForm.get('cardNumber')?.hasError('required')">
+          Card number is required
+        </mat-error>
+        <mat-error *ngIf="addPaymentMethodForm.get('cardNumber')?.hasError('pattern')">
+          Invalid card number (must be 16 digits)
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Expiry Month</mat-label>
+        <input matInput formControlName="expiryMonth" type="number" placeholder="Enter expiry month (1-12)">
+        <mat-error *ngIf="addPaymentMethodForm.get('expiryMonth')?.hasError('required')">
+          Expiry month is required
+        </mat-error>
+        <mat-error *ngIf="addPaymentMethodForm.get('expiryMonth')?.hasError('min') || addPaymentMethodForm.get('expiryMonth')?.hasError('max')">
+          Expiry month must be between 1 and 12
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Expiry Year</mat-label>
+        <input matInput formControlName="expiryYear" type="number" placeholder="Enter expiry year">
+        <mat-error *ngIf="addPaymentMethodForm.get('expiryYear')?.hasError('required')">
+          Expiry year is required
+        </mat-error>
+        <mat-error *ngIf="addPaymentMethodForm.get('expiryYear')?.hasError('min')">
+          Expiry year must be at least 2025
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Security Code</mat-label>
+        <input matInput formControlName="securityCode" placeholder="Enter security code (3 or 4 digits)">
+        <mat-error *ngIf="addPaymentMethodForm.get('securityCode')?.hasError('required')">
+          Security code is required
+        </mat-error>
+        <mat-error *ngIf="addPaymentMethodForm.get('securityCode')?.hasError('pattern')">
+          Invalid security code (must be 3 or 4 digits)
+        </mat-error>
+      </mat-form-field>
+    
+      <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    
+    </form>
+    
+  </mat-card-content>
+</mat-card>

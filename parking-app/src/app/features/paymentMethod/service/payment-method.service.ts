@@ -23,4 +23,12 @@ export class PaymentMethodService {
   deletePaymentMethodById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deletePaymentMethod/${id}`);
   }
+
+  addPaymentMethod(paymentMethod: PaymentMethod): Observable<PaymentMethod> {
+    return this.http.post<PaymentMethod>(`${this.apiUrl}/newPaymentMethod`, paymentMethod);
+  }
+
+  updatePaymentMethod(paymentMethod: PaymentMethod): Observable<PaymentMethod> {
+    return this.http.put<PaymentMethod>(`${this.apiUrl}/updatePaymentMethod`, paymentMethod);
+  }
 }

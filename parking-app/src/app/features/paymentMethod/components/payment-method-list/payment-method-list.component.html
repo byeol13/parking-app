@@ -1,13 +1,14 @@
 <mat-toolbar>
-  <span>Payment Methods</span>
+  <span>Payment Methods of <strong>{{ customerFirstName }} {{ customerLastName }}</strong></span>
 </mat-toolbar>
 
-<table mat-table [dataSource]="paymentMethods" class="mat-elevation-z8">
- 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let paymentMethod">{{ paymentMethod.paymentMethodId }}</td>
-  </ng-container>
+<mat-card *ngIf="paymentMethods.length === 0">
+  <mat-card-content>
+    <p>{{ noPaymentMethodMessage }}</p>
+  </mat-card-content>
+</mat-card>
+
+<table mat-table *ngIf="paymentMethods.length > 0" [dataSource]="paymentMethods" class="mat-elevation-z8">
 
   <ng-container matColumnDef="first_name">
     <th mat-header-cell *matHeaderCellDef> Customer Name </th>
@@ -29,10 +30,25 @@
     <td mat-cell *matCellDef="let paymentMethod">{{ paymentMethod.cardNumber }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="expiry_month">
+    <th mat-header-cell *matHeaderCellDef> Expiry Month </th>
+    <td mat-cell *matCellDef="let paymentMethod">{{ paymentMethod.expiryMonth }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="expiry_year">
+    <th mat-header-cell *matHeaderCellDef> Expiry Year </th>
+    <td mat-cell *matCellDef="let paymentMethod">{{ paymentMethod.expiryYear }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="security_code">
+    <th mat-header-cell *matHeaderCellDef> Security Code </th>
+    <td mat-cell *matCellDef="let paymentMethod">{{ paymentMethod.securityCode }}</td>
+  </ng-container>
+
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let paymentMethod">
-      <button mat-stroked-button (click)="viewDetails(paymentMethod.paymentMethodId)">View More</button>
+      <button mat-stroked-button (click)="toggleUpdatePaymentMethod(paymentMethod.paymentMethodId)">Edit</button>
       <button mat-stroked-button (click)="openDeleteDialog(paymentMethod.paymentMethodId)">Delete</button>
     </td>
   </ng-container>
@@ -40,6 +56,10 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<div>
+  <button mat-button (click)="toggleAddPaymentMethod()">+ Add Payment Method</button>
+</div>
 
 <app-payment-method-delete *ngIf="showDeleteDialog"
                           [paymentMethodId]="paymentMethodIdToDelete"
