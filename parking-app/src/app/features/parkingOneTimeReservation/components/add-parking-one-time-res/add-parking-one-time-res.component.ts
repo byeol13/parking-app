@@ -31,9 +31,7 @@ export class AddParkingOneTimeResComponent {
   vehicles: Vehicle[] = [];
   parkingLots: ParkingLot[] = [];
 
-  constructor(private fb: FormBuilder, private oneTimeResService: ParkingOneTimeResService, private router: Router, private parkingLotService: ParkingLotService, private vehicleService: VehicleService, private dialog: MatDialog,
-
-    private http: HttpClient
+  constructor(private fb: FormBuilder, private oneTimeResService: ParkingOneTimeResService, private router: Router, private parkingLotService: ParkingLotService, private vehicleService: VehicleService, private dialog: MatDialog
   ){
 
     this.addOneTimeResForm = this.fb.group({

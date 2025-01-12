@@ -7,12 +7,13 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Customer } from '../../../../shared/models/Customer.model';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
   selector: 'app-customer-details',
   standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, RouterModule, MatButtonModule],
+  imports: [CommonModule, MatToolbarModule, MatTableModule, MatCardModule, RouterModule, MatButtonModule, MatIconModule],
   templateUrl: './customer-details.component.html',
   styleUrl: './customer-details.component.css'
 })

@@ -1,6 +1,10 @@
+<div>
+  <button mat-stroked-button [routerLink]="['/dashboard/reservationsMenu']"><mat-icon>arrow_back</mat-icon></button>
+</div>
+
 <mat-toolbar>
   <span>One Time Reservations</span>
-  <button mat-stroked-button [routerLink]="['/addOneTimeReservation']">+ Add One Time Reservation</button>
+  <button mat-stroked-button [routerLink]="['/addOneTimeReservation']">+ Add Reservation</button>
 </mat-toolbar>
 
 <table mat-table [dataSource]="oneTimeReservations" class="mat-elevation-z8">
@@ -42,6 +46,7 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let reservation">
       <button mat-stroked-button (click)="viewDetails(reservation.oneTimeResId)">View More</button>
+      <button mat-stroked-button [routerLink]="['/updateOneTimeReservation', reservation.oneTimeResId]">Edit</button>
       <button mat-stroked-button (click)="openDeleteDialog(reservation.oneTimeResId)">Delete</button>
     </td>
   </ng-container>

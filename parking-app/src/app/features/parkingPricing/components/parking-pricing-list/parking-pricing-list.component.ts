@@ -19,11 +19,12 @@ import { AddParkingPricingComponent } from '../add-parking-pricing/add-parking-p
 import { UpdateParkingPricingComponent } from '../update-parking-pricing/update-parking-pricing.component';
 import { HttpClient } from '@angular/common/http';
 import { UpdateParkingPricingDialogComponent } from '../update-parking-pricing-dialog/update-parking-pricing-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-parking-pricing-list',
   standalone: true,
-  imports: [MatTableModule, MatCardModule, CommonModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatOptionModule, MatSelectModule, ReactiveFormsModule, MatInputModule, ParkingPricingDeleteComponent, RouterModule],
+  imports: [MatTableModule, MatCardModule, CommonModule, MatToolbarModule, MatButtonModule, MatFormFieldModule, MatOptionModule, MatSelectModule, ReactiveFormsModule, MatInputModule, ParkingPricingDeleteComponent, RouterModule, MatIconModule],
   templateUrl: './parking-pricing-list.component.html',
   styleUrl: './parking-pricing-list.component.css'
 })

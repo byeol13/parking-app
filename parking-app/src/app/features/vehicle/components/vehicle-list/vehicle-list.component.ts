@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Vehicle } from '../../../../shared/models/Vehicle.model';
 import { VehicleService } from '../../service/vehicle.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { VehicleDeleteComponent } from '../vehicle-delete/vehicle-delete.component';
@@ -14,11 +14,12 @@ import { AddVehicleComponent } from '../add-vehicle/add-vehicle.component';
 import { AddVehicleDialogComponent } from '../add-vehicle-dialog/add-vehicle-dialog.component';
 import { UpdateVehicleComponent } from '../update-vehicle/update-vehicle.component';
 import { UpdateVehicleDialogComponent } from '../update-vehicle-dialog/update-vehicle-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-vehicle-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, VehicleDeleteComponent, MatCardModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, VehicleDeleteComponent, MatCardModule, RouterModule, MatIconModule],
   templateUrl: './vehicle-list.component.html',
   styleUrl: './vehicle-list.component.css'
 })

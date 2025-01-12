@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PaymentMethodService } from '../../service/payment-method.service';
 import { PaymentMethod } from '../../../../shared/models/PaymentMethod.model';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { PaymentMethodDeleteComponent } from '../payment-method-delete/payment-method-delete.component';
 import { CommonModule } from '@angular/common';
@@ -18,11 +18,12 @@ import { UpdateVehicleDialogComponent } from '../../../vehicle/components/update
 import { UpdateVehicleComponent } from '../../../vehicle/components/update-vehicle/update-vehicle.component';
 import { UpdatePaymentMethodComponent } from '../update-payment-method/update-payment-method.component';
 import { UpdatePaymentMethodDialogComponent } from '../update-payment-method-dialog/update-payment-method-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-payment-method-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, PaymentMethodDeleteComponent, CommonModule, MatCardModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, PaymentMethodDeleteComponent, CommonModule, MatCardModule, MatIconModule, RouterModule],
   templateUrl: './payment-method-list.component.html',
   styleUrl: './payment-method-list.component.css'
 })

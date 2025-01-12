@@ -7,11 +7,12 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { ParkingOneTimeResDeleteComponent } from '../parking-one-time-res-delete/parking-one-time-res-delete.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-parking-one-time-res-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingOneTimeResDeleteComponent, RouterModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingOneTimeResDeleteComponent, RouterModule, MatIconModule],
   templateUrl: './parking-one-time-res-list.component.html',
   styleUrl: './parking-one-time-res-list.component.css'
 })

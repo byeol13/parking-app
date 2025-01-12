@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PricingExceptionService } from '../../service/pricing-exception.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { PricingExceptionDeleteComponent } from '../pricing-exception-delete/pricing-exception-delete.component';
@@ -13,11 +13,12 @@ import { AddPricingExceptionComponent } from '../add-pricing-exception/add-prici
 import { AddPricingExceptionDialogComponent } from '../add-pricing-exception-dialog/add-pricing-exception-dialog.component';
 import { UpdatePricingExceptionComponent } from '../update-pricing-exception/update-pricing-exception.component';
 import { UpdatePricingExceptionDialogComponent } from '../update-pricing-exception-dialog/update-pricing-exception-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-pricing-exception-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, PricingExceptionDeleteComponent, MatCardModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, PricingExceptionDeleteComponent, MatCardModule, MatIconModule, RouterModule],
   templateUrl: './pricing-exception-list.component.html',
   styleUrl: './pricing-exception-list.component.css'
 })
