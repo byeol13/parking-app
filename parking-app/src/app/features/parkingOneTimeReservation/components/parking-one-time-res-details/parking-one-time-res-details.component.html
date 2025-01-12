@@ -47,7 +47,7 @@
 
       <ng-container matColumnDef="basic_parking_cost">
         <th mat-header-cell *matHeaderCellDef> Basic Cost </th>
-        <td mat-cell *matCellDef="let reservation"> $ {{ reservation.basicParkingCost }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.basicParkingCost ? (reservation.basicParkingCost | currency:'USD':'symbol':'1.2-2') : '-'  }} </td>
       </ng-container>
 
       <ng-container matColumnDef="offer_code">
@@ -57,7 +57,7 @@
     
       <ng-container matColumnDef="netCost">
         <th mat-header-cell *matHeaderCellDef> Net Cost </th>
-        <td mat-cell *matCellDef="let reservation"> $ {{ reservation.netCost }} </td>
+        <td mat-cell *matCellDef="let reservation"> {{ reservation.netCost ? (reservation.netCost | currency:'USD':'symbol':'1.2-2') : '-'   }} </td>
       </ng-container>
 
       <ng-container matColumnDef="is_paid">

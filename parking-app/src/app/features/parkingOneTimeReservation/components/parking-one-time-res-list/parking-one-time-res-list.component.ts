@@ -4,14 +4,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ParkingOneTimeRes } from '../../../../shared/models/ParkingOneTimeRes.model';
 import { ParkingOneTimeResService } from '../../service/parking-one-time-res.service';
 import { CommonModule, DatePipe } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { ParkingOneTimeResDeleteComponent } from '../parking-one-time-res-delete/parking-one-time-res-delete.component';
 
 @Component({
   selector: 'app-parking-one-time-res-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingOneTimeResDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingOneTimeResDeleteComponent, RouterModule],
   templateUrl: './parking-one-time-res-list.component.html',
   styleUrl: './parking-one-time-res-list.component.css'
 })
