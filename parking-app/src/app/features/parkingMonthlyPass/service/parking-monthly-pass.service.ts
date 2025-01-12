@@ -23,4 +23,12 @@ export class ParkingMonthlyPassService {
   deleteParkingMonthlyPassById(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/deleteMonthlyPass/${id}`);
   }
+
+  addParkingMonthlyPass(monthlyPass: ParkingMonthlyPass): Observable<ParkingMonthlyPass> {
+    return this.http.post<ParkingMonthlyPass>(`${this.apiUrl}/newMonthlyPass`, monthlyPass);
+  }
+
+  updateParkingMonthlyPass(monthlyPass: ParkingMonthlyPass): Observable<ParkingMonthlyPass> {
+    return this.http.put<ParkingMonthlyPass>(`${this.apiUrl}/updateMonthlyPass`, monthlyPass);
+  }
 }

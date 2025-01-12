@@ -20,6 +20,7 @@ import { UpdateOfferComponent } from './features/offers/components/update-offer/
 import { AddCustomerComponent } from './features/customer/components/add-customer/add-customer.component';
 import { UpdateCustomerComponent } from './features/customer/components/update-customer/update-customer.component';
 import { PaymentMethodListComponent } from './features/paymentMethod/components/payment-method-list/payment-method-list.component';
+import { AddParkingMonthlyPassComponent } from './features/parkingMonthlyPass/components/add-parking-monthly-pass/add-parking-monthly-pass.component';
 
 export const routes: Routes = [
   {path: 'dashboard/customer', component: CustomerListComponent},
@@ -36,11 +37,11 @@ export const routes: Routes = [
   {path: 'updateParkingLot/:parkingLotId', component: UpdateParkingLotComponent},
   {path: 'parkingMonthlyPassList', component: ParkingMonthlyPassListComponent},
   {path: 'parkingMonthlyPass', component: ParkingMonthlyPassDetailsComponent},
+  {path: 'addMonthlyPass', component: AddParkingMonthlyPassComponent},
   {path: 'parkingOneTimeReservationList', component: ParkingOneTimeResListComponent},
   {path: 'parkingOneTimeReservation', component: ParkingOneTimeResDetailsComponent},
   {path: 'dashboard/parkingPricing', component: ParkingPricingListComponent},
   {path: 'currentParkingPricing/:parkingLotId', component: ParkingPricingListComponent},
-  // {path: 'paymentMethod', component: PaymentMethodDetailsComponent},
   {path: 'paymentMethod/:customerId', component: PaymentMethodListComponent},
   {path: 'pricingException/:parkingLotId', component: PricingExceptionListComponent},
   {path: 'customerVehicles/:customerId', component: VehicleListComponent},

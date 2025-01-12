@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ParkingMonthlyPassService } from '../../service/parking-monthly-pass.service';
 import { ParkingMonthlyPass } from '../../../../shared/models/ParkingMonthlyPass.model';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { ParkingMonthlyPassDeleteComponent } from '../parking-monthly-pass-delete/parking-monthly-pass-delete.component';
@@ -11,7 +11,7 @@ import { ParkingMonthlyPassDeleteComponent } from '../parking-monthly-pass-delet
 @Component({
   selector: 'app-parking-monthly-pass-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingMonthlyPassDeleteComponent],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, ParkingMonthlyPassDeleteComponent, RouterModule],
   templateUrl: './parking-monthly-pass-list.component.html',
   styleUrl: './parking-monthly-pass-list.component.css'
 })

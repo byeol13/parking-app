@@ -1,0 +1,82 @@
+<mat-toolbar>
+  <span>New Monthly Pass</span>
+</mat-toolbar>
+
+<mat-card appearance="outlined">
+
+  <mat-card-content>
+    <form [formGroup]="addMonthlyPassForm">
+
+      <mat-form-field>
+        <mat-label>Customer</mat-label>
+        <mat-select formControlName="customerId">
+          <mat-option *ngFor="let customer of customers" [value]="customer.customerId">
+            {{ customer.firstName }} {{ customer.lastName }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="addMonthlyPassForm.get('customerId')?.hasError('required')">
+          Customer is required
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Parking Lot</mat-label>
+        <mat-select formControlName="parkingLotId">
+          <mat-option *ngFor="let parkingLot of parkingLots" [value]="parkingLot.parkingLotId">
+            {{ parkingLot.address }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="addMonthlyPassForm.get('parkingLotId')?.hasError('required')">
+          Parking lot is required
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Purchase Date</mat-label>
+        <input matInput formControlName="purchaseDate" [matDatepicker]="purchasePicker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="purchasePicker"></mat-datepicker-toggle>
+        <mat-datepicker #purchasePicker></mat-datepicker>
+        <mat-error *ngIf="addMonthlyPassForm.get('purchaseDate')?.hasError('required')">
+          Purchase date is required
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Start Date</mat-label>
+        <input matInput formControlName="startDate" [matDatepicker]="startPicker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+        <mat-datepicker #startPicker></mat-datepicker>
+        <mat-error *ngIf="addMonthlyPassForm.get('startDate')?.hasError('required')">
+          Start date is required
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Duration (in days)</mat-label>
+        <input matInput formControlName="durationInDays" type="number" placeholder="Enter duration">
+        <mat-error *ngIf="addMonthlyPassForm.get('durationInDays')?.hasError('required')">
+          Duration is required
+        </mat-error>
+        <mat-error *ngIf="addMonthlyPassForm.get('durationInDays')?.hasError('min')">
+          Duration must be at least 1 day
+        </mat-error>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Cost</mat-label>
+        <input matInput formControlName="cost" type="number" placeholder="Enter cost">
+        <mat-error *ngIf="addMonthlyPassForm.get('cost')?.hasError('required')">
+          Cost is required
+        </mat-error>
+        <mat-error *ngIf="addMonthlyPassForm.get('cost')?.hasError('min')">
+          Cost cannot be negative
+        </mat-error>
+      </mat-form-field>
+    
+      <div class="buttons">
+        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
+        <button mat-raised-button (click)="goBack()">Cancel</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>  
