@@ -46,6 +46,7 @@
     <th mat-header-cell *matHeaderCellDef> Actions </th>
     <td mat-cell *matCellDef="let monthlyPass">
       <button mat-stroked-button (click)="viewDetails(monthlyPass.monthlyPassId)">View More</button>
+      <button mat-stroked-button [routerLink]="['/updateMonthlyPass', monthlyPass.monthlyPassId]">Edit</button>
       <button mat-stroked-button (click)="openDeleteDialog(monthlyPass.monthlyPassId)">Delete</button>
     </td>
   </ng-container>
