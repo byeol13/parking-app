@@ -3,7 +3,7 @@
   <button mat-stroked-button [routerLink]="['/addOffer']">+ Add Offer</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="offers" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedOffers" class="mat-elevation-z8">
  
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -57,6 +57,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalOffers"
+              [pageSize]="2"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedOffers()">
+</mat-paginator>
 
 <app-offers-delete *ngIf="showDeleteDialog"
                     [offerId]="offerIdToDelete"

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -7,11 +7,12 @@ import { CustomerService } from '../../service/customer.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { CustomerDeleteComponent } from '../customer-delete/customer-delete.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-customer-list',
   standalone: true,
-  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, CustomerDeleteComponent, RouterModule],
+  imports: [MatToolbarModule, MatTableModule, MatButtonModule, CommonModule, CustomerDeleteComponent, RouterModule, MatPaginatorModule],
   templateUrl: './customer-list.component.html',
   styleUrl: './customer-list.component.css'
 })
@@ -22,6 +23,11 @@ export class CustomerListComponent implements OnInit{
   displayedColumns: string[] = ['id', 'first_name', 'last_name', 'registration_date', 'manage', 'actions'];
   showDeleteDialog = false;
 
+  totalCustomers: number = 0;
+  displayedCustomers: Customer[] = [];
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   constructor(private customerService: CustomerService, private datePipe: DatePipe, private router: Router){}
 
   ngOnInit(): void {
@@ -31,7 +37,8 @@ export class CustomerListComponent implements OnInit{
   loadAllCustomers() {
     this.customerService.getAllCustomers().subscribe((res) => {
       this.customers = res;
-      console.log(this.customers);
+      this.totalCustomers = this.customers.length;
+      this.paginatedCustomers();
     })
   }
 
@@ -57,6 +64,11 @@ export class CustomerListComponent implements OnInit{
 
   cancelDelete() {
     this.showDeleteDialog = false;
+  }
+
+  paginatedCustomers() {
+    const startIndex = this.paginator.pageIndex * this.paginator.pageSize;
+    this.displayedCustomers = this.customers.slice(startIndex, startIndex + this.paginator.pageSize);
   }
 
 }

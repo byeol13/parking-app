@@ -3,7 +3,7 @@
   <button mat-stroked-button [routerLink]="['/addCustomer']">+ Add Customer</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="customers" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedCustomers" class="mat-elevation-z8">
  
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -47,6 +47,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalCustomers"
+              [pageSize]="2"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedCustomers()">
+</mat-paginator>
 
 <app-customer-delete *ngIf="showDeleteDialog"
                       [customerId]="customerIdToDelete"

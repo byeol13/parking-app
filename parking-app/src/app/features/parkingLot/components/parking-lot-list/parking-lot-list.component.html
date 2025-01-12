@@ -3,7 +3,7 @@
   <button mat-stroked-button [routerLink]="['/addParkingLot']">+ Add Parking Lot</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="parkingLots" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedLots" class="mat-elevation-z8">
  
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Id </th>
@@ -50,6 +50,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalLots"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedLots()">
+</mat-paginator>
 
 <app-parking-lot-delete *ngIf="showDeleteDialog"
                         [parkingLotId]="parkingLotIdToDelete"

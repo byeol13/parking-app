@@ -7,7 +7,7 @@
   <button mat-stroked-button [routerLink]="['/addMonthlyPass']">+ Add Monthly Pass</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="monthlyPasses" class="mat-elevation-z8">
+<table mat-table [dataSource]="displayedMonthlyPasses" class="mat-elevation-z8">
  
   <ng-container matColumnDef="id">
     <th mat-header-cell *matHeaderCellDef> Pass ID </th>
@@ -58,6 +58,13 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+
+<mat-paginator [length]="totalMonthlyPasses"
+              [pageSize]="2"
+              [pageSizeOptions]="[5, 10, 15]"
+              aria-label="Select page"
+              (page)="paginatedMonthlyPasses()">
+</mat-paginator>
 
 <app-parking-monthly-pass-delete *ngIf="showDeleteDialog"
                                   [monthlyPassId]="monthlyPassIdToDelete"
