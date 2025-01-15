@@ -1,45 +1,53 @@
-<mat-card>
-  <mat-card-title>Edit Pricing Exception</mat-card-title>
-  <mat-card-content>
-    <form [formGroup]="editPricingExceptionForm">
-      <mat-form-field appearance="outline">
-        <mat-label>Pricing Exception Id</mat-label>
-        <input matInput formControlName="id">
-      </mat-form-field>
+<mat-card class="dialog-form-card">
+  <mat-card-title class="dialog-form-card-title">Edit Pricing Exception</mat-card-title>
+  <mat-card-content class="dialog-form-card-content">
+    <form [formGroup]="editPricingExceptionForm" class="dialog-form-container">
+      <div class="dialog-form-row">
+        <mat-form-field appearance="outline">
+          <mat-label>Pricing Exception Id</mat-label>
+          <input matInput formControlName="id">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Date</mat-label>
+          <input matInput [matDatepicker]="exceptionDatePicker" formControlName="date"/>
+          <mat-datepicker-toggle matSuffix [for]="exceptionDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #exceptionDatePicker></mat-datepicker>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <mat-label>Date</mat-label>
-        <input matInput [matDatepicker]="exceptionDatePicker" formControlName="date"/>
-        <mat-datepicker-toggle matSuffix [for]="exceptionDatePicker"></mat-datepicker-toggle>
-        <mat-datepicker #exceptionDatePicker></mat-datepicker>
-      </mat-form-field>
+      <div class="dialog-form-row">
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Morning Hour Cost</mat-label>
+          <input matInput type="number" formControlName="morningHrCost" placeholder="Enter morning cost">
+          <mat-error *ngIf="editPricingExceptionForm.get('morningHrCost')?.invalid">Valid cost is required</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Midday Hour Cost</mat-label>
+          <input matInput type="number" formControlName="middayHrCost" placeholder="Enter midday cost">
+          <mat-error *ngIf="editPricingExceptionForm.get('middayHrCost')?.invalid">Valid cost is required</mat-error>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Morning Hour Cost</mat-label>
-        <input matInput type="number" formControlName="morningHrCost" placeholder="Enter morning cost">
-        <mat-error *ngIf="editPricingExceptionForm.get('morningHrCost')?.invalid">Valid cost is required</mat-error>
-      </mat-form-field>
+      <div class="dialog-form-row">
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Evening Hour Cost</mat-label>
+          <input matInput type="number" formControlName="eveningHrCost" placeholder="Enter evening cost">
+          <mat-error *ngIf="editPricingExceptionForm.get('eveningHrCost')?.invalid">Valid cost is required</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>All Day Cost</mat-label>
+          <input matInput type="number" formControlName="allDayCost" placeholder="Enter all-day cost">
+          <mat-error *ngIf="editPricingExceptionForm.get('allDayCost')?.invalid">Valid cost is required</mat-error>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Midday Hour Cost</mat-label>
-        <input matInput type="number" formControlName="middayHrCost" placeholder="Enter midday cost">
-        <mat-error *ngIf="editPricingExceptionForm.get('middayHrCost')?.invalid">Valid cost is required</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>Evening Hour Cost</mat-label>
-        <input matInput type="number" formControlName="eveningHrCost" placeholder="Enter evening cost">
-        <mat-error *ngIf="editPricingExceptionForm.get('eveningHrCost')?.invalid">Valid cost is required</mat-error>
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label>All Day Cost</mat-label>
-        <input matInput type="number" formControlName="allDayCost" placeholder="Enter all-day cost">
-        <mat-error *ngIf="editPricingExceptionForm.get('allDayCost')?.invalid">Valid cost is required</mat-error>
-      </mat-form-field>
-
-      <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
-      <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>
+      <div class="buttons">
+        <button mat-raised-button class="btn" color="primary" (click)="onSubmit()">Save</button>
+        <button mat-raised-button class="cancel-button btn" (click)="onCancel()">Cancel</button>
+      </div>
     </form>
   </mat-card-content>
 </mat-card>

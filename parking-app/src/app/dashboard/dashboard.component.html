@@ -1,23 +1,25 @@
-<mat-toolbar>
-  <button mat-icon-button (click)="sidenav.toggle()" class="example-icon">
-    <mat-icon>menu</mat-icon>
+<mat-toolbar class="toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+    <span class="material-symbols-outlined">
+      menu
+    </span>
   </button>
-  <span>Dashboard</span>
+  <img src="/assets/logo.png" class="logo"/>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [opened]="true">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" class="sidenav" [opened]="true">
     <mat-nav-list>
       <a *ngFor="let r of routes"
-      mat-list-item
-      [routerLink]="r.path"
-      routerLinkActive="active-link"
-      >{{ r.label }}</a>
+          mat-list-item
+          [routerLink]="r.path"
+          routerLinkActive="active-link">
+          <span class="material-symbols-outlined">{{r.icon}}</span>
+          <span class="nav-label">{{r.label}}</span></a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
+
+  <mat-sidenav-content class="main-content">
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

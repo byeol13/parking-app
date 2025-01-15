@@ -4,3 +4,16 @@
 <div mat-dialog-actions>
   <button mat-button (click)="onOkay()">Okay</button>
 </div>
+
+<div class="success-dialog-header">
+  <span class="material-symbols-outlined success-icon">
+    check_circle
+  </span>
+</div>
+<div mat-dialog-content class="success-message">
+  <h3>Success</h3>
+  <p>Parking pricings updated successfully!</p>
+</div>
+<div mat-dialog-actions class="success-actions">
+  <button mat-button class="success-button" (click)="onOkay()">Okay</button>
+</div>

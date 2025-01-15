@@ -1,7 +1,12 @@
-<mat-icon>help</mat-icon>
-<h2 mat-dialog-title>Confirm Save</h2>
-<div mat-dialog-content>Are you sure you want to save this offer?</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onCancel()">Cancel</button>
-  <button mat-button (click)="onConfirm()">Confirm</button>
+<div>
+  <div class="confirm-dialog-container">
+    <div class="confirm-dialog-content">
+      <h2>Confirm Save</h2>
+      <p>Are you sure you want to save this offer?</p>
+    </div>
+    <div class="buttons">
+      <button mat-flat-button class="cancel-button btn" (click)="onCancel()">Cancel</button>
+      <button mat-flat-button class="confirm-button btn" (click)="onConfirm()">Confirm</button>
+    </div>
+  </div>
 </div>

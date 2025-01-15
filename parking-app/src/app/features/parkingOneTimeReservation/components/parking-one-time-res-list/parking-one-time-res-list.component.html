@@ -1,65 +1,76 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/reservationsMenu']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>One Time Reservations</span>
-  <button mat-stroked-button [routerLink]="['/addOneTimeReservation']">+ Add Reservation</button>
+<mat-toolbar class="table-toolbar">
+  <div class="toolbar-left">
+    <button mat-icon-button [routerLink]="['/dashboard/reservationsMenu']" class="back-button">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </button>
+    <span>One Time Reservations</span>
+  </div>
+  <button mat-flat-button color="accent" [routerLink]="['/addOneTimeReservation']">+ Add Reservation</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="displayedOneTimeReservations" class="mat-elevation-z8">
+<div class="custom-table-container">
+  <table mat-table [dataSource]="displayedOneTimeReservations" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Reservation ID </th>
-    <td mat-cell *matCellDef="let reservation"> {{ reservation.oneTimeResId }} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Reservation ID </th>
+      <td mat-cell *matCellDef="let reservation"> {{ reservation.oneTimeResId }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="vehicleNumber">
+      <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
+      <td mat-cell *matCellDef="let reservation"> {{ reservation.vehicleDTO.vehicleNumber }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+      <td mat-cell *matCellDef="let reservation"> 
+        {{ reservation.vehicleDTO.customerDTO.firstName }} 
+        {{ reservation.vehicleDTO.customerDTO.lastName }} 
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="parkingLotAddress">
+      <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
+      <td mat-cell *matCellDef="let reservation"> {{ reservation.parkingLotDTO.address }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="bookingTime">
+      <th mat-header-cell *matHeaderCellDef> Booking Time </th>
+      <td mat-cell *matCellDef="let reservation"> {{ getFormattedDate(reservation.startTimestamp) }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="netCost">
+      <th mat-header-cell *matHeaderCellDef> Net Cost </th>
+      <td mat-cell *matCellDef="let reservation"> {{ reservation.netCost ? (reservation.netCost | currency:'USD':'symbol':'1.2-2') : '-'   }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let reservation">
+        <button mat-flat-button color="primary" class="view-button" (click)="viewDetails(reservation.oneTimeResId)">View More</button>
+        <button mat-flat-button class="edit-button" [routerLink]="['/updateOneTimeReservation', reservation.oneTimeResId]">
+          <span class="material-symbols-outlined">
+            border_color
+          </span>
+        </button>
+        <button mat-flat-button class="delete-button" (click)="openDeleteDialog(reservation.oneTimeResId)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="vehicleNumber">
-    <th mat-header-cell *matHeaderCellDef> Vehicle Number </th>
-    <td mat-cell *matCellDef="let reservation"> {{ reservation.vehicleDTO.vehicleNumber }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="customerName">
-    <th mat-header-cell *matHeaderCellDef> Customer Name </th>
-    <td mat-cell *matCellDef="let reservation"> 
-      {{ reservation.vehicleDTO.customerDTO.firstName }} 
-      {{ reservation.vehicleDTO.customerDTO.lastName }} 
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="parkingLotAddress">
-    <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
-    <td mat-cell *matCellDef="let reservation"> {{ reservation.parkingLotDTO.address }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="bookingTime">
-    <th mat-header-cell *matHeaderCellDef> Booking Time </th>
-    <td mat-cell *matCellDef="let reservation"> {{ getFormattedDate(reservation.startTimestamp) }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="netCost">
-    <th mat-header-cell *matHeaderCellDef> Net Cost </th>
-    <td mat-cell *matCellDef="let reservation"> {{ reservation.netCost ? (reservation.netCost | currency:'USD':'symbol':'1.2-2') : '-'   }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let reservation">
-      <button mat-stroked-button (click)="viewDetails(reservation.oneTimeResId)">View More</button>
-      <button mat-stroked-button [routerLink]="['/updateOneTimeReservation', reservation.oneTimeResId]">Edit</button>
-      <button mat-stroked-button (click)="openDeleteDialog(reservation.oneTimeResId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalReservations"
+<mat-paginator class="table-paginator" 
+              [length]="totalReservations"
               [pageSize]="2"
-              [pageSizeOptions]="[5, 10, 15]"
-              aria-label="Select page"
-              (page)="paginatedReservations()">
+              (page)="paginatedReservations()"
+              hidePageSize>
 </mat-paginator>
 
 <app-parking-one-time-res-delete *ngIf="showDeleteDialog"

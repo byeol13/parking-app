@@ -4,12 +4,63 @@ body {
   margin: 0;
 }
 
+.toolbar {
+  background-color: #10273d;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  z-index: 1000;
+}
 
-mat-sidenav-container {
-  height: 100%;
+.toolbar .material-symbols-outlined {
+  font-weight: 400;
+  margin-right: 1rem;
+  transform: scale(1.2);
+}
+
+.sidenav-container {
+  margin-top: 64px;
+  height: 100vh;
+}
+
+.sidenav {
+  width: 280px;
+  padding: 16px;
+}
+
+.sidenav .material-symbols-outlined {
+  transform: scale(1);
+  font-weight: 400;
+  margin-right: 1rem;
+  opacity: 0.7;
+}
+
+.logo {
+  height: 12vh; 
+  width: auto; 
+  padding-bottom: 1.7vh;
 }
 
 .active-link {
-  background-color: rgba(0, 0, 255, 0.1);
-  color: blue;
+  background-color: rgba(126, 133, 233, 0.2);
+}
+
+.main-content {
+  padding: 24px;
+  background-color: #f8f9fe;
+}
+
+.nav-label {
+  position: absolute;
+  font-size: 14px;
+}
+
+a {
+  margin-bottom: 13px;
 }

@@ -1,2 +1,11 @@
-<button mat-stroked-button [routerLink]="['/parkingOneTimeReservationList']">One Time Reservations</button>
-<button mat-stroked-button [routerLink]="['/parkingMonthlyPassList']">Monthly Passes</button>
+<!-- <button mat-stroked-button [routerLink]="['/parkingOneTimeReservationList']">One Time Reservations</button>
+<button mat-stroked-button [routerLink]="['/parkingMonthlyPassList']">Monthly Passes</button> -->
+
+<div class="navigation-buttons">
+  <button mat-flat-button class="nav-button" [routerLink]="['/parkingOneTimeReservationList']">
+    One Time Reservations
+  </button>
+  <button mat-flat-button class="nav-button" [routerLink]="['/parkingMonthlyPassList']">
+    Monthly Passes
+  </button>
+</div>

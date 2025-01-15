@@ -1,6 +1,12 @@
-<mat-icon>check_circle</mat-icon>
-<h2 mat-dialog-title>Success</h2>
-<div mat-dialog-content>Pricing Exception added successfully!</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onOkay()">Okay</button>
+<div class="success-dialog-header">
+  <span class="material-symbols-outlined success-icon">
+    check_circle
+  </span>
+</div>
+<div mat-dialog-content class="success-message">
+  <h3>Success</h3>
+  <p>Pricing exception added successfully!</p>
+</div>
+<div mat-dialog-actions class="success-actions">
+  <button mat-button class="success-button" (click)="onOkay()">Okay</button>
 </div>

@@ -1,117 +1,125 @@
-<mat-toolbar>
+<mat-toolbar class="form-toolbar">
   <span>Edit Reservation</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="editOneTimeResForm">
+    <form [formGroup]="editOneTimeResForm" class="displayed-form">
 
-      <mat-form-field appearance="fill">
-        <mat-label>Reservation Id</mat-label>
-        <input matInput formControlName="id">
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Reservation Id</mat-label>
+          <input matInput formControlName="id">
+        </mat-form-field>
+      </div>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Vehicle</mat-label>
-        <mat-select formControlName="vehicleId">
-          <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vehicleId">
-            {{ vehicle.vehicleNumber }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="editOneTimeResForm.get('vehicleId')?.hasError('required')">
-          Vehicle is required
-        </mat-error>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Vehicle</mat-label>
+          <mat-select formControlName="vehicleId">
+            <mat-option *ngFor="let vehicle of vehicles" [value]="vehicle.vehicleId">
+              {{ vehicle.vehicleNumber }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="editOneTimeResForm.get('vehicleId')?.hasError('required')">
+            Vehicle is required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="form-field">
+          <mat-label>Parking Lot</mat-label>
+          <mat-select formControlName="parkingLotId">
+            <mat-option *ngFor="let lot of parkingLots" [value]="lot.parkingLotId">
+              {{ lot.address }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="editOneTimeResForm.get('parkingLotId')?.hasError('required')">
+            Parking lot is required
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="form-field">
+          <mat-label>Booking Time</mat-label>
+          <input matInput formControlName="startTimestamp" [matDatepicker]="startPicker" placeholder="Choose start time">
+          <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+          <mat-datepicker #startPicker></mat-datepicker>
+          <mat-error *ngIf="editOneTimeResForm.get('startTimestamp')?.hasError('required')">
+            Start timestamp is required
+          </mat-error>
+        </mat-form-field>
+      </div>
     
-      <mat-form-field appearance="fill">
-        <mat-label>Parking Lot</mat-label>
-        <mat-select formControlName="parkingLotId">
-          <mat-option *ngFor="let lot of parkingLots" [value]="lot.parkingLotId">
-            {{ lot.address }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="editOneTimeResForm.get('parkingLotId')?.hasError('required')">
-          Parking lot is required
-        </mat-error>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Specific Duration</mat-label>
+          <mat-select formControlName="payForMinHr">
+            <mat-option value="Y">Yes</mat-option>
+            <mat-option value="N">No</mat-option>
+          </mat-select>
+          <mat-error *ngIf="editOneTimeResForm.get('payForMinHr')?.hasError('required')">
+            Please select an option
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="form-field">
+          <mat-label>Hours Booked</mat-label>
+          <input matInput formControlName="bookingForHr" type="number" placeholder="Enter hours">
+          <mat-error *ngIf="editOneTimeResForm.get('bookingForHr')?.hasError('required')">
+            Booking hours are required
+          </mat-error>
+          <mat-error *ngIf="editOneTimeResForm.get('bookingForHr')?.hasError('min')">
+            Hours must be at least 1
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="form-field">
+          <mat-label>Basic Cost</mat-label>
+          <input matInput formControlName="basicParkingCost" type="number" placeholder="Enter cost">
+          <mat-error *ngIf="editOneTimeResForm.get('basicParkingCost')?.hasError('required')">
+            Cost is required
+          </mat-error>
+          <mat-error *ngIf="editOneTimeResForm.get('basicParkingCost')?.hasError('min')">
+            Cost cannot be negative
+          </mat-error>
+        </mat-form-field>
+      </div>
     
-      <mat-form-field appearance="fill">
-        <mat-label>Booking Time</mat-label>
-        <input matInput formControlName="startTimestamp" [matDatepicker]="startPicker" placeholder="Choose start time">
-        <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-        <mat-datepicker #startPicker></mat-datepicker>
-        <mat-error *ngIf="editOneTimeResForm.get('startTimestamp')?.hasError('required')">
-          Start timestamp is required
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Specific Duration</mat-label>
-        <mat-select formControlName="payForMinHr">
-          <mat-option value="Y">Yes</mat-option>
-          <mat-option value="N">No</mat-option>
-        </mat-select>
-        <mat-error *ngIf="editOneTimeResForm.get('payForMinHr')?.hasError('required')">
-          Please select an option
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Hours Booked</mat-label>
-        <input matInput formControlName="bookingForHr" type="number" placeholder="Enter hours">
-        <mat-error *ngIf="editOneTimeResForm.get('bookingForHr')?.hasError('required')">
-          Booking hours are required
-        </mat-error>
-        <mat-error *ngIf="editOneTimeResForm.get('bookingForHr')?.hasError('min')">
-          Hours must be at least 1
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Basic Cost</mat-label>
-        <input matInput formControlName="basicParkingCost" type="number" placeholder="Enter cost">
-        <mat-error *ngIf="editOneTimeResForm.get('basicParkingCost')?.hasError('required')">
-          Cost is required
-        </mat-error>
-        <mat-error *ngIf="editOneTimeResForm.get('basicParkingCost')?.hasError('min')">
-          Cost cannot be negative
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Offer Code</mat-label>
-        <input matInput formControlName="offerCode" placeholder="Enter offer code">
-        <mat-error *ngIf="editOneTimeResForm.get('offerCode')?.hasError('pattern')">
-          Offer code must be alphanumeric
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Net Cost</mat-label>
-        <input matInput formControlName="netCost" type="number" placeholder="Enter net cost">
-        <mat-error *ngIf="editOneTimeResForm.get('netCost')?.hasError('required')">
-          Net cost is required
-        </mat-error>
-        <mat-error *ngIf="editOneTimeResForm.get('netCost')?.hasError('min')">
-          Cost cannot be negative
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Paid</mat-label>
-        <mat-select formControlName="isPaid">
-          <mat-option value="Y">Yes</mat-option>
-          <mat-option value="N">No</mat-option>
-        </mat-select>
-        <mat-error *ngIf="editOneTimeResForm.get('isPaid')?.hasError('required')">
-          Please select an option
-        </mat-error>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Offer Code</mat-label>
+          <input matInput formControlName="offerCode" placeholder="Enter offer code">
+          <mat-error *ngIf="editOneTimeResForm.get('offerCode')?.hasError('pattern')">
+            Offer code must be alphanumeric
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="form-field">
+          <mat-label>Net Cost</mat-label>
+          <input matInput formControlName="netCost" type="number" placeholder="Enter net cost">
+          <mat-error *ngIf="editOneTimeResForm.get('netCost')?.hasError('required')">
+            Net cost is required
+          </mat-error>
+          <mat-error *ngIf="editOneTimeResForm.get('netCost')?.hasError('min')">
+            Cost cannot be negative
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field class="form-field">
+          <mat-label>Paid</mat-label>
+          <mat-select formControlName="isPaid">
+            <mat-option value="Y">Yes</mat-option>
+            <mat-option value="N">No</mat-option>
+          </mat-select>
+          <mat-error *ngIf="editOneTimeResForm.get('isPaid')?.hasError('required')">
+            Please select an option
+          </mat-error>
+        </mat-form-field>
+      </div>
     
       <div class="buttons">
-        <button mat-raised-button (click)="onSubmit()">Save</button>
-        <button mat-raised-button [routerLink]="['/parkingOneTimeReservationList']">Cancel</button>
+        <button mat-raised-button class="btn" color="primary" (click)="onSubmit()">Save</button>
+        <button mat-raised-button class="cancel-button btn" [routerLink]="['/parkingOneTimeReservationList']">Cancel</button>
       </div>
     </form>
   </mat-card-content>

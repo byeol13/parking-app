@@ -55,7 +55,7 @@ export class AddOfferComponent {
   openConfirmationDialog() {
     if(this.addOfferForm.valid) {
       const addDialog = this.dialog.open(AddOfferDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px', height: '200px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

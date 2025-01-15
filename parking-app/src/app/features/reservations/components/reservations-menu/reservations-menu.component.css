@@ -1,0 +1,22 @@
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; 
+  height: 60vh;
+}
+
+.nav-button {
+  background-color: #10273d !important; 
+  color: #fff !important;
+  padding: 25px 25px;
+  transition: all 0.3s ease; 
+}
+
+.nav-button:hover {
+  background-color: #fff !important; 
+  color: #10273d !important; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+

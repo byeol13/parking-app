@@ -1,69 +1,81 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/reservationsMenu']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Monthly Passes</span>
-  <button mat-stroked-button [routerLink]="['/addMonthlyPass']">+ Add Monthly Pass</button>
+<mat-toolbar class="table-toolbar">
+  <div class="toolbar-left">
+    <button mat-icon-button [routerLink]="['/dashboard/reservationsMenu']" class="back-button">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </button>
+    <span>Monthly Passes</span>
+  </div>
+  <button mat-flat-button color="accent" [routerLink]="['/addMonthlyPass']">+ Add Monthly Pass</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="displayedMonthlyPasses" class="mat-elevation-z8">
+
+<div class="custom-table-container">
+  <table mat-table [dataSource]="displayedMonthlyPasses" class="mat-elevation-z8 custom-table">
  
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Pass ID </th>
-    <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.monthlyPassId }} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Pass ID </th>
+      <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.monthlyPassId }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="customerName">
+      <th mat-header-cell *matHeaderCellDef> Customer Name </th>
+      <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.customerDTO.firstName }} {{ monthlyPass.customerDTO.lastName }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="parkingLotAddress">
+      <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
+      <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.parkingLotDTO.address }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Start Date </th>
+      <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.startDate }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="duration">
+      <th mat-header-cell *matHeaderCellDef> Duration (Days) </th>
+      <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.durationInDays }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="cost">
+      <th mat-header-cell *matHeaderCellDef> Cost </th>
+      <td mat-cell *matCellDef="let monthlyPass">{{ monthlyPass.cost ? (monthlyPass.cost | currency:'USD':'symbol':'1.2-2') : '-'  }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="reentryAllowed">
+      <th mat-header-cell *matHeaderCellDef> Re-entry Allowed </th>
+      <td mat-cell *matCellDef="let monthlyPass">
+        {{ monthlyPass.parkingLotDTO.isReentryAllowed === 'Y' ? 'Yes' : 'No' }}
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let monthlyPass">
+        <button mat-flat-button color="primary" class="view-button" (click)="viewDetails(monthlyPass.monthlyPassId)">View More</button>
+        <button mat-flat-button class="edit-button" [routerLink]="['/updateMonthlyPass', monthlyPass.monthlyPassId]">
+          <span class="material-symbols-outlined">
+            border_color
+          </span>
+        </button>
+        <button mat-flat-button class="delete-button" (click)="openDeleteDialog(monthlyPass.monthlyPassId)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="customerName">
-    <th mat-header-cell *matHeaderCellDef> Customer Name </th>
-    <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.customerDTO.firstName }} {{ monthlyPass.customerDTO.lastName }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="parkingLotAddress">
-    <th mat-header-cell *matHeaderCellDef> Parking Lot Address </th>
-    <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.parkingLotDTO.address }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="startDate">
-    <th mat-header-cell *matHeaderCellDef> Start Date </th>
-    <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.startDate }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="duration">
-    <th mat-header-cell *matHeaderCellDef> Duration (Days) </th>
-    <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.durationInDays }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="cost">
-    <th mat-header-cell *matHeaderCellDef> Cost </th>
-    <td mat-cell *matCellDef="let monthlyPass">{{ monthlyPass.cost ? (monthlyPass.cost | currency:'USD':'symbol':'1.2-2') : '-'  }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="reentryAllowed">
-    <th mat-header-cell *matHeaderCellDef> Re-entry Allowed </th>
-    <td mat-cell *matCellDef="let monthlyPass">
-      {{ monthlyPass.parkingLotDTO.isReentryAllowed === 'Y' ? 'Yes' : 'No' }}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let monthlyPass">
-      <button mat-stroked-button (click)="viewDetails(monthlyPass.monthlyPassId)">View More</button>
-      <button mat-stroked-button [routerLink]="['/updateMonthlyPass', monthlyPass.monthlyPassId]">Edit</button>
-      <button mat-stroked-button (click)="openDeleteDialog(monthlyPass.monthlyPassId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalMonthlyPasses"
+<mat-paginator  class="table-paginator" 
+              [length]="totalMonthlyPasses"
               [pageSize]="2"
-              [pageSizeOptions]="[5, 10, 15]"
-              aria-label="Select page"
-              (page)="paginatedMonthlyPasses()">
+              (page)="paginatedMonthlyPasses()"
+              hidePageSize>
 </mat-paginator>
 
 <app-parking-monthly-pass-delete *ngIf="showDeleteDialog"

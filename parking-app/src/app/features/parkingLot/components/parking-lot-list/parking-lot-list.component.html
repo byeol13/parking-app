@@ -1,61 +1,69 @@
-<mat-toolbar>
+<mat-toolbar class="table-toolbar">
   <span>Parking Lots</span>
-  <button mat-stroked-button [routerLink]="['/addParkingLot']">+ Add Parking Lot</button>
+  <button mat-flat-button color="accent" class="add-button" [routerLink]="['/addParkingLot']">+ Add Parking Lot</button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="displayedLots" class="mat-elevation-z8">
+<div class="custom-table-container">
+  <table mat-table [dataSource]="displayedLots" class="mat-elevation-z8 custom-table">
  
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.parkingLotId}} </td>
-  </ng-container>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.parkingLotId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="number_of_blocks">
+      <th mat-header-cell *matHeaderCellDef> Number of Blocks </th>
+      <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.numberOfBlocks}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="is_slot_available">
+      <th mat-header-cell *matHeaderCellDef> Slot Available </th>
+      <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.isSlotAvailable === 'Y' ? 'Yes' : 'No'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="minimum_hr_to_pay">
+      <th mat-header-cell *matHeaderCellDef> Min hourly pay </th>
+      <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.minimumHrToPay ? (parkingLot.minimumHrToPay | currency:'USD':'symbol':'1.2-2') : '-' }}</td>
+    </ng-container>
+  
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.address}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="manage">
+      <th mat-header-cell *matHeaderCellDef> Manage </th>
+      <td mat-cell *matCellDef="let parkingLot">
+        <button mat-stroked-button color="primary" class="action-button" [routerLink]="['/currentParkingPricing', parkingLot.parkingLotId]">Pricings</button>
+        <button mat-stroked-button color="primary" class="action-button" [routerLink]="['/pricingException', parkingLot.parkingLotId]">Pricing Exception</button>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let parkingLot">
+        <button mat-flat-button color="primary" class="view-button" (click)="viewDetails(parkingLot.parkingLotId)">View More</button>
+        <button mat-flat-button class="edit-button" [routerLink]="['/updateParkingLot', parkingLot.parkingLotId]">
+          <span class="material-symbols-outlined">
+          border_color</span>
+        </button>
+        <button mat-flat-button class="delete-button" (click)="openDeleteDialog(parkingLot.parkingLotId)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="number_of_blocks">
-    <th mat-header-cell *matHeaderCellDef> Number of Blocks </th>
-    <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.numberOfBlocks}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="is_slot_available">
-    <th mat-header-cell *matHeaderCellDef> Slot Available </th>
-    <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.isSlotAvailable === 'Y' ? 'Yes' : 'No'}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="minimum_hr_to_pay">
-    <th mat-header-cell *matHeaderCellDef> Min hourly pay </th>
-    <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.minimumHrToPay ? (parkingLot.minimumHrToPay | currency:'USD':'symbol':'1.2-2') : '-' }}</td>
-  </ng-container>
-
-  <ng-container matColumnDef="address">
-    <th mat-header-cell *matHeaderCellDef> Address </th>
-    <td mat-cell *matCellDef="let parkingLot"> {{parkingLot.address}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="manage">
-    <th mat-header-cell *matHeaderCellDef> Manage </th>
-    <td mat-cell *matCellDef="let parkingLot">
-      <button mat-stroked-button [routerLink]="['/currentParkingPricing', parkingLot.parkingLotId]">Pricings</button>
-      <button mat-stroked-button [routerLink]="['/pricingException', parkingLot.parkingLotId]">Pricing Exception</button>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let parkingLot">
-      <button mat-stroked-button (click)="viewDetails(parkingLot.parkingLotId)">View More</button>
-      <button mat-stroked-button [routerLink]="['/updateParkingLot', parkingLot.parkingLotId]">Edit</button>
-      <button mat-stroked-button (click)="openDeleteDialog(parkingLot.parkingLotId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalLots"
+<mat-paginator class="table-paginator" [length]="totalLots"
               [pageSize]="5"
-              [pageSizeOptions]="[5, 10, 15]"
-              aria-label="Select page"
-              (page)="paginatedLots()">
+              (page)="paginatedLots()"
+              hidePageSize>
 </mat-paginator>
 
 <app-parking-lot-delete *ngIf="showDeleteDialog"

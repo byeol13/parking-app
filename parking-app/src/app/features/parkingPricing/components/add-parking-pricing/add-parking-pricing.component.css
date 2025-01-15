@@ -1,0 +1,63 @@
+/* .form-card {
+  width: 500px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form-card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #0c3967;
+  text-align: center;
+}
+
+.form-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.form-field {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.form-save-button {
+  background-color: #0c3967;
+  color: white;
+}
+
+.form-save-button:hover {
+  background-color: #094a8a;
+}
+
+.form-cancel-button {
+  background-color: #d50d0d;
+  color: white;
+}
+
+.form-cancel-button:hover {
+  background-color: #f11010;
+} */
+
+

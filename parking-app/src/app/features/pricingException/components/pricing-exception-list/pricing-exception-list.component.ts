@@ -62,7 +62,7 @@ export class PricingExceptionListComponent implements OnInit{
 
   toggleAddPricingException() {
     const addDialog = this.dialog.open(AddPricingExceptionComponent, {
-      width: '550px'
+      width: '500px'
     });
 
     addDialog.afterClosed().subscribe((res) => {
@@ -77,7 +77,7 @@ export class PricingExceptionListComponent implements OnInit{
         this.pricingExceptionService.addPricingException(newPricingException).subscribe(() => {
 
           const successfulMessage = this.dialog.open(AddPricingExceptionDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
 
           successfulMessage.afterClosed().subscribe(() => {
@@ -90,7 +90,7 @@ export class PricingExceptionListComponent implements OnInit{
 
   toggleUpdatePricingException(pricingExceptionId: number) {
     const dialogRef = this.dialog.open(UpdatePricingExceptionComponent, {
-      width: '550px',
+      width: '500px',
       data: { pricingExceptionId }
     });
 
@@ -105,7 +105,7 @@ export class PricingExceptionListComponent implements OnInit{
 
         this.pricingExceptionService.updatePricingException(updatedPricingException).subscribe(() => {
           const successfulMessage = this.dialog.open(UpdatePricingExceptionDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
 
           successfulMessage.afterClosed().subscribe(() => {

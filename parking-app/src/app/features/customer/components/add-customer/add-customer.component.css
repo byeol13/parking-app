@@ -1,0 +1,49 @@
+/* .add-form-toolbar {
+  color: #10273d;
+  background-color: #fff;
+  font-weight: 500;
+  font-size: 1.5rem;
+  justify-content: center;
+}
+
+.customer-form-card {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px; 
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.customer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.form-row {
+  display: flex;
+  gap: 16px; 
+}
+
+.form-field {
+  flex: 1; 
+  max-width: 350px; 
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.btn {
+  padding: 20px 30px;
+  box-shadow: none;
+}
+
+.cancel-button {
+  border: 1px solid #ccc;
+  color: #666;
+}
+
+ */

@@ -1,0 +1,45 @@
+/* .success-dialog-header {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px;
+}
+
+.success-icon {
+  font-size: 80px;
+  color: #4caf50; 
+}
+
+.success-message {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.success-message h3{
+  font-size: 20px;
+  color: #333;
+}
+
+.success-message p {
+  font-size: 14px;
+  color: #555;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.success-button {
+  background-color: #4caf50; 
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-transform: none; 
+}
+
+.success-button:hover {
+  background-color: #45a049; 
+} */

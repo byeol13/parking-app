@@ -58,7 +58,7 @@ export class ParkingPricingListComponent implements OnInit{
 
   toggleAddPricing() {
     const dialogRef = this.dialog.open(AddParkingPricingComponent, {
-      width: '550px'
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe((res) => {
@@ -73,7 +73,7 @@ export class ParkingPricingListComponent implements OnInit{
         this.parkingPricingService.addParkingPricing(newParkingPricing).subscribe(() => {
           
           const successfulMessage = this.dialog.open(AddParkingPricingDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
   
           successfulMessage.afterClosed().subscribe(() => {
@@ -102,7 +102,7 @@ export class ParkingPricingListComponent implements OnInit{
 
   toggleUpdatePricing(parkingPricingId: number) {
     const dialogRef = this.dialog.open(UpdateParkingPricingComponent, {
-      width: '550px',
+      width: '500px',
       data: { parkingPricingId }
     });
 
@@ -117,7 +117,7 @@ export class ParkingPricingListComponent implements OnInit{
         
         this.parkingPricingService.updateParkingPricing(updatedPricing).subscribe(() => {
           const successfulMessage = this.dialog.open(UpdateParkingPricingDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
   
           successfulMessage.afterClosed().subscribe(() => {

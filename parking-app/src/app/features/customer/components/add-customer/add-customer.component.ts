@@ -31,14 +31,14 @@ export class AddCustomerComponent {
       billingAddress: ['', Validators.required],
       registrationDate: ['', Validators.required],
       isRegularCusto: ['', Validators.required],
-      contactNumber: ['', [Validators.pattern(/^\d+$/)]]
+      contactNumber: ['', [Validators.required ,Validators.pattern(/^\d+$/)]]
     });
   }
 
   openConfirmationDialog() {
     if(this.addCustomerForm.valid) {
       const addDialog = this.dialog.open(AddCustomerDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px', height: '200px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

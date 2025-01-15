@@ -75,7 +75,7 @@ export class VehicleListComponent implements OnInit{
 
   toggleAddVehicle() {
     const addDialog = this.dialog.open(AddVehicleComponent, {
-      width: '550px'
+      width: '500px'
     });
 
     addDialog.afterClosed().subscribe((res) => {
@@ -89,7 +89,7 @@ export class VehicleListComponent implements OnInit{
 
         this.vehicleService.addVehicle(newVehicle).subscribe(() => {
           const successfulMessage = this.dialog.open(AddVehicleDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
 
           successfulMessage.afterClosed().subscribe(() => {
@@ -102,7 +102,7 @@ export class VehicleListComponent implements OnInit{
 
   toggleUpdateVehicle(vehicleId: number) {
     const dialogRef = this.dialog.open(UpdateVehicleComponent, {
-      width: '550px',
+      width: '500px',
       data: { vehicleId }
     });
 
@@ -117,7 +117,7 @@ export class VehicleListComponent implements OnInit{
 
         this.vehicleService.updateVehicle(updatedVehicle).subscribe(() => {
           const successfulMessage = this.dialog.open(UpdateVehicleDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
 
           successfulMessage.afterClosed().subscribe(() => {

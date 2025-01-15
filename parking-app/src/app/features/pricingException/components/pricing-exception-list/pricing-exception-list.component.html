@@ -1,9 +1,11 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/parkingLot']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span> Pricing Exceptions For Parking Lot {{ parkingLotId }}</span>
+<mat-toolbar class="table-toolbar">
+  <div class="toolbar-left">
+    <button mat-icon-button [routerLink]="['/dashboard/parkingLot']" class="back-button">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </button>
+    <span>Pricing Exceptions For Parking Lot {{ parkingLotId }}</span>
+  </div>
+  <button mat-stroked-button color="accent" (click)="toggleAddPricingException()">+ Add Pricing Exception</button>
 </mat-toolbar>
 
 <mat-card *ngIf="pricingExceptions.length === 0">
@@ -12,52 +14,58 @@
   </mat-card-content>
 </mat-card>
 
-<table mat-table *ngIf="pricingExceptions.length > 0" [dataSource]="pricingExceptions" class="mat-elevation-z8">
+<div class="custom-table-container">
+  <table mat-table *ngIf="pricingExceptions.length > 0" [dataSource]="pricingExceptions" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Pricing Exception Id </th>
-    <td mat-cell *matCellDef="let pricingException"> {{ pricingException.pricingExceptionId}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="date">
-    <th mat-header-cell *matHeaderCellDef> Date </th>
-    <td mat-cell *matCellDef="let pricingException"> {{ pricingException.date | date: 'yyyy-MM-dd HH:mm'}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="morning_hr_cost">
-    <th mat-header-cell *matHeaderCellDef> Morning Hour Cost </th>
-    <td mat-cell *matCellDef="let pricingException"> {{ pricingException.morningHrCost ? (pricingException.morningHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="midday_hr_cost">
-    <th mat-header-cell *matHeaderCellDef> Midday Hour Cost </th>
-    <td mat-cell *matCellDef="let pricingException"> {{ pricingException.middayHrCost ? (pricingException.middayHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="evening_hr_cost">
-    <th mat-header-cell *matHeaderCellDef> Evening Hour Cost </th>
-    <td mat-cell *matCellDef="let pricingException"> {{ pricingException.eveningHrCost ? (pricingException.eveningHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="all_day_cost">
-    <th mat-header-cell *matHeaderCellDef> All Day Cost </th>
-    <td mat-cell *matCellDef="let pricingException"> {{ pricingException.allDayCost ? (pricingException.allDayCost | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let pricingException">
-      <button mat-stroked-button (click)="toggleUpdatePricingException(pricingException.pricingExceptionId)">Edit</button>
-      <button mat-stroked-button (click)="openDeleteDialog(pricingException.pricingExceptionId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<div>
-  <button mat-button (click)="toggleAddPricingException()">+ Add Pricing Exception</button>
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Pricing Exception Id </th>
+      <td mat-cell *matCellDef="let pricingException"> {{ pricingException.pricingExceptionId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let pricingException"> {{ pricingException.date | date: 'yyyy-MM-dd HH:mm'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="morning_hr_cost">
+      <th mat-header-cell *matHeaderCellDef> Morning Hour Cost </th>
+      <td mat-cell *matCellDef="let pricingException"> {{ pricingException.morningHrCost ? (pricingException.morningHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="midday_hr_cost">
+      <th mat-header-cell *matHeaderCellDef> Midday Hour Cost </th>
+      <td mat-cell *matCellDef="let pricingException"> {{ pricingException.middayHrCost ? (pricingException.middayHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="evening_hr_cost">
+      <th mat-header-cell *matHeaderCellDef> Evening Hour Cost </th>
+      <td mat-cell *matCellDef="let pricingException"> {{ pricingException.eveningHrCost ? (pricingException.eveningHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="all_day_cost">
+      <th mat-header-cell *matHeaderCellDef> All Day Cost </th>
+      <td mat-cell *matCellDef="let pricingException"> {{ pricingException.allDayCost ? (pricingException.allDayCost | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let pricingException">
+        <button mat-flat-button class="edit-button" (click)="toggleUpdatePricingException(pricingException.pricingExceptionId)">
+          <span class="material-symbols-outlined">
+            border_color
+          </span>
+        </button>
+        <button mat-flat-button class="delete-button" (click)="openDeleteDialog(pricingException.pricingExceptionId)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
 </div>
 
 <app-pricing-exception-delete *ngIf="showDeleteDialog"

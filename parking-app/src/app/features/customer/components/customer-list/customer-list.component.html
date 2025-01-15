@@ -1,59 +1,78 @@
-<mat-toolbar>
+<mat-toolbar class="table-toolbar">
   <span>Customers</span>
-  <button mat-stroked-button [routerLink]="['/addCustomer']">+ Add Customer</button>
+  <button mat-flat-button color="accent" class="add-button" [routerLink]="['/addCustomer']">
+    + Add Customer
+  </button>
 </mat-toolbar>
 
-<table mat-table [dataSource]="displayedCustomers" class="mat-elevation-z8">
- 
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let customer"> {{customer.customerId}} </td>
-  </ng-container>
+<div class="custom-table-container">
+  <table mat-table [dataSource]="displayedCustomers" class="mat-elevation-z8 custom-table">
+    
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let customer"> {{customer.customerId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="first_name">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let customer"> {{customer.firstName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="last_name">
+      <th mat-header-cell *matHeaderCellDef> Last Name </th>
+      <td mat-cell *matCellDef="let customer"> {{customer.lastName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="registration_date">
+      <th mat-header-cell *matHeaderCellDef> Registration Date</th>
+      <td mat-cell *matCellDef="let customer">
+        {{ getFormattedDate(customer.registrationDate)}}
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="manage">
+      <th mat-header-cell *matHeaderCellDef> Manage </th>
+      <td mat-cell *matCellDef="let customer">
+        <button mat-stroked-button color="primary" class="action-button" [routerLink]="['/customerVehicles', customer.customerId]">
+          Vehicles
+        </button>
+        <button mat-stroked-button color="primary" class="action-button" [routerLink]="['/paymentMethod', customer.customerId]">
+          Payment Method
+        </button>
+      </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let customer">
+        <button mat-flat-button color="primary" class="view-button" (click)="viewDetails(customer.customerId)">
+          View More
+        </button>
+        <button mat-flat-button class="edit-button" [routerLink]="['/updateCustomer', customer.customerId]">
+          <span class="material-symbols-outlined">
+            border_color
+          </span>
+        </button>
+        <button mat-flat-button class="delete-button" (click)="openDeleteDialog(customer.customerId)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
+</div>
 
-  <ng-container matColumnDef="first_name">
-    <th mat-header-cell *matHeaderCellDef> First Name </th>
-    <td mat-cell *matCellDef="let customer"> {{customer.firstName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="last_name">
-    <th mat-header-cell *matHeaderCellDef> Last Name </th>
-    <td mat-cell *matCellDef="let customer"> {{customer.lastName}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="registration_date">
-    <th mat-header-cell *matHeaderCellDef> Registration Date </th>
-    <td mat-cell *matCellDef="let customer">
-      {{ getFormattedDate(customer.registrationDate)}}
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="manage">
-    <th mat-header-cell *matHeaderCellDef> Manage </th>
-    <td mat-cell *matCellDef="let customer">
-      <button mat-stroked-button [routerLink]="['/customerVehicles', customer.customerId]">Vehicles</button>
-      <button mat-stroked-button [routerLink]="['/paymentMethod', customer.customerId]">Payment Method</button>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let customer">
-      <button mat-stroked-button (click)="viewDetails(customer.customerId)">View More</button>
-      <button mat-stroked-button [routerLink]="['/updateCustomer', customer.customerId]">Edit</button>
-      <button mat-stroked-button (click)="openDeleteDialog(customer.customerId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [length]="totalCustomers"
+<mat-paginator class="table-paginator"
+              [length]="totalCustomers"
               [pageSize]="2"
-              [pageSizeOptions]="[5, 10, 15]"
-              aria-label="Select page"
-              (page)="paginatedCustomers()">
+              (page)="paginatedCustomers()"
+              hidePageSize>
 </mat-paginator>
+
 
 <app-customer-delete *ngIf="showDeleteDialog"
                       [customerId]="customerIdToDelete"

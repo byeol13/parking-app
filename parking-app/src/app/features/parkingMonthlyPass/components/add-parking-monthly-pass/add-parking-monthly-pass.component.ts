@@ -60,7 +60,7 @@ export class AddParkingMonthlyPassComponent {
   openConfirmationDialog() {
     if (this.addMonthlyPassForm.valid) {
       const addDialog = this.dialog.open(AddParkingMonthlyPassDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px', height: '200px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

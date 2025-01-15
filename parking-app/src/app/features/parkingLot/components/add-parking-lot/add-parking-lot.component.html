@@ -1,84 +1,92 @@
-<mat-toolbar>
+<mat-toolbar class="form-toolbar">
   <span>New Parking Lot</span>
 </mat-toolbar>
 
-<mat-card appearance="outlined">
+<mat-card appearance="outlined" class="displayed-form-card">
 
   <mat-card-content>
-    <form [formGroup]="parkingLotForm">
-      <mat-form-field>
-        <mat-label>Address</mat-label>
-        <input matInput formControlName="address"/>
-      </mat-form-field>
-    
-      <mat-form-field>
-        <mat-label>Zip Code</mat-label>
-        <input matInput formControlName="zip"/>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Operating Company</mat-label>
-        <input matInput formControlName="operatingCompanyN"/>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Number of Blocks</mat-label>
-        <input matInput formControlName="numberOfBlocks"/>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Slot Available</mat-label>
-        <mat-select formControlName="isSlotAvailable">
-          <mat-option [value]="'Y'">Yes</mat-option>
-          <mat-option [value]="'N'">No</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Minimum Hourly Pay</mat-label>
-        <input matInput formControlName="minimumHrToPay"/>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Reentry</mat-label>
-        <mat-select formControlName="isReentryAllowed">
-          <mat-option [value]="'Y'">Allowed</mat-option>
-          <mat-option [value]="'N'">Forbidden</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Valet Parking</mat-label>
-        <mat-select formControlName="isValetParkingAvailable">
-          <mat-option [value]="'Y'">Available</mat-option>
-          <mat-option [value]="'N'">Unavailable</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Operational in Night</mat-label>
-        <mat-select formControlName="operationalInNight">
-          <mat-option [value]="'Y'">Yes</mat-option>
-          <mat-option [value]="'N'">No</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <form [formGroup]="parkingLotForm" class="displayed-form">
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address"/>
+        </mat-form-field>
       
-      <mat-form-field>
-        <mat-label>Monthly Pass</mat-label>
-        <mat-select formControlName="isMonthlyPassAllow">
-          <mat-option [value]="'Y'">Allowed</mat-option>
-          <mat-option [value]="'N'">Forbidden</mat-option>
-        </mat-select>
-      </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Zip Code</mat-label>
+          <input matInput formControlName="zip"/>
+        </mat-form-field>
+      </div>
 
-      <mat-form-field>
-        <mat-label>Monthly Pass Cost</mat-label>
-        <input matInput formControlName="monthlyPassCost"/>
-      </mat-form-field>
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Operating Company</mat-label>
+          <input matInput formControlName="operatingCompanyN"/>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Number of Blocks</mat-label>
+          <input matInput formControlName="numberOfBlocks"/>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Slot Available</mat-label>
+          <mat-select formControlName="isSlotAvailable">
+            <mat-option [value]="'Y'">Yes</mat-option>
+            <mat-option [value]="'N'">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Minimum Hourly Pay</mat-label>
+          <input matInput formControlName="minimumHrToPay"/>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Reentry</mat-label>
+          <mat-select formControlName="isReentryAllowed">
+            <mat-option [value]="'Y'">Allowed</mat-option>
+            <mat-option [value]="'N'">Forbidden</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Valet Parking</mat-label>
+          <mat-select formControlName="isValetParkingAvailable">
+            <mat-option [value]="'Y'">Available</mat-option>
+            <mat-option [value]="'N'">Unavailable</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+      <div class="form-row">
+        <mat-form-field class="form-field">
+          <mat-label>Operational in Night</mat-label>
+          <mat-select formControlName="operationalInNight">
+            <mat-option [value]="'Y'">Yes</mat-option>
+            <mat-option [value]="'N'">No</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="form-field">
+          <mat-label>Monthly Pass</mat-label>
+          <mat-select formControlName="isMonthlyPassAllow">
+            <mat-option [value]="'Y'">Allowed</mat-option>
+            <mat-option [value]="'N'">Forbidden</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field class="form-field">
+          <mat-label>Monthly Pass Cost</mat-label>
+          <input matInput formControlName="monthlyPassCost"/>
+        </mat-form-field>
+      </div>
     
       <div class="buttons">
-        <button mat-raised-button (click)="openConfirmationDialog()">Save</button>
-        <button mat-raised-button (click)="goBack()">Cancel</button>
+        <button mat-raised-button class="btn" color="primary" (click)="openConfirmationDialog()">Save</button>
+        <button mat-raised-button class="cancel-button btn" (click)="goBack()">Cancel</button>
       </div>
     </form>
   </mat-card-content>

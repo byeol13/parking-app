@@ -1,73 +1,80 @@
-<mat-card>
-  <mat-card-title>Edit Payment Method</mat-card-title>
-  <mat-card-content>
+<mat-card class="dialog-form-card">
+  <mat-card-title class="dialog-form-card-title">Edit Payment Method</mat-card-title>
+  <mat-card-content class="dialog-form-card-content">
 
-    <form [formGroup]="editPaymentMethodForm">
+    <form [formGroup]="editPaymentMethodForm" class="dialog-form-container">
 
-      <mat-form-field appearance="fill">
-        <mat-label>Payment Method Id</mat-label>
-        <input matInput formControlName="id">
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Card Type</mat-label>
-        <mat-select formControlName="cardType">
-          <mat-option value="Visa">Visa</mat-option>
-          <mat-option value="MasterCard">MasterCard</mat-option>
-          <mat-option value="American Express">American Express</mat-option>
-        </mat-select>
-        <mat-error *ngIf="editPaymentMethodForm.get('cardType')?.hasError('required')">
-          Card type is required
-        </mat-error>
-      </mat-form-field>
+      <div class="dialog-form-row">
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Payment Method Id</mat-label>
+          <input matInput formControlName="id">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Card Type</mat-label>
+          <mat-select formControlName="cardType">
+            <mat-option value="Visa">Visa</mat-option>
+            <mat-option value="MasterCard">MasterCard</mat-option>
+            <mat-option value="American Express">American Express</mat-option>
+          </mat-select>
+          <mat-error *ngIf="editPaymentMethodForm.get('cardType')?.hasError('required')">
+            Card type is required
+          </mat-error>
+        </mat-form-field>
+      </div>
     
-      <mat-form-field appearance="fill">
-        <mat-label>Card Number</mat-label>
-        <input matInput formControlName="cardNumber" placeholder="Enter card number">
-        <mat-error *ngIf="editPaymentMethodForm.get('cardNumber')?.hasError('required')">
-          Card number is required
-        </mat-error>
-        <mat-error *ngIf="editPaymentMethodForm.get('cardNumber')?.hasError('pattern')">
-          Invalid card number (must be 16 digits)
-        </mat-error>
-      </mat-form-field>
+      <div class="dialog-form-row">
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Card Number</mat-label>
+          <input matInput formControlName="cardNumber" placeholder="Enter card number">
+          <mat-error *ngIf="editPaymentMethodForm.get('cardNumber')?.hasError('required')">
+            Card number is required
+          </mat-error>
+          <mat-error *ngIf="editPaymentMethodForm.get('cardNumber')?.hasError('pattern')">
+            Invalid card number (must be 16 digits)
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Expiry Month</mat-label>
+          <input matInput formControlName="expiryMonth" type="number" placeholder="Enter expiry month (1-12)">
+          <mat-error *ngIf="editPaymentMethodForm.get('expiryMonth')?.hasError('required')">
+            Expiry month is required
+          </mat-error>
+          <mat-error *ngIf="editPaymentMethodForm.get('expiryMonth')?.hasError('min') || editPaymentMethodForm.get('expiryMonth')?.hasError('max')">
+            Expiry month must be between 1 and 12
+          </mat-error>
+        </mat-form-field>
+      </div>
     
-      <mat-form-field appearance="fill">
-        <mat-label>Expiry Month</mat-label>
-        <input matInput formControlName="expiryMonth" type="number" placeholder="Enter expiry month (1-12)">
-        <mat-error *ngIf="editPaymentMethodForm.get('expiryMonth')?.hasError('required')">
-          Expiry month is required
-        </mat-error>
-        <mat-error *ngIf="editPaymentMethodForm.get('expiryMonth')?.hasError('min') || editPaymentMethodForm.get('expiryMonth')?.hasError('max')">
-          Expiry month must be between 1 and 12
-        </mat-error>
-      </mat-form-field>
+      <div class="dialog-form-row">
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Expiry Year</mat-label>
+          <input matInput formControlName="expiryYear" type="number" placeholder="Enter expiry year">
+          <mat-error *ngIf="editPaymentMethodForm.get('expiryYear')?.hasError('required')">
+            Expiry year is required
+          </mat-error>
+          <mat-error *ngIf="editPaymentMethodForm.get('expiryYear')?.hasError('min')">
+            Expiry year must be at least 2025
+          </mat-error>
+        </mat-form-field>
+      
+        <mat-form-field appearance="outline" class="dialog-form-field">
+          <mat-label>Security Code</mat-label>
+          <input matInput formControlName="securityCode" placeholder="Enter security code (3 or 4 digits)">
+          <mat-error *ngIf="editPaymentMethodForm.get('securityCode')?.hasError('required')">
+            Security code is required
+          </mat-error>
+          <mat-error *ngIf="editPaymentMethodForm.get('securityCode')?.hasError('pattern')">
+            Invalid security code (must be 3 or 4 digits)
+          </mat-error>
+        </mat-form-field>
+      </div>
     
-      <mat-form-field appearance="fill">
-        <mat-label>Expiry Year</mat-label>
-        <input matInput formControlName="expiryYear" type="number" placeholder="Enter expiry year">
-        <mat-error *ngIf="editPaymentMethodForm.get('expiryYear')?.hasError('required')">
-          Expiry year is required
-        </mat-error>
-        <mat-error *ngIf="editPaymentMethodForm.get('expiryYear')?.hasError('min')">
-          Expiry year must be at least 2025
-        </mat-error>
-      </mat-form-field>
-    
-      <mat-form-field appearance="fill">
-        <mat-label>Security Code</mat-label>
-        <input matInput formControlName="securityCode" placeholder="Enter security code (3 or 4 digits)">
-        <mat-error *ngIf="editPaymentMethodForm.get('securityCode')?.hasError('required')">
-          Security code is required
-        </mat-error>
-        <mat-error *ngIf="editPaymentMethodForm.get('securityCode')?.hasError('pattern')">
-          Invalid security code (must be 3 or 4 digits)
-        </mat-error>
-      </mat-form-field>
-    
-      <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
-      <button mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
-    
+      <div class="buttons">
+        <button mat-raised-button class="btn" color="primary" (click)="onSubmit()">Save</button>
+        <button mat-raised-button class="cancel-button btn" (click)="onCancel()">Cancel</button>
+      </div>
     </form>
     
   </mat-card-content>

@@ -10,23 +10,17 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule],
+  imports: [CommonModule, RouterModule, MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule, MatIconModule],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
 
-  routes: {path: string, label: string}[] = [
-    {path: '/dashboard/parkingLot', label: 'Parking Lots Management'},
-    {path: '/dashboard/offers', label: 'Offers'},
-    {path: '/dashboard/customer', label: 'Customers Management'},
-    {path: '/dashboard/reservationsMenu', label: 'Reservations'}
-    // {path: '/dashboard/vehicle', label: 'Vehicles'},
-    // {path: '/dashboard/parkingMonthlyPass', label: 'Parking Monthly Pass'},
-    // {path: '/dashboard/parkingOneTimeReservation', label: 'One Time Reservation'}
-    // {path: '/dashboard/parkingPricing', label: 'Parking Pricing'},
-    // {path: '/dashboard/paymentMethod', label: 'Payment Method'},
-    // {path: '/dashboard/pricingException', label: 'Pricing Exceptions'}
+  routes: {path: string, label: string, icon: string}[] = [
+    {path: '/dashboard/parkingLot', label: 'Parking Lots', icon: 'pin_drop'},
+    {path: '/dashboard/offers', label: 'Offers', icon: 'sell'},
+    {path: '/dashboard/customer', label: 'Customers', icon: 'group' },
+    {path: '/dashboard/reservationsMenu', label: 'Reservations', icon: 'event'}
   ]
 
 }

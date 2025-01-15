@@ -1,17 +1,18 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/parkingMonthlyPassList']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Monthly Pass Details</span>
+<mat-toolbar class="table-toolbar">
+  <div class="toolbar-left">
+    <button mat-icon-button [routerLink]="['/parkingMonthlyPassList']" class="back-button">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </button>
+    <span>Monthly Pass Details</span>
+  </div>
 </mat-toolbar>
 
-<div class="table-container">
+<div class="custom-table-container">
   <mat-card-content *ngIf="monthlyPasses"> 
-    <table mat-table [dataSource]="[monthlyPasses]" class="mat-elevation-z8">
+    <table mat-table [dataSource]="[monthlyPasses]" class="mat-elevation-z8 custom-table">
     
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> Pass ID </th>
+        <th mat-header-cell *matHeaderCellDef> Pass Id </th>
         <td mat-cell *matCellDef="let monthlyPass"> {{ monthlyPass.monthlyPassId }} </td>
       </ng-container>
 
@@ -67,7 +68,11 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let monthlyPass">
-          <button mat-stroked-button [routerLink]="['/updateMonthlyPass', monthlyPass.monthlyPassId]">Edit</button>
+          <button mat-flat-button class="edit-button" [routerLink]="['/updateMonthlyPass', monthlyPass.monthlyPassId]">
+            <span class="material-symbols-outlined">
+              border_color
+            </span>
+          </button>
         </td>
       </ng-container>
 

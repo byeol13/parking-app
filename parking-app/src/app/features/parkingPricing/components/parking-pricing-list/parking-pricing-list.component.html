@@ -1,9 +1,11 @@
-<div>
-  <button mat-stroked-button [routerLink]="['/dashboard/parkingLot']"><mat-icon>arrow_back</mat-icon></button>
-</div>
-
-<mat-toolbar>
-  <span>Pricings For Parking Lot {{parkingLotId}}</span>
+<mat-toolbar class="table-toolbar">
+  <div class="toolbar-left">
+    <button mat-icon-button [routerLink]="['/dashboard/parkingLot']" class="back-button">
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </button>
+    <span>Pricings For Parking Lot {{parkingLotId}}</span>
+  </div>
+  <button mat-stroked-button color="accent" (click)="toggleAddPricing()">+ Add Pricing</button>
 </mat-toolbar>
 
 <mat-card *ngIf="parkingPricing.length === 0">
@@ -12,47 +14,53 @@
   </mat-card-content>
 </mat-card>
 
-<table mat-table *ngIf="parkingPricing.length > 0" [dataSource]="parkingPricing" class="mat-elevation-z8">
+<div class="custom-table-container">
+  <table mat-table *ngIf="parkingPricing.length > 0" [dataSource]="parkingPricing" class="mat-elevation-z8 custom-table">
 
-  <ng-container matColumnDef="dayOfWeek">
-    <th mat-header-cell *matHeaderCellDef> Day of Week </th>
-    <td mat-cell *matCellDef="let pricing"> {{getDayName(pricing.dayOfWeek)}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="morningHrCost">
-    <th mat-header-cell *matHeaderCellDef> Morning Hour Cost </th>
-    <td mat-cell *matCellDef="let pricing"> {{pricing.morningHrCost ? (pricing.morningHrCost | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="middayHrCost">
-    <th mat-header-cell *matHeaderCellDef> Midday Hour Cost </th>
-    <td mat-cell *matCellDef="let pricing"> {{pricing.middayHrCost ? (pricing.middayHrCost | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="eveningHrCost">
-    <th mat-header-cell *matHeaderCellDef> Evening Hour Cost </th>
-    <td mat-cell *matCellDef="let pricing"> {{pricing.eveningHrCost ? (pricing.eveningHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="allDayCost">
-    <th mat-header-cell *matHeaderCellDef> All Day Cost </th>
-    <td mat-cell *matCellDef="let pricing"> {{pricing.allDayCost ? (pricing.allDayCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
-  </ng-container>
-
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let pricing">
-      <button mat-stroked-button (click)="toggleUpdatePricing(pricing.parkingPricingId)">Edit</button>
-      <button mat-stroked-button (click)="openDeleteDialog(pricing.parkingPricingId)">Delete</button>
-    </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<div>
-  <button mat-button (click)="toggleAddPricing()">+ Add Pricing</button>
+    <ng-container matColumnDef="dayOfWeek">
+      <th mat-header-cell *matHeaderCellDef> Day of Week </th>
+      <td mat-cell *matCellDef="let pricing"> {{getDayName(pricing.dayOfWeek)}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="morningHrCost">
+      <th mat-header-cell *matHeaderCellDef> Morning Hour Cost </th>
+      <td mat-cell *matCellDef="let pricing"> {{pricing.morningHrCost ? (pricing.morningHrCost | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="middayHrCost">
+      <th mat-header-cell *matHeaderCellDef> Midday Hour Cost </th>
+      <td mat-cell *matCellDef="let pricing"> {{pricing.middayHrCost ? (pricing.middayHrCost | currency:'USD':'symbol':'1.2-2') : '-'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="eveningHrCost">
+      <th mat-header-cell *matHeaderCellDef> Evening Hour Cost </th>
+      <td mat-cell *matCellDef="let pricing"> {{pricing.eveningHrCost ? (pricing.eveningHrCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="allDayCost">
+      <th mat-header-cell *matHeaderCellDef> All Day Cost </th>
+      <td mat-cell *matCellDef="let pricing"> {{pricing.allDayCost ? (pricing.allDayCost | currency:'USD':'symbol':'1.2-2') : '-' }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let pricing">
+        <button mat-flat-button class="edit-button" (click)="toggleUpdatePricing(pricing.parkingPricingId)">
+          <span class="material-symbols-outlined">
+            border_color
+          </span>
+        </button>
+        <button mat-flat-button class="delete-button" (click)="openDeleteDialog(pricing.parkingPricingId)">
+          <span class="material-symbols-outlined">
+            delete
+          </span>
+        </button>
+      </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+  </table>
 </div>
 
 <app-parking-pricing-delete *ngIf="showDeleteDialog"

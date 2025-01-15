@@ -1,22 +1,321 @@
-/* You can add global styles to this file, and also import other style files */
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+/* Tables style parkingLot, customer ... */
+.table-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff !important; 
+  color: #0c3967 !important;
+  font-weight: 600 !important;
+}
+
+.custom-table-container {
+  margin-top: 2.5rem;
+}
+
+.custom-table {
+  box-shadow: none;
+}
+
+.custom-table th {
+  background: #fff;
+  text-align: center;
+  padding: 12px;
+}
+
+.custom-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.custom-table tr:hover {
+  background: #e3f2fd;
+}
+
+.action-button,
+.view-button,
+.delete-button{
+  margin: 4px 8px;
+}
+
+.delete-button {
+  .material-symbols-outlined {
+    color: #d50d0d;
+  }
+}
+
+.delete-button:hover {
+  background-color: #d50d0d !important;
+  .material-symbols-outlined {
+    color: white !important;
+  }
+}
+
+.edit-button:hover {
+  background-color: #ff4081 !important;
+  .material-symbols-outlined {
+    color: white !important;
+  }
+}
+
+.table-paginator {
+  background-color: transparent !important;
+}
+
+/* back button */
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.back-button .material-symbols-outlined {
+  font-size: 20px; 
+}
+
+
+/* delete dialog */
 .delete-dialog {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
+  z-index: 1000;
+  border-radius: 3px;
+  width: 400px;
   padding: 20px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
-.delete-dialog button {
-  margin: 10px;
+.dialog-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: #ccc;
+  transition: color 0.2s;
+}
+
+.close-icon:hover {
+  color: #000;
+}
+
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.warning-icon {
+  font-size: 80px;
+  color: #d50d0d;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #333;
 }
 
 p {
-  color: black;
+  font-size: 14px;
+  color: #666;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.dialog-cancel-button {
+  color: #666 !important;
+  border-color: #ccc !important;
+}
+
+.dialog-delete-button {
+  background-color: #d50d0d !important;
+  color: white !important;
+}
+
+.dialog-delete-button:hover {
+  background-color: #f11010 !important;
+}
+
+
+/* successful */
+.success-dialog-header {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px;
+}
+
+.success-icon {
+  font-size: 80px;
+  color: #4caf50; 
+}
+
+.success-message {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.success-message h3{
+  font-size: 20px;
+  color: #333;
+}
+
+.success-message p {
+  font-size: 14px;
+  color: #555;
+}
+
+.success-actions {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.success-button {
+  background-color: #4caf50 !important; 
+  color: white !important;
+  padding: 10px 20px !important;
+}
+
+.success-button:hover {
+  background-color: #45a049 !important; 
+}
+
+
+/* form components */
+.form-toolbar {
+  color: #10273d !important;
+  background-color: #fff !important;
+  font-weight: 500 !important;
+  font-size: 1.5rem !important;
+  justify-content: center;
+}
+
+.displayed-form-card {
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 800px; 
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+.displayed-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+.form-row {
+  display: flex;
+  gap: 16px; 
+}
+
+.form-field {
+  width: 50vw !important;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.buttons .btn {
+  padding: 20px 30px;
+  box-shadow: none;
+}
+
+.buttons .cancel-button {
+  border: 1px solid #ccc;
+  color: #666 !important;
+}
+
+
+/* form dialogs */
+.dialog-form-card {
+  /* width: 500px; */
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-form-card-title {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  margin-bottom: 20px !important;
+  color: #0c3967;
+  text-align: center;
+}
+
+.dialog-form-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dialog-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dialog-form-row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.dialog-form-field {
+  flex: 1;
+}
+
+
+/* confirm save dialog */
+.confirm-dialog-container {
+  padding: 20px;
+}
+
+.confirm-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.confirm-dialog-content h2 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #333;
+}
+
+.confirm-dialog-content p {
+  font-size: 14px;
+  color: #666;
+}
+
+.confirm-button {
+  background-color: #e91e63 !important;
+  color: white !important; 
+}
+
+.confirm-button:hover {
+  background-color: #d81b60 !important;
 }

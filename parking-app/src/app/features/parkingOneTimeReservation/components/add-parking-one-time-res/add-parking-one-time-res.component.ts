@@ -66,7 +66,7 @@ export class AddParkingOneTimeResComponent {
   openConfirmationDialog() {
     if (this.addOneTimeResForm.valid) {
       const addDialog = this.dialog.open(AddParkingOneTimeResDialogComponent, {
-        width: '500px', height: '250px'
+        width: '400px', height: '200px'
       });
 
       addDialog.afterClosed().subscribe((res) => {

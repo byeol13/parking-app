@@ -10,12 +10,8 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { CustomerService } from '../../../customer/service/customer.service';
 import { MatCardModule } from '@angular/material/card';
-import { AddVehicleDialogComponent } from '../../../vehicle/components/add-vehicle-dialog/add-vehicle-dialog.component';
-import { AddVehicleComponent } from '../../../vehicle/components/add-vehicle/add-vehicle.component';
 import { AddPaymentMethodComponent } from '../add-payment-method/add-payment-method.component';
 import { AddPaymentMethodDialogComponent } from '../add-payment-method-dialog/add-payment-method-dialog.component';
-import { UpdateVehicleDialogComponent } from '../../../vehicle/components/update-vehicle-dialog/update-vehicle-dialog.component';
-import { UpdateVehicleComponent } from '../../../vehicle/components/update-vehicle/update-vehicle.component';
 import { UpdatePaymentMethodComponent } from '../update-payment-method/update-payment-method.component';
 import { UpdatePaymentMethodDialogComponent } from '../update-payment-method-dialog/update-payment-method-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -79,7 +75,7 @@ export class PaymentMethodListComponent implements OnInit{
 
   toggleAddPaymentMethod() {
     const addDialog = this.dialog.open(AddPaymentMethodComponent, {
-      width: '550px'
+      width: '500px'
     });
 
     addDialog.afterClosed().subscribe((res) => {
@@ -93,7 +89,7 @@ export class PaymentMethodListComponent implements OnInit{
 
         this.paymentMethodService.addPaymentMethod(newPaymentMethod).subscribe(() => {
           const successfulMessage = this.dialog.open(AddPaymentMethodDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
 
           successfulMessage.afterClosed().subscribe(() => {
@@ -106,7 +102,7 @@ export class PaymentMethodListComponent implements OnInit{
 
   toggleUpdatePaymentMethod(paymentMethodId: number) {
     const dialogRef = this.dialog.open(UpdatePaymentMethodComponent, {
-      width: '550px',
+      width: '500px',
       data: { paymentMethodId }
     });
 
@@ -121,7 +117,7 @@ export class PaymentMethodListComponent implements OnInit{
 
         this.paymentMethodService.updatePaymentMethod(updatedPaymentMethod).subscribe(() => {
           const successfulMessage = this.dialog.open(UpdatePaymentMethodDialogComponent, {
-            width: '400px', height: '200px'
+            width: '500px'
           });
 
           successfulMessage.afterClosed().subscribe(() => {
