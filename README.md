@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # parking-app
+=======
+# parking-app-be
+>>>>>>> b4d10fe9215f98c1fe5a7c2af3493d21aeb55639
 
 
 
@@ -16,14 +20,22 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
+<<<<<<< HEAD
 git remote add origin https://gitlab.com/ranjahasrama/parking-app.git
+=======
+git remote add origin https://gitlab.com/ranjahasrama/parking-app-be.git
+>>>>>>> b4d10fe9215f98c1fe5a7c2af3493d21aeb55639
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
+<<<<<<< HEAD
 - [ ] [Set up project integrations](https://gitlab.com/ranjahasrama/parking-app/-/settings/integrations)
+=======
+- [ ] [Set up project integrations](https://gitlab.com/ranjahasrama/parking-app-be/-/settings/integrations)
+>>>>>>> b4d10fe9215f98c1fe5a7c2af3493d21aeb55639
 
 ## Collaborate with your team
 
@@ -92,6 +104,9 @@ For open source projects, say how it is licensed.
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+<<<<<<< HEAD
 =======
 # parking-app
 >>>>>>> f795540afb9395a5fc08b18afe382bffcc31c77a
+=======
+>>>>>>> b4d10fe9215f98c1fe5a7c2af3493d21aeb55639
