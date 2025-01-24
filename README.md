@@ -55,12 +55,16 @@ Customer - Vehicle - Delete Confirmation Dialog
 ![deletedialog](https://github.com/user-attachments/assets/735c54f9-daa3-476f-bd1f-45a6431d243a)
 
 
-Customer - Payment Methods - Add Payment Method
-![addPaymentMethod](https://github.com/user-attachments/assets/330e0442-3c66-49fb-9e61-096a24c24448)
+Customer - Vehicle - Add Vehicle
+![addVehicle](https://github.com/user-attachments/assets/bee53d04-5468-4d88-b218-5874b8f64fed)
 
 
-Success Notification
+Success notification after successful actions like adding and updating
 ![successfulMsg](https://github.com/user-attachments/assets/7bbe6ea5-679a-464c-8a73-ef14075c7e57)
+
+
+Customer - Payment Methods - Edit Payment Method
+![addPaymentMethod](https://github.com/user-attachments/assets/330e0442-3c66-49fb-9e61-096a24c24448)
 
 
 Reservations
